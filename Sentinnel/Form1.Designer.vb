@@ -27,10 +27,6 @@ Partial Class Form1
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Window_Button = New System.Windows.Forms.Button()
-        Me.Close_Button = New System.Windows.Forms.Button()
-        Me.Max_Button = New System.Windows.Forms.Button()
-        Me.Min_Button = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Cancel_Button = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -44,9 +40,13 @@ Partial Class Form1
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.Scan_log = New System.Windows.Forms.ListBox()
-        Me.Scan_animation = New System.Windows.Forms.PictureBox()
         Me.Scan_button = New System.Windows.Forms.Button()
         Me.Scan_result = New System.Windows.Forms.ListBox()
+        Me.Window_Button = New System.Windows.Forms.Button()
+        Me.Close_Button = New System.Windows.Forms.Button()
+        Me.Max_Button = New System.Windows.Forms.Button()
+        Me.Min_Button = New System.Windows.Forms.Button()
+        Me.Scan_animation = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         CType(Me.Scan_animation, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -83,58 +83,10 @@ Partial Class Form1
         Me.Panel1.Controls.Add(Me.Max_Button)
         Me.Panel1.Controls.Add(Me.Min_Button)
         Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Location = New System.Drawing.Point(2, 10)
+        Me.Panel1.Location = New System.Drawing.Point(2, 1)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(797, 50)
+        Me.Panel1.Size = New System.Drawing.Size(797, 59)
         Me.Panel1.TabIndex = 36
-        '
-        'Window_Button
-        '
-        Me.Window_Button.BackgroundImage = CType(resources.GetObject("Window_Button.BackgroundImage"), System.Drawing.Image)
-        Me.Window_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Window_Button.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Window_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Window_Button.Location = New System.Drawing.Point(732, 12)
-        Me.Window_Button.Name = "Window_Button"
-        Me.Window_Button.Size = New System.Drawing.Size(25, 25)
-        Me.Window_Button.TabIndex = 6
-        Me.Window_Button.UseVisualStyleBackColor = True
-        '
-        'Close_Button
-        '
-        Me.Close_Button.BackgroundImage = Global.Sentinnel.My.Resources.Resources.closewhite
-        Me.Close_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Close_Button.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Close_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Close_Button.Location = New System.Drawing.Point(763, 12)
-        Me.Close_Button.Name = "Close_Button"
-        Me.Close_Button.Size = New System.Drawing.Size(25, 25)
-        Me.Close_Button.TabIndex = 3
-        Me.Close_Button.UseVisualStyleBackColor = True
-        '
-        'Max_Button
-        '
-        Me.Max_Button.BackgroundImage = CType(resources.GetObject("Max_Button.BackgroundImage"), System.Drawing.Image)
-        Me.Max_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Max_Button.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Max_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Max_Button.Location = New System.Drawing.Point(732, 12)
-        Me.Max_Button.Name = "Max_Button"
-        Me.Max_Button.Size = New System.Drawing.Size(25, 25)
-        Me.Max_Button.TabIndex = 4
-        Me.Max_Button.UseVisualStyleBackColor = True
-        '
-        'Min_Button
-        '
-        Me.Min_Button.BackgroundImage = CType(resources.GetObject("Min_Button.BackgroundImage"), System.Drawing.Image)
-        Me.Min_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Min_Button.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Min_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Min_Button.Location = New System.Drawing.Point(701, 12)
-        Me.Min_Button.Name = "Min_Button"
-        Me.Min_Button.Size = New System.Drawing.Size(25, 25)
-        Me.Min_Button.TabIndex = 5
-        Me.Min_Button.UseVisualStyleBackColor = True
         '
         'Label1
         '
@@ -258,16 +210,6 @@ Partial Class Form1
         Me.Scan_log.Size = New System.Drawing.Size(440, 106)
         Me.Scan_log.TabIndex = 26
         '
-        'Scan_animation
-        '
-        Me.Scan_animation.Image = Global.Sentinnel.My.Resources.Resources.giphy__6_
-        Me.Scan_animation.Location = New System.Drawing.Point(12, 66)
-        Me.Scan_animation.Name = "Scan_animation"
-        Me.Scan_animation.Size = New System.Drawing.Size(326, 326)
-        Me.Scan_animation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.Scan_animation.TabIndex = 25
-        Me.Scan_animation.TabStop = False
-        '
         'Scan_button
         '
         Me.Scan_button.FlatAppearance.BorderSize = 0
@@ -293,6 +235,64 @@ Partial Class Form1
         Me.Scan_result.Name = "Scan_result"
         Me.Scan_result.Size = New System.Drawing.Size(440, 106)
         Me.Scan_result.TabIndex = 28
+        '
+        'Window_Button
+        '
+        Me.Window_Button.BackgroundImage = CType(resources.GetObject("Window_Button.BackgroundImage"), System.Drawing.Image)
+        Me.Window_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Window_Button.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Window_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Window_Button.Location = New System.Drawing.Point(732, 12)
+        Me.Window_Button.Name = "Window_Button"
+        Me.Window_Button.Size = New System.Drawing.Size(25, 25)
+        Me.Window_Button.TabIndex = 6
+        Me.Window_Button.UseVisualStyleBackColor = True
+        '
+        'Close_Button
+        '
+        Me.Close_Button.BackgroundImage = Global.Sentinnel.My.Resources.Resources.closewhite
+        Me.Close_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Close_Button.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Close_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Close_Button.Location = New System.Drawing.Point(763, 12)
+        Me.Close_Button.Name = "Close_Button"
+        Me.Close_Button.Size = New System.Drawing.Size(25, 25)
+        Me.Close_Button.TabIndex = 3
+        Me.Close_Button.UseVisualStyleBackColor = True
+        '
+        'Max_Button
+        '
+        Me.Max_Button.BackgroundImage = CType(resources.GetObject("Max_Button.BackgroundImage"), System.Drawing.Image)
+        Me.Max_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Max_Button.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Max_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Max_Button.Location = New System.Drawing.Point(732, 12)
+        Me.Max_Button.Name = "Max_Button"
+        Me.Max_Button.Size = New System.Drawing.Size(25, 25)
+        Me.Max_Button.TabIndex = 4
+        Me.Max_Button.UseVisualStyleBackColor = True
+        '
+        'Min_Button
+        '
+        Me.Min_Button.BackgroundImage = CType(resources.GetObject("Min_Button.BackgroundImage"), System.Drawing.Image)
+        Me.Min_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Min_Button.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Min_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Min_Button.Location = New System.Drawing.Point(701, 12)
+        Me.Min_Button.Name = "Min_Button"
+        Me.Min_Button.Size = New System.Drawing.Size(25, 25)
+        Me.Min_Button.TabIndex = 5
+        Me.Min_Button.UseVisualStyleBackColor = True
+        '
+        'Scan_animation
+        '
+        Me.Scan_animation.Image = Global.Sentinnel.My.Resources.Resources.giphy__6_
+        Me.Scan_animation.Location = New System.Drawing.Point(12, 66)
+        Me.Scan_animation.Name = "Scan_animation"
+        Me.Scan_animation.Size = New System.Drawing.Size(326, 326)
+        Me.Scan_animation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Scan_animation.TabIndex = 25
+        Me.Scan_animation.TabStop = False
         '
         'Form1
         '
