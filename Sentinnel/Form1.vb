@@ -52,14 +52,18 @@ Public Class Form1
             Scan_button.Text = "Scanning"
             FolderBrowserDialog1.SelectedPath = "C:\"
 
-            On Error Resume Next
+            'n Error Resume Next
 
-            For Each strDir As String In System.IO.Directory.GetDirectories(FolderBrowserDialog1.SelectedPath, "*.*", IO.SearchOption.TopDirectoryOnly)
-                For Each strFile As String In System.IO.Directory.GetFiles(strDir, "*.*", SearchOption.AllDirectories)
-                    Scan_log.Items.Add(strFile)
-                Next strFile
-            Next strDir
-            Timer1.Start()
+            Try
+                For Each strDir As String In System.IO.Directory.GetDirectories(FolderBrowserDialog1.SelectedPath, "*.*", IO.SearchOption.TopDirectoryOnly)
+                    For Each strFile As String In System.IO.Directory.GetFiles(strDir, "*.*", SearchOption.AllDirectories)
+                        Scan_log.Items.Add(strFile)
+                    Next strFile
+                Next strDir
+                Timer1.Start()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
         End If
 
         'Folder Scan function call
@@ -77,12 +81,16 @@ Public Class Form1
             MsgBox("Choose the type of scanner to proceed")
         End If
 
-        On Error Resume Next
+        'On Error Resume Next
 
-        For Each strFile As String In System.IO.Directory.GetFiles(FolderBrowserDialog1.SelectedPath, "*.*", IO.SearchOption.AllDirectories)
-            Scan_log.Items.Add(strFile)
-        Next strFile
-        Timer1.Start()
+        Try
+            For Each strFile As String In System.IO.Directory.GetFiles(FolderBrowserDialog1.SelectedPath, "*.*", IO.SearchOption.AllDirectories)
+                Scan_log.Items.Add(strFile)
+            Next strFile
+            Timer1.Start()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
 
     End Sub
 
@@ -149,11 +157,13 @@ Public Class Form1
             Scan_animation.Hide()
             Scan_button.Text = "Scan"
             ProgressBar1.Value = 0
+            Scan_log.Items.Clear()
         Else
             MessageBox.Show("Scan Complete." + vbCrLf + "No threats were found.", CStr(MessageBoxButtons.OK))
             Scan_animation.Hide()
             Scan_button.Text = "Scan"
             ProgressBar1.Value = 0
+            Scan_log.Items.Clear()
         End If
     End Sub
 
