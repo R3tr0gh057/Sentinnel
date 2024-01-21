@@ -1,6 +1,6 @@
 ﻿Imports System.Runtime.InteropServices
 
-Public Class Homepage
+Public Class SignUp
 
     'code to move the form
     Public Const WM_NCLBUTTONDOWN As Integer = &HA1
@@ -35,7 +35,7 @@ Public Class Homepage
         Max_Button.Show()
     End Sub
 
-    Private Sub Homepage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub SignUp_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 End Class

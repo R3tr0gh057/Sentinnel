@@ -6,6 +6,7 @@ Imports System.Runtime.InteropServices
 
 Public Class Form1
 
+    'Code to move the form
     Public Const WM_NCLBUTTONDOWN As Integer = &HA1
     Public Const HT_CAPTION As Integer = &H2
 
