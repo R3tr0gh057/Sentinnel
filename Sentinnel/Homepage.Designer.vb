@@ -24,7 +24,12 @@ Partial Class Homepage
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Homepage))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Icon_picturebox = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Window_Button = New System.Windows.Forms.Button()
+        Me.Close_Button = New System.Windows.Forms.Button()
+        Me.Max_Button = New System.Windows.Forms.Button()
+        Me.Min_Button = New System.Windows.Forms.Button()
         Me.User_button = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Admin_button = New System.Windows.Forms.Button()
@@ -35,14 +40,10 @@ Partial Class Homepage
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Icon_picturebox = New System.Windows.Forms.PictureBox()
-        Me.Window_Button = New System.Windows.Forms.Button()
-        Me.Close_Button = New System.Windows.Forms.Button()
-        Me.Max_Button = New System.Windows.Forms.Button()
-        Me.Min_Button = New System.Windows.Forms.Button()
+        Me.Signup_button = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
         CType(Me.Icon_picturebox, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -59,6 +60,14 @@ Partial Class Homepage
         Me.Panel1.Size = New System.Drawing.Size(801, 47)
         Me.Panel1.TabIndex = 37
         '
+        'Icon_picturebox
+        '
+        Me.Icon_picturebox.Location = New System.Drawing.Point(12, 12)
+        Me.Icon_picturebox.Name = "Icon_picturebox"
+        Me.Icon_picturebox.Size = New System.Drawing.Size(25, 25)
+        Me.Icon_picturebox.TabIndex = 46
+        Me.Icon_picturebox.TabStop = False
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -68,6 +77,60 @@ Partial Class Homepage
         Me.Label1.Size = New System.Drawing.Size(140, 20)
         Me.Label1.TabIndex = 46
         Me.Label1.Text = "Sentinnel Antivirus"
+        '
+        'Window_Button
+        '
+        Me.Window_Button.BackColor = System.Drawing.Color.Transparent
+        Me.Window_Button.BackgroundImage = Global.Sentinnel.My.Resources.Resources.maximize__1_
+        Me.Window_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Window_Button.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Window_Button.FlatAppearance.BorderSize = 0
+        Me.Window_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Window_Button.Location = New System.Drawing.Point(732, 12)
+        Me.Window_Button.Name = "Window_Button"
+        Me.Window_Button.Size = New System.Drawing.Size(25, 25)
+        Me.Window_Button.TabIndex = 6
+        Me.Window_Button.UseVisualStyleBackColor = False
+        '
+        'Close_Button
+        '
+        Me.Close_Button.BackColor = System.Drawing.Color.Transparent
+        Me.Close_Button.BackgroundImage = Global.Sentinnel.My.Resources.Resources.close
+        Me.Close_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Close_Button.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Close_Button.FlatAppearance.BorderSize = 0
+        Me.Close_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Close_Button.Location = New System.Drawing.Point(763, 12)
+        Me.Close_Button.Name = "Close_Button"
+        Me.Close_Button.Size = New System.Drawing.Size(25, 25)
+        Me.Close_Button.TabIndex = 3
+        Me.Close_Button.UseVisualStyleBackColor = False
+        '
+        'Max_Button
+        '
+        Me.Max_Button.BackgroundImage = CType(resources.GetObject("Max_Button.BackgroundImage"), System.Drawing.Image)
+        Me.Max_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Max_Button.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Max_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Max_Button.Location = New System.Drawing.Point(732, 12)
+        Me.Max_Button.Name = "Max_Button"
+        Me.Max_Button.Size = New System.Drawing.Size(25, 25)
+        Me.Max_Button.TabIndex = 4
+        Me.Max_Button.UseVisualStyleBackColor = True
+        '
+        'Min_Button
+        '
+        Me.Min_Button.BackColor = System.Drawing.Color.Transparent
+        Me.Min_Button.BackgroundImage = Global.Sentinnel.My.Resources.Resources.minus
+        Me.Min_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Min_Button.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Min_Button.FlatAppearance.BorderSize = 0
+        Me.Min_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Min_Button.Location = New System.Drawing.Point(701, 12)
+        Me.Min_Button.Name = "Min_Button"
+        Me.Min_Button.Size = New System.Drawing.Size(25, 25)
+        Me.Min_Button.TabIndex = 5
+        Me.Min_Button.UseVisualStyleBackColor = False
         '
         'User_button
         '
@@ -153,67 +216,14 @@ Partial Class Homepage
         Me.Label4.TabIndex = 49
         Me.Label4.Text = "Admin_key"
         '
-        'Icon_picturebox
+        'Signup_button
         '
-        Me.Icon_picturebox.Location = New System.Drawing.Point(12, 12)
-        Me.Icon_picturebox.Name = "Icon_picturebox"
-        Me.Icon_picturebox.Size = New System.Drawing.Size(25, 25)
-        Me.Icon_picturebox.TabIndex = 46
-        Me.Icon_picturebox.TabStop = False
-        '
-        'Window_Button
-        '
-        Me.Window_Button.BackColor = System.Drawing.Color.Transparent
-        Me.Window_Button.BackgroundImage = Global.Sentinnel.My.Resources.Resources.maximize__1_
-        Me.Window_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Window_Button.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Window_Button.FlatAppearance.BorderSize = 0
-        Me.Window_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Window_Button.Location = New System.Drawing.Point(732, 12)
-        Me.Window_Button.Name = "Window_Button"
-        Me.Window_Button.Size = New System.Drawing.Size(25, 25)
-        Me.Window_Button.TabIndex = 6
-        Me.Window_Button.UseVisualStyleBackColor = False
-        '
-        'Close_Button
-        '
-        Me.Close_Button.BackColor = System.Drawing.Color.Transparent
-        Me.Close_Button.BackgroundImage = Global.Sentinnel.My.Resources.Resources.close
-        Me.Close_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Close_Button.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Close_Button.FlatAppearance.BorderSize = 0
-        Me.Close_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Close_Button.Location = New System.Drawing.Point(763, 12)
-        Me.Close_Button.Name = "Close_Button"
-        Me.Close_Button.Size = New System.Drawing.Size(25, 25)
-        Me.Close_Button.TabIndex = 3
-        Me.Close_Button.UseVisualStyleBackColor = False
-        '
-        'Max_Button
-        '
-        Me.Max_Button.BackgroundImage = CType(resources.GetObject("Max_Button.BackgroundImage"), System.Drawing.Image)
-        Me.Max_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Max_Button.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Max_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Max_Button.Location = New System.Drawing.Point(732, 12)
-        Me.Max_Button.Name = "Max_Button"
-        Me.Max_Button.Size = New System.Drawing.Size(25, 25)
-        Me.Max_Button.TabIndex = 4
-        Me.Max_Button.UseVisualStyleBackColor = True
-        '
-        'Min_Button
-        '
-        Me.Min_Button.BackColor = System.Drawing.Color.Transparent
-        Me.Min_Button.BackgroundImage = Global.Sentinnel.My.Resources.Resources.minus
-        Me.Min_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Min_Button.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Min_Button.FlatAppearance.BorderSize = 0
-        Me.Min_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Min_Button.Location = New System.Drawing.Point(701, 12)
-        Me.Min_Button.Name = "Min_Button"
-        Me.Min_Button.Size = New System.Drawing.Size(25, 25)
-        Me.Min_Button.TabIndex = 5
-        Me.Min_Button.UseVisualStyleBackColor = False
+        Me.Signup_button.Location = New System.Drawing.Point(444, 272)
+        Me.Signup_button.Name = "Signup_button"
+        Me.Signup_button.Size = New System.Drawing.Size(75, 23)
+        Me.Signup_button.TabIndex = 50
+        Me.Signup_button.Text = "Signup"
+        Me.Signup_button.UseVisualStyleBackColor = True
         '
         'Homepage
         '
@@ -221,6 +231,7 @@ Partial Class Homepage
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Signup_button)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -235,8 +246,8 @@ Partial Class Homepage
         Me.Text = "Homepage"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
         CType(Me.Icon_picturebox, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -259,4 +270,5 @@ Partial Class Homepage
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
+    Friend WithEvents Signup_button As Button
 End Class

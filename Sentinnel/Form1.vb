@@ -25,7 +25,8 @@ Public Class Form1
 
     'Taskbar buttons
     Private Sub Close_Button_Click(sender As Object, e As EventArgs) Handles Close_Button.Click
-        Me.Close()
+        Me.Hide()
+        Homepage.Show()
     End Sub
 
     Private Sub Max_Button_Click(sender As Object, e As EventArgs) Handles Max_Button.Click

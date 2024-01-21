@@ -1,4 +1,5 @@
-﻿Imports System.Runtime.InteropServices
+﻿Imports System.Net.Mail
+Imports System.Runtime.InteropServices
 
 Public Class Homepage
 
@@ -36,6 +37,27 @@ Public Class Homepage
     End Sub
 
     Private Sub Homepage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Label4.Hide()
+        Admin_key.Hide()
+    End Sub
 
+    Private Sub Admin_button_Click(sender As Object, e As EventArgs) Handles Admin_button.Click
+        Label4.Show()
+        Admin_key.Show()
+    End Sub
+
+    Private Sub User_button_Click(sender As Object, e As EventArgs) Handles User_button.Click
+        Label4.Hide()
+        Admin_key.Hide()
+    End Sub
+
+    Private Sub Login_button_Click(sender As Object, e As EventArgs) Handles Login_button.Click
+        If Login_username.Text = "Toad" And Login_password.Text = "Toad" Then
+            Me.Hide()
+            Form1.Show()
+
+        ElseIf Login_username.Text = "Toad" And Login_password.Text = "Toad" And Admin_key.Text = "Toad" Then
+
+        End If
     End Sub
 End Class
