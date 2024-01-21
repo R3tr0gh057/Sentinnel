@@ -36,6 +36,17 @@ Public Class SignUp
     End Sub
 
     Private Sub SignUp_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Label4.Hide()
+        Admin_key.Hide()
+    End Sub
 
+    Private Sub Admin_signup_Click(sender As Object, e As EventArgs) Handles Admin_signup.Click
+        Label4.Show()
+        Admin_key.Show()
+    End Sub
+
+    Private Sub User_signup_Click(sender As Object, e As EventArgs) Handles User_signup.Click
+        Label4.Hide()
+        Admin_key.Hide()
     End Sub
 End Class
