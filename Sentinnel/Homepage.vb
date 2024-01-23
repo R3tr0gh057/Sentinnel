@@ -15,7 +15,7 @@ Public Class Homepage
     Public Shared Function ReleaseCapture() As Boolean
     End Function
 
-    Private Sub Form1_LocationChanged(sender As Object, e As EventArgs) Handles Me.LocationChanged
+    Private Sub Form1_LocationChanged(sender As Object, e As EventArgs) Handles MyBase.LocationChanged
         lastFormLocation = Me.Location
     End Sub
 

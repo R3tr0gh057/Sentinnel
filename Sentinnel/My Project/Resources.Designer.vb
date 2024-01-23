@@ -93,6 +93,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property fullscreen_exit() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("fullscreen-exit", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property giphy__6_() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("giphy (6)", resourceCulture)
@@ -136,6 +146,16 @@ Namespace My.Resources
         Friend ReadOnly Property minus() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("minus", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property spiral() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("spiral", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

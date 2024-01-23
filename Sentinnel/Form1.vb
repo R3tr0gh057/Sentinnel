@@ -6,9 +6,10 @@ Imports System.Runtime.InteropServices
 
 Public Class Form1
 
-    'Code to move the form
+    'code to move the form
     Public Const WM_NCLBUTTONDOWN As Integer = &HA1
     Public Const HT_CAPTION As Integer = &H2
+    Public lastFormLocation As Point
 
     <DllImportAttribute("user32.dll")>
     Public Shared Function SendMessage(ByVal hWnd As IntPtr, ByVal Msg As Integer, ByVal wParam As Integer, ByVal lParam As Integer) As Integer
@@ -18,10 +19,8 @@ Public Class Form1
     Public Shared Function ReleaseCapture() As Boolean
     End Function
 
-    Private Sub ScanPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.StartPosition = FormStartPosition.Manual
-        Scan_animation.Hide()
-        Window_Button.Hide()
+    Private Sub Form1_LocationChanged(sender As Object, e As EventArgs) Handles Me.LocationChanged
+        lastFormLocation = Me.Location
     End Sub
 
     'Taskbar buttons
