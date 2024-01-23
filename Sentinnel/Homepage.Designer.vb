@@ -49,6 +49,7 @@ Partial Class Homepage
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.Icon_picturebox)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.Window_Button)
@@ -134,7 +135,7 @@ Partial Class Homepage
         '
         'User_button
         '
-        Me.User_button.Location = New System.Drawing.Point(0, 0)
+        Me.User_button.Location = New System.Drawing.Point(0, -1)
         Me.User_button.Name = "User_button"
         Me.User_button.Size = New System.Drawing.Size(200, 50)
         Me.User_button.TabIndex = 38
@@ -143,6 +144,7 @@ Partial Class Homepage
         '
         'Panel2
         '
+        Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel2.Controls.Add(Me.Admin_button)
         Me.Panel2.Controls.Add(Me.User_button)
         Me.Panel2.Location = New System.Drawing.Point(0, 47)
@@ -152,7 +154,7 @@ Partial Class Homepage
         '
         'Admin_button
         '
-        Me.Admin_button.Location = New System.Drawing.Point(0, 48)
+        Me.Admin_button.Location = New System.Drawing.Point(0, 47)
         Me.Admin_button.Name = "Admin_button"
         Me.Admin_button.Size = New System.Drawing.Size(200, 50)
         Me.Admin_button.TabIndex = 39

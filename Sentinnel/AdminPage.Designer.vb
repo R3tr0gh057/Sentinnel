@@ -27,8 +27,8 @@ Partial Class AdminPage
         Me.Close_Button = New System.Windows.Forms.Button()
         Me.Min_Button = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Icon_picturebox = New System.Windows.Forms.PictureBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Max_Button = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Database_Manage = New System.Windows.Forms.Button()
@@ -83,6 +83,7 @@ Partial Class AdminPage
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.Icon_picturebox)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.Window_Button)
@@ -94,6 +95,14 @@ Partial Class AdminPage
         Me.Panel1.Size = New System.Drawing.Size(801, 47)
         Me.Panel1.TabIndex = 39
         '
+        'Icon_picturebox
+        '
+        Me.Icon_picturebox.Location = New System.Drawing.Point(12, 12)
+        Me.Icon_picturebox.Name = "Icon_picturebox"
+        Me.Icon_picturebox.Size = New System.Drawing.Size(25, 25)
+        Me.Icon_picturebox.TabIndex = 46
+        Me.Icon_picturebox.TabStop = False
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -103,14 +112,6 @@ Partial Class AdminPage
         Me.Label1.Size = New System.Drawing.Size(140, 20)
         Me.Label1.TabIndex = 46
         Me.Label1.Text = "Sentinnel Antivirus"
-        '
-        'Icon_picturebox
-        '
-        Me.Icon_picturebox.Location = New System.Drawing.Point(12, 12)
-        Me.Icon_picturebox.Name = "Icon_picturebox"
-        Me.Icon_picturebox.Size = New System.Drawing.Size(25, 25)
-        Me.Icon_picturebox.TabIndex = 46
-        Me.Icon_picturebox.TabStop = False
         '
         'Max_Button
         '
@@ -126,6 +127,7 @@ Partial Class AdminPage
         '
         'Panel2
         '
+        Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel2.Controls.Add(Me.Database_Manage)
         Me.Panel2.Controls.Add(Me.User_Stat)
         Me.Panel2.Location = New System.Drawing.Point(0, 47)
@@ -135,7 +137,7 @@ Partial Class AdminPage
         '
         'Database_Manage
         '
-        Me.Database_Manage.Location = New System.Drawing.Point(0, 48)
+        Me.Database_Manage.Location = New System.Drawing.Point(0, 47)
         Me.Database_Manage.Name = "Database_Manage"
         Me.Database_Manage.Size = New System.Drawing.Size(200, 50)
         Me.Database_Manage.TabIndex = 39
@@ -144,7 +146,7 @@ Partial Class AdminPage
         '
         'User_Stat
         '
-        Me.User_Stat.Location = New System.Drawing.Point(0, 0)
+        Me.User_Stat.Location = New System.Drawing.Point(0, -1)
         Me.User_Stat.Name = "User_Stat"
         Me.User_Stat.Size = New System.Drawing.Size(200, 50)
         Me.User_Stat.TabIndex = 38

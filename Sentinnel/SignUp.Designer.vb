@@ -24,9 +24,11 @@ Partial Class SignUp
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SignUp))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Icon_picturebox = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Window_Button = New System.Windows.Forms.Button()
         Me.Close_Button = New System.Windows.Forms.Button()
+        Me.Max_Button = New System.Windows.Forms.Button()
         Me.Min_Button = New System.Windows.Forms.Button()
         Me.Admin_signup = New System.Windows.Forms.Button()
         Me.User_signup = New System.Windows.Forms.Button()
@@ -44,16 +46,15 @@ Partial Class SignUp
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Signup_Confirm = New System.Windows.Forms.Button()
-        Me.Icon_picturebox = New System.Windows.Forms.PictureBox()
-        Me.Max_Button = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
         CType(Me.Icon_picturebox, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.Icon_picturebox)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.Window_Button)
@@ -64,6 +65,14 @@ Partial Class SignUp
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(801, 47)
         Me.Panel1.TabIndex = 38
+        '
+        'Icon_picturebox
+        '
+        Me.Icon_picturebox.Location = New System.Drawing.Point(12, 12)
+        Me.Icon_picturebox.Name = "Icon_picturebox"
+        Me.Icon_picturebox.Size = New System.Drawing.Size(25, 25)
+        Me.Icon_picturebox.TabIndex = 46
+        Me.Icon_picturebox.TabStop = False
         '
         'Label1
         '
@@ -103,6 +112,18 @@ Partial Class SignUp
         Me.Close_Button.TabIndex = 3
         Me.Close_Button.UseVisualStyleBackColor = False
         '
+        'Max_Button
+        '
+        Me.Max_Button.BackgroundImage = CType(resources.GetObject("Max_Button.BackgroundImage"), System.Drawing.Image)
+        Me.Max_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Max_Button.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Max_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Max_Button.Location = New System.Drawing.Point(732, 12)
+        Me.Max_Button.Name = "Max_Button"
+        Me.Max_Button.Size = New System.Drawing.Size(25, 25)
+        Me.Max_Button.TabIndex = 4
+        Me.Max_Button.UseVisualStyleBackColor = True
+        '
         'Min_Button
         '
         Me.Min_Button.BackColor = System.Drawing.Color.Transparent
@@ -119,7 +140,7 @@ Partial Class SignUp
         '
         'Admin_signup
         '
-        Me.Admin_signup.Location = New System.Drawing.Point(0, 48)
+        Me.Admin_signup.Location = New System.Drawing.Point(0, 47)
         Me.Admin_signup.Name = "Admin_signup"
         Me.Admin_signup.Size = New System.Drawing.Size(200, 50)
         Me.Admin_signup.TabIndex = 39
@@ -128,7 +149,7 @@ Partial Class SignUp
         '
         'User_signup
         '
-        Me.User_signup.Location = New System.Drawing.Point(0, 0)
+        Me.User_signup.Location = New System.Drawing.Point(0, -1)
         Me.User_signup.Name = "User_signup"
         Me.User_signup.Size = New System.Drawing.Size(200, 50)
         Me.User_signup.TabIndex = 38
@@ -137,6 +158,7 @@ Partial Class SignUp
         '
         'Panel2
         '
+        Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel2.Controls.Add(Me.Admin_signup)
         Me.Panel2.Controls.Add(Me.User_signup)
         Me.Panel2.Location = New System.Drawing.Point(0, 47)
@@ -249,26 +271,6 @@ Partial Class SignUp
         Me.Signup_Confirm.Text = "Signup"
         Me.Signup_Confirm.UseVisualStyleBackColor = True
         '
-        'Icon_picturebox
-        '
-        Me.Icon_picturebox.Location = New System.Drawing.Point(12, 12)
-        Me.Icon_picturebox.Name = "Icon_picturebox"
-        Me.Icon_picturebox.Size = New System.Drawing.Size(25, 25)
-        Me.Icon_picturebox.TabIndex = 46
-        Me.Icon_picturebox.TabStop = False
-        '
-        'Max_Button
-        '
-        Me.Max_Button.BackgroundImage = CType(resources.GetObject("Max_Button.BackgroundImage"), System.Drawing.Image)
-        Me.Max_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Max_Button.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Max_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Max_Button.Location = New System.Drawing.Point(732, 12)
-        Me.Max_Button.Name = "Max_Button"
-        Me.Max_Button.Size = New System.Drawing.Size(25, 25)
-        Me.Max_Button.TabIndex = 4
-        Me.Max_Button.UseVisualStyleBackColor = True
-        '
         'SignUp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -295,8 +297,8 @@ Partial Class SignUp
         Me.Text = "SignUp"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
         CType(Me.Icon_picturebox, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
