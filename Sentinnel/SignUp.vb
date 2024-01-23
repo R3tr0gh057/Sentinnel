@@ -5,6 +5,7 @@ Public Class SignUp
     'code to move the form
     Public Const WM_NCLBUTTONDOWN As Integer = &HA1
     Public Const HT_CAPTION As Integer = &H2
+    Public loc As Point = Homepage.lastFormLocation
 
     <DllImportAttribute("user32.dll")>
     Public Shared Function SendMessage(ByVal hWnd As IntPtr, ByVal Msg As Integer, ByVal wParam As Integer, ByVal lParam As Integer) As Integer
@@ -18,6 +19,7 @@ Public Class SignUp
     Private Sub Close_Button_Click(sender As Object, e As EventArgs) Handles Close_Button.Click
         Me.Close()
         Homepage.Show()
+        Homepage.Location = New Point(Me.Location)
     End Sub
 
     Private Sub Max_Button_Click(sender As Object, e As EventArgs) Handles Max_Button.Click
@@ -55,6 +57,7 @@ Public Class SignUp
         'Database code to add user to the database
         Me.Close()
         Homepage.Show()
+        Location = New Point(Me.Location)
     End Sub
 
     Private Sub Panel1_MouseDown(sender As Object, e As MouseEventArgs) Handles Panel1.MouseDown

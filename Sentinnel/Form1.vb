@@ -19,6 +19,7 @@ Public Class Form1
     End Function
 
     Private Sub ScanPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.StartPosition = FormStartPosition.Manual
         Scan_animation.Hide()
         Window_Button.Hide()
     End Sub
@@ -27,6 +28,7 @@ Public Class Form1
     Private Sub Close_Button_Click(sender As Object, e As EventArgs) Handles Close_Button.Click
         Me.Hide()
         Homepage.Show()
+        Homepage.Location = New Point(Me.Location)
     End Sub
 
     Private Sub Max_Button_Click(sender As Object, e As EventArgs) Handles Max_Button.Click
@@ -52,7 +54,7 @@ Public Class Form1
         If Quick_Scan.Checked Then
             Scan_animation.Show()
             Scan_button.Text = "Scanning"
-            FolderBrowserDialog1.SelectedPath = "C:\"
+            FolderBrowserDialog1.SelectedPath = "D:\"
 
             'n Error Resume Next
 
@@ -179,5 +181,6 @@ Public Class Form1
     Private Sub Log_out_Click(sender As Object, e As EventArgs) Handles Log_out.Click
         Me.Close()
         Homepage.Show()
+        Homepage.Location = New Point(Me.Location)
     End Sub
 End Class

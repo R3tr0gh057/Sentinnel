@@ -18,6 +18,7 @@ Public Class AdminPage
     Private Sub Close_Button_Click(sender As Object, e As EventArgs) Handles Close_Button.Click
         Me.Close()
         Homepage.Show()
+        Homepage.Location = New Point(Me.Location)
     End Sub
 
     Private Sub Max_Button_Click(sender As Object, e As EventArgs) Handles Max_Button.Click
