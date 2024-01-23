@@ -49,4 +49,8 @@ Public Class SignUp
         Label4.Hide()
         Admin_key.Hide()
     End Sub
+
+    Private Sub Signup_Confirm_Click(sender As Object, e As EventArgs) Handles Signup_Confirm.Click
+
+    End Sub
 End Class

@@ -45,7 +45,7 @@ Partial Class SignUp
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Signup_Confirm = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.Icon_picturebox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -254,21 +254,21 @@ Partial Class SignUp
         Me.TextBox1.Size = New System.Drawing.Size(185, 20)
         Me.TextBox1.TabIndex = 59
         '
-        'Button1
+        'Signup_Confirm
         '
-        Me.Button1.Location = New System.Drawing.Point(444, 272)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 61
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Signup_Confirm.Location = New System.Drawing.Point(444, 272)
+        Me.Signup_Confirm.Name = "Signup_Confirm"
+        Me.Signup_Confirm.Size = New System.Drawing.Size(75, 23)
+        Me.Signup_Confirm.TabIndex = 61
+        Me.Signup_Confirm.Text = "Signup"
+        Me.Signup_Confirm.UseVisualStyleBackColor = True
         '
         'SignUp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.Signup_Confirm)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label5)
@@ -317,5 +317,5 @@ Partial Class SignUp
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Button1 As Button
+    Friend WithEvents Signup_Confirm As Button
 End Class
