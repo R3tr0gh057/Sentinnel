@@ -47,6 +47,7 @@ Partial Class Form1
         Me.Scan_button = New System.Windows.Forms.Button()
         Me.Scan_result = New System.Windows.Forms.ListBox()
         Me.Scan_animation = New System.Windows.Forms.PictureBox()
+        Me.Log_out = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.Scan_animation, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -294,12 +295,26 @@ Partial Class Form1
         Me.Scan_animation.TabIndex = 25
         Me.Scan_animation.TabStop = False
         '
+        'Log_out
+        '
+        Me.Log_out.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Log_out.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Log_out.ForeColor = System.Drawing.Color.Transparent
+        Me.Log_out.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Log_out.Location = New System.Drawing.Point(702, 366)
+        Me.Log_out.Name = "Log_out"
+        Me.Log_out.Size = New System.Drawing.Size(87, 26)
+        Me.Log_out.TabIndex = 40
+        Me.Log_out.Text = "Log Out"
+        Me.Log_out.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Log_out)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Panel1)
@@ -349,4 +364,5 @@ Partial Class Form1
     Friend WithEvents Scan_animation As PictureBox
     Friend WithEvents Scan_button As Button
     Friend WithEvents Scan_result As ListBox
+    Friend WithEvents Log_out As Button
 End Class

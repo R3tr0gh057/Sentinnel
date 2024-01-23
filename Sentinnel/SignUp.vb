@@ -17,6 +17,7 @@ Public Class SignUp
     'Taskbar buttons
     Private Sub Close_Button_Click(sender As Object, e As EventArgs) Handles Close_Button.Click
         Me.Close()
+        Homepage.Show()
     End Sub
 
     Private Sub Max_Button_Click(sender As Object, e As EventArgs) Handles Max_Button.Click
@@ -51,6 +52,15 @@ Public Class SignUp
     End Sub
 
     Private Sub Signup_Confirm_Click(sender As Object, e As EventArgs) Handles Signup_Confirm.Click
+        'Database code to add user to the database
+        Me.Close()
+        Homepage.Show()
+    End Sub
 
+    Private Sub Panel1_MouseDown(sender As Object, e As MouseEventArgs) Handles Panel1.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Left Then
+            ReleaseCapture()
+            SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0)
+        End If
     End Sub
 End Class

@@ -17,7 +17,7 @@ Public Class Homepage
 
     'Taskbar buttons
     Private Sub Close_Button_Click(sender As Object, e As EventArgs) Handles Close_Button.Click
-        Me.Close()
+        Application.Exit()
     End Sub
 
     Private Sub Max_Button_Click(sender As Object, e As EventArgs) Handles Max_Button.Click
@@ -52,12 +52,24 @@ Public Class Homepage
     End Sub
 
     Private Sub Login_button_Click(sender As Object, e As EventArgs) Handles Login_button.Click
+        'Database code to check with the username/userID in the database and then log in
         If Login_username.Text = "Toad" And Login_password.Text = "Toad" Then
             Me.Hide()
             Form1.Show()
 
-        ElseIf Login_username.Text = "Toad" And Login_password.Text = "Toad" And Admin_key.Text = "Toad" Then
+        ElseIf Login_username.Text = "Admin" And Login_password.Text = "Admin" And Admin_key.Text = "Admin" Then
+            Me.Hide()
+            AdminPage.Show()
 
+        Else
+            MsgBox("Incorrect Credentials")
+        End If
+    End Sub
+
+    Private Sub Panel1_MouseDown(sender As Object, e As MouseEventArgs) Handles Panel1.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Left Then
+            ReleaseCapture()
+            SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0)
         End If
     End Sub
 End Class

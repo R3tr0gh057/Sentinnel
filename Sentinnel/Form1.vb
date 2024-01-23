@@ -175,4 +175,9 @@ Public Class Form1
             SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0)
         End If
     End Sub
+
+    Private Sub Log_out_Click(sender As Object, e As EventArgs) Handles Log_out.Click
+        Me.Close()
+        Homepage.Show()
+    End Sub
 End Class
