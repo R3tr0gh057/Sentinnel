@@ -204,5 +204,8 @@
   <ItemGroup>
     <None Include="Resources\fullscreen-exit.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\giphy6-ezgif.com-effects.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

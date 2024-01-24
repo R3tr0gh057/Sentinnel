@@ -79,14 +79,14 @@ Partial Class Form1
         '
         'Cancel_Button
         '
-        Me.Cancel_Button.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.Cancel_Button.BackColor = System.Drawing.Color.White
         Me.Cancel_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Cancel_Button.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Cancel_Button.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Cancel_Button.ForeColor = System.Drawing.Color.Black
         Me.Cancel_Button.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Cancel_Button.Location = New System.Drawing.Point(701, 290)
+        Me.Cancel_Button.Location = New System.Drawing.Point(119, 290)
         Me.Cancel_Button.Name = "Cancel_Button"
-        Me.Cancel_Button.Size = New System.Drawing.Size(87, 46)
+        Me.Cancel_Button.Size = New System.Drawing.Size(86, 46)
         Me.Cancel_Button.TabIndex = 35
         Me.Cancel_Button.Text = "Cancel"
         Me.Cancel_Button.UseVisualStyleBackColor = False
@@ -129,7 +129,7 @@ Partial Class Form1
         Me.Folder_Scan.AutoSize = True
         Me.Folder_Scan.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Folder_Scan.ForeColor = System.Drawing.Color.Black
-        Me.Folder_Scan.Location = New System.Drawing.Point(115, 315)
+        Me.Folder_Scan.Location = New System.Drawing.Point(13, 396)
         Me.Folder_Scan.Name = "Folder_Scan"
         Me.Folder_Scan.Size = New System.Drawing.Size(89, 19)
         Me.Folder_Scan.TabIndex = 31
@@ -142,7 +142,7 @@ Partial Class Form1
         Me.Quick_Scan.AutoSize = True
         Me.Quick_Scan.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Quick_Scan.ForeColor = System.Drawing.Color.Black
-        Me.Quick_Scan.Location = New System.Drawing.Point(115, 290)
+        Me.Quick_Scan.Location = New System.Drawing.Point(13, 419)
         Me.Quick_Scan.Name = "Quick_Scan"
         Me.Quick_Scan.Size = New System.Drawing.Size(86, 19)
         Me.Quick_Scan.TabIndex = 30
@@ -173,9 +173,9 @@ Partial Class Form1
         '
         Me.ProgressBar1.BackColor = System.Drawing.Color.Red
         Me.ProgressBar1.ForeColor = System.Drawing.Color.Black
-        Me.ProgressBar1.Location = New System.Drawing.Point(12, 415)
+        Me.ProgressBar1.Location = New System.Drawing.Point(13, 248)
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(777, 23)
+        Me.ProgressBar1.Size = New System.Drawing.Size(192, 23)
         Me.ProgressBar1.TabIndex = 27
         '
         'Scan_log
@@ -212,19 +212,19 @@ Partial Class Form1
         Me.Scan_result.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Scan_result.ForeColor = System.Drawing.Color.Black
         Me.Scan_result.FormattingEnabled = True
-        Me.Scan_result.Location = New System.Drawing.Point(209, 165)
+        Me.Scan_result.Location = New System.Drawing.Point(210, 165)
         Me.Scan_result.Name = "Scan_result"
         Me.Scan_result.Size = New System.Drawing.Size(579, 106)
         Me.Scan_result.TabIndex = 28
         '
         'Log_out
         '
-        Me.Log_out.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.Log_out.BackColor = System.Drawing.Color.White
         Me.Log_out.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Log_out.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Log_out.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Log_out.ForeColor = System.Drawing.Color.Black
         Me.Log_out.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Log_out.Location = New System.Drawing.Point(701, 343)
+        Me.Log_out.Location = New System.Drawing.Point(119, 343)
         Me.Log_out.Name = "Log_out"
         Me.Log_out.Size = New System.Drawing.Size(87, 47)
         Me.Log_out.TabIndex = 40
@@ -320,10 +320,10 @@ Partial Class Form1
         '
         'Scan_animation
         '
-        Me.Scan_animation.Image = Global.Sentinnel.My.Resources.Resources.spiral
+        Me.Scan_animation.Image = Global.Sentinnel.My.Resources.Resources.giphy6_ezgif_com_effects
         Me.Scan_animation.Location = New System.Drawing.Point(12, 53)
         Me.Scan_animation.Name = "Scan_animation"
-        Me.Scan_animation.Size = New System.Drawing.Size(192, 192)
+        Me.Scan_animation.Size = New System.Drawing.Size(192, 189)
         Me.Scan_animation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.Scan_animation.TabIndex = 25
         Me.Scan_animation.TabStop = False
