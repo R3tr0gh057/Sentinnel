@@ -32,19 +32,17 @@ Partial Class AdminPage
         Me.Max_Button = New System.Windows.Forms.Button()
         Me.Min_Button = New System.Windows.Forms.Button()
         Me.Window_Button = New System.Windows.Forms.Button()
-        Me.VScrollBar1 = New System.Windows.Forms.VScrollBar()
-        Me.VScrollBar2 = New System.Windows.Forms.VScrollBar()
-        Me.VScrollBar3 = New System.Windows.Forms.VScrollBar()
-        Me.VScrollBar4 = New System.Windows.Forms.VScrollBar()
-        Me.VScrollBar5 = New System.Windows.Forms.VScrollBar()
-        Me.VScrollBar6 = New System.Windows.Forms.VScrollBar()
-        Me.VScrollBar7 = New System.Windows.Forms.VScrollBar()
-        Me.VScrollBar8 = New System.Windows.Forms.VScrollBar()
-        Me.VScrollBar9 = New System.Windows.Forms.VScrollBar()
-        Me.VScrollBar10 = New System.Windows.Forms.VScrollBar()
-        Me.VScrollBar11 = New System.Windows.Forms.VScrollBar()
-        Me.VScrollBar12 = New System.Windows.Forms.VScrollBar()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.Icon_picturebox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -165,99 +163,103 @@ Partial Class AdminPage
         Me.Window_Button.TabIndex = 53
         Me.Window_Button.UseVisualStyleBackColor = False
         '
-        'VScrollBar1
-        '
-        Me.VScrollBar1.Location = New System.Drawing.Point(316, 124)
-        Me.VScrollBar1.Name = "VScrollBar1"
-        Me.VScrollBar1.Size = New System.Drawing.Size(30, 193)
-        Me.VScrollBar1.TabIndex = 54
-        '
-        'VScrollBar2
-        '
-        Me.VScrollBar2.Location = New System.Drawing.Point(346, 124)
-        Me.VScrollBar2.Name = "VScrollBar2"
-        Me.VScrollBar2.Size = New System.Drawing.Size(30, 193)
-        Me.VScrollBar2.TabIndex = 55
-        '
-        'VScrollBar3
-        '
-        Me.VScrollBar3.Location = New System.Drawing.Point(376, 124)
-        Me.VScrollBar3.Name = "VScrollBar3"
-        Me.VScrollBar3.Size = New System.Drawing.Size(30, 193)
-        Me.VScrollBar3.TabIndex = 56
-        '
-        'VScrollBar4
-        '
-        Me.VScrollBar4.Location = New System.Drawing.Point(406, 124)
-        Me.VScrollBar4.Name = "VScrollBar4"
-        Me.VScrollBar4.Size = New System.Drawing.Size(30, 193)
-        Me.VScrollBar4.TabIndex = 57
-        '
-        'VScrollBar5
-        '
-        Me.VScrollBar5.Location = New System.Drawing.Point(436, 124)
-        Me.VScrollBar5.Name = "VScrollBar5"
-        Me.VScrollBar5.Size = New System.Drawing.Size(30, 193)
-        Me.VScrollBar5.TabIndex = 58
-        '
-        'VScrollBar6
-        '
-        Me.VScrollBar6.Location = New System.Drawing.Point(466, 124)
-        Me.VScrollBar6.Name = "VScrollBar6"
-        Me.VScrollBar6.Size = New System.Drawing.Size(30, 193)
-        Me.VScrollBar6.TabIndex = 59
-        '
-        'VScrollBar7
-        '
-        Me.VScrollBar7.Location = New System.Drawing.Point(645, 124)
-        Me.VScrollBar7.Name = "VScrollBar7"
-        Me.VScrollBar7.Size = New System.Drawing.Size(30, 193)
-        Me.VScrollBar7.TabIndex = 65
-        '
-        'VScrollBar8
-        '
-        Me.VScrollBar8.Location = New System.Drawing.Point(615, 124)
-        Me.VScrollBar8.Name = "VScrollBar8"
-        Me.VScrollBar8.Size = New System.Drawing.Size(30, 193)
-        Me.VScrollBar8.TabIndex = 64
-        '
-        'VScrollBar9
-        '
-        Me.VScrollBar9.Location = New System.Drawing.Point(585, 124)
-        Me.VScrollBar9.Name = "VScrollBar9"
-        Me.VScrollBar9.Size = New System.Drawing.Size(30, 193)
-        Me.VScrollBar9.TabIndex = 63
-        '
-        'VScrollBar10
-        '
-        Me.VScrollBar10.Location = New System.Drawing.Point(555, 124)
-        Me.VScrollBar10.Name = "VScrollBar10"
-        Me.VScrollBar10.Size = New System.Drawing.Size(30, 193)
-        Me.VScrollBar10.TabIndex = 62
-        '
-        'VScrollBar11
-        '
-        Me.VScrollBar11.Location = New System.Drawing.Point(525, 124)
-        Me.VScrollBar11.Name = "VScrollBar11"
-        Me.VScrollBar11.Size = New System.Drawing.Size(30, 193)
-        Me.VScrollBar11.TabIndex = 61
-        '
-        'VScrollBar12
-        '
-        Me.VScrollBar12.Location = New System.Drawing.Point(495, 124)
-        Me.VScrollBar12.Name = "VScrollBar12"
-        Me.VScrollBar12.Size = New System.Drawing.Size(30, 193)
-        Me.VScrollBar12.TabIndex = 60
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(216, 66)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(150, 25)
         Me.Label2.TabIndex = 66
         Me.Label2.Text = "User Statistics"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"User1", "User2", "User3", "User4"})
+        Me.ComboBox1.Location = New System.Drawing.Point(667, 70)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox1.TabIndex = 67
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(358, 125)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox1.TabIndex = 68
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(358, 166)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox2.TabIndex = 69
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(358, 207)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox3.TabIndex = 70
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(217, 125)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(44, 20)
+        Me.Label3.TabIndex = 71
+        Me.Label3.Text = "Date"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(217, 166)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(110, 20)
+        Me.Label4.TabIndex = 72
+        Me.Label4.Text = "Files Scanned"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(217, 207)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(117, 20)
+        Me.Label5.TabIndex = 73
+        Me.Label5.Text = "Infection Score"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(216, 265)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(150, 25)
+        Me.Label6.TabIndex = 74
+        Me.Label6.Text = "User Statistics"
+        '
+        'RichTextBox1
+        '
+        Me.RichTextBox1.Location = New System.Drawing.Point(221, 342)
+        Me.RichTextBox1.Name = "RichTextBox1"
+        Me.RichTextBox1.Size = New System.Drawing.Size(237, 96)
+        Me.RichTextBox1.TabIndex = 75
+        Me.RichTextBox1.Text = ""
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(217, 319)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(112, 20)
+        Me.Label7.TabIndex = 76
+        Me.Label7.Text = "Viruses Found"
         '
         'AdminPage
         '
@@ -265,19 +267,17 @@ Partial Class AdminPage
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.RichTextBox1)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.TextBox3)
+        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.VScrollBar7)
-        Me.Controls.Add(Me.VScrollBar8)
-        Me.Controls.Add(Me.VScrollBar9)
-        Me.Controls.Add(Me.VScrollBar10)
-        Me.Controls.Add(Me.VScrollBar11)
-        Me.Controls.Add(Me.VScrollBar12)
-        Me.Controls.Add(Me.VScrollBar6)
-        Me.Controls.Add(Me.VScrollBar5)
-        Me.Controls.Add(Me.VScrollBar4)
-        Me.Controls.Add(Me.VScrollBar3)
-        Me.Controls.Add(Me.VScrollBar2)
-        Me.Controls.Add(Me.VScrollBar1)
         Me.Controls.Add(Me.Window_Button)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)
@@ -302,17 +302,15 @@ Partial Class AdminPage
     Friend WithEvents Max_Button As Button
     Friend WithEvents Min_Button As Button
     Friend WithEvents Window_Button As Button
-    Friend WithEvents VScrollBar1 As VScrollBar
-    Friend WithEvents VScrollBar2 As VScrollBar
-    Friend WithEvents VScrollBar3 As VScrollBar
-    Friend WithEvents VScrollBar4 As VScrollBar
-    Friend WithEvents VScrollBar5 As VScrollBar
-    Friend WithEvents VScrollBar6 As VScrollBar
-    Friend WithEvents VScrollBar7 As VScrollBar
-    Friend WithEvents VScrollBar8 As VScrollBar
-    Friend WithEvents VScrollBar9 As VScrollBar
-    Friend WithEvents VScrollBar10 As VScrollBar
-    Friend WithEvents VScrollBar11 As VScrollBar
-    Friend WithEvents VScrollBar12 As VScrollBar
     Friend WithEvents Label2 As Label
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents RichTextBox1 As RichTextBox
+    Friend WithEvents Label7 As Label
 End Class
