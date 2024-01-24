@@ -37,7 +37,7 @@ Public Class AdminPage
         Max_Button.Show()
     End Sub
     Private Sub AdminPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        Panel4.Hide()
     End Sub
 
     Private Sub Panel1_MouseDown(sender As Object, e As MouseEventArgs) Handles Panel1.MouseDown
@@ -45,5 +45,14 @@ Public Class AdminPage
             ReleaseCapture()
             SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0)
         End If
+    End Sub
+
+    Private Sub User_Stat_Click(sender As Object, e As EventArgs) Handles User_Stat.Click
+        Panel3.Show()
+        Panel4.Hide()
+    End Sub
+
+    Private Sub Database_Manage_Click(sender As Object, e As EventArgs) Handles Database_Manage.Click
+        Panel4.Show()
     End Sub
 End Class

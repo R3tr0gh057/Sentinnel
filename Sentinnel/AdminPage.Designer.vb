@@ -59,6 +59,8 @@ Partial Class AdminPage
         Me.JoinDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FirstName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LastName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Virus_db_edit = New System.Windows.Forms.Button()
+        Me.User_db_edit = New System.Windows.Forms.Button()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.Icon_picturebox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -324,6 +326,8 @@ Partial Class AdminPage
         'Panel4
         '
         Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel4.Controls.Add(Me.User_db_edit)
+        Me.Panel4.Controls.Add(Me.Virus_db_edit)
         Me.Panel4.Controls.Add(Me.DataGridView2)
         Me.Panel4.Controls.Add(Me.DataGridView1)
         Me.Panel4.Controls.Add(Me.Label8)
@@ -368,7 +372,7 @@ Partial Class AdminPage
         Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Username, Me.Password, Me.JoinDate, Me.FirstName, Me.LastName})
         Me.DataGridView2.Location = New System.Drawing.Point(21, 254)
         Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(557, 138)
+        Me.DataGridView2.Size = New System.Drawing.Size(557, 130)
         Me.DataGridView2.TabIndex = 80
         '
         'VirusName
@@ -412,16 +416,34 @@ Partial Class AdminPage
         Me.LastName.HeaderText = "Last Name"
         Me.LastName.Name = "LastName"
         '
+        'Virus_db_edit
+        '
+        Me.Virus_db_edit.Location = New System.Drawing.Point(464, 24)
+        Me.Virus_db_edit.Name = "Virus_db_edit"
+        Me.Virus_db_edit.Size = New System.Drawing.Size(114, 23)
+        Me.Virus_db_edit.TabIndex = 81
+        Me.Virus_db_edit.Text = "Edit Database"
+        Me.Virus_db_edit.UseVisualStyleBackColor = True
+        '
+        'User_db_edit
+        '
+        Me.User_db_edit.Location = New System.Drawing.Point(464, 225)
+        Me.User_db_edit.Name = "User_db_edit"
+        Me.User_db_edit.Size = New System.Drawing.Size(114, 23)
+        Me.User_db_edit.TabIndex = 82
+        Me.User_db_edit.Text = "Edit Database"
+        Me.User_db_edit.UseVisualStyleBackColor = True
+        '
         'AdminPage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Window_Button)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.Panel2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "AdminPage"
         Me.Text = "AdminPage"
@@ -475,4 +497,6 @@ Partial Class AdminPage
     Friend WithEvents VirusName As DataGridViewTextBoxColumn
     Friend WithEvents VirusHash As DataGridViewTextBoxColumn
     Friend WithEvents VirusType As DataGridViewTextBoxColumn
+    Friend WithEvents User_db_edit As Button
+    Friend WithEvents Virus_db_edit As Button
 End Class
