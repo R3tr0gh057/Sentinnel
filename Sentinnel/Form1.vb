@@ -19,6 +19,11 @@ Public Class Form1
     Public Shared Function ReleaseCapture() As Boolean
     End Function
 
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Scan_animation.Hide()
+
+    End Sub
+
     Private Sub Form1_LocationChanged(sender As Object, e As EventArgs) Handles Me.LocationChanged
         lastFormLocation = Me.Location
     End Sub
@@ -47,44 +52,21 @@ Public Class Form1
     End Sub
 
     'Scanner Code
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Scan_button.Click
+    'Quick Scan Function call
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Quick_Scan.Click
 
-        'Quick Scan function call
-        If Quick_Scan.Checked Then
-            Scan_animation.Show()
-            Scan_button.Text = "Scanning"
-            FolderBrowserDialog1.SelectedPath = "D:\"
-
-            'n Error Resume Next
-
-            Try
-                For Each strDir As String In System.IO.Directory.GetDirectories(FolderBrowserDialog1.SelectedPath, "*.*", IO.SearchOption.TopDirectoryOnly)
-                    For Each strFile As String In System.IO.Directory.GetFiles(strDir, "*.*", SearchOption.AllDirectories)
-                        Scan_log.Items.Add(strFile)
-                    Next strFile
-                Next strDir
-                Timer1.Start()
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
-        End If
-
-        'Folder Scan function call
-        If Folder_Scan.Checked Then
-            If FolderBrowserDialog1.ShowDialog = Windows.Forms.DialogResult.OK Then
-                Scan_animation.Show()
-                Scan_button.Text = "Scanning"
-                Scan_log.Items.Clear()
-            Else
-                Exit Sub
-            End If
-        End If
-
-        If Folder_Scan.Checked = False And Quick_Scan.Checked = False Then
-            MsgBox("Choose the type of scanner to proceed")
-        End If
-
-        'On Error Resume Next
+        Scan_animation.Show()
+        FolderBrowserDialog1.SelectedPath = "D:\"
+        Try
+            For Each strDir As String In System.IO.Directory.GetDirectories(FolderBrowserDialog1.SelectedPath, "*.*", IO.SearchOption.TopDirectoryOnly)
+                For Each strFile As String In System.IO.Directory.GetFiles(strDir, "*.*", SearchOption.AllDirectories)
+                    Scan_log.Items.Add(strFile)
+                Next strFile
+            Next strDir
+            Timer1.Start()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
 
         Try
             For Each strFile As String In System.IO.Directory.GetFiles(FolderBrowserDialog1.SelectedPath, "*.*", IO.SearchOption.AllDirectories)
@@ -95,6 +77,25 @@ Public Class Form1
             MsgBox(ex.Message)
         End Try
 
+    End Sub
+
+    'Folder Scan Function call
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Folder_Scan.Click
+        If FolderBrowserDialog1.ShowDialog = Windows.Forms.DialogResult.OK Then
+            Scan_animation.Show()
+            Scan_log.Items.Clear()
+        Else
+            Exit Sub
+        End If
+
+        Try
+            For Each strFile As String In System.IO.Directory.GetFiles(FolderBrowserDialog1.SelectedPath, "*.*", IO.SearchOption.AllDirectories)
+                Scan_log.Items.Add(strFile)
+            Next strFile
+            Timer1.Start()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
     'Scan Logic
@@ -143,12 +144,12 @@ Public Class Form1
             If Scan_result.Items.Count > 0 Then
                 MessageBox.Show("Scan Completed. There are " + vbCrLf + Scan_result.Items.Count + " possible malicious files.", CStr(MessageBoxButtons.OK))
                 Scan_animation.Hide()
-                Scan_button.Text = "Scan"
+                Quick_Scan.Text = "Scan"
                 Exit Sub
             End If
             MessageBox.Show("Scan Complete." + vbCrLf + "No threats were found.", CStr(MessageBoxButtons.OK))
             Scan_animation.Hide()
-            Scan_button.Text = "Scan"
+            Quick_Scan.Text = "Scan"
             ProgressBar1.Value = 0
         End If
     End Sub
@@ -158,13 +159,13 @@ Public Class Form1
         If Scan_result.Items.Count > 0 Then
             MessageBox.Show("Scan Completed. There are " + vbCrLf + Scan_result.Items.Count + " possible malicious files.", CStr(MessageBoxButtons.OK))
             Scan_animation.Hide()
-            Scan_button.Text = "Scan"
+            Quick_Scan.Text = "Scan"
             ProgressBar1.Value = 0
             Scan_log.Items.Clear()
         Else
             MessageBox.Show("Scan Complete." + vbCrLf + "No threats were found.", CStr(MessageBoxButtons.OK))
             Scan_animation.Hide()
-            Scan_button.Text = "Scan"
+            Quick_Scan.Text = "Scan"
             ProgressBar1.Value = 0
             Scan_log.Items.Clear()
         End If
@@ -182,4 +183,5 @@ Public Class Form1
         Homepage.Show()
         Homepage.Location = New Point(Me.Location)
     End Sub
+
 End Class
