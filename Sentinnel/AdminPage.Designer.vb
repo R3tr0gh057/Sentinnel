@@ -32,17 +32,19 @@ Partial Class AdminPage
         Me.Max_Button = New System.Windows.Forms.Button()
         Me.Min_Button = New System.Windows.Forms.Button()
         Me.Window_Button = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.User_title = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.Date_box = New System.Windows.Forms.TextBox()
+        Me.File_count = New System.Windows.Forms.TextBox()
+        Me.Inf_score = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.Virus_title = New System.Windows.Forms.Label()
+        Me.Virus_found = New System.Windows.Forms.RichTextBox()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.Action_taken = New System.Windows.Forms.RichTextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.Icon_picturebox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -163,51 +165,51 @@ Partial Class AdminPage
         Me.Window_Button.TabIndex = 53
         Me.Window_Button.UseVisualStyleBackColor = False
         '
-        'Label2
+        'User_title
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(216, 66)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(150, 25)
-        Me.Label2.TabIndex = 66
-        Me.Label2.Text = "User Statistics"
+        Me.User_title.AutoSize = True
+        Me.User_title.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.User_title.Location = New System.Drawing.Point(216, 60)
+        Me.User_title.Name = "User_title"
+        Me.User_title.Size = New System.Drawing.Size(150, 25)
+        Me.User_title.TabIndex = 66
+        Me.User_title.Text = "User Statistics"
         '
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"User1", "User2", "User3", "User4"})
-        Me.ComboBox1.Location = New System.Drawing.Point(667, 70)
+        Me.ComboBox1.Location = New System.Drawing.Point(664, 63)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox1.TabIndex = 67
         '
-        'TextBox1
+        'Date_box
         '
-        Me.TextBox1.Location = New System.Drawing.Point(358, 125)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 68
+        Me.Date_box.Location = New System.Drawing.Point(358, 119)
+        Me.Date_box.Name = "Date_box"
+        Me.Date_box.Size = New System.Drawing.Size(100, 20)
+        Me.Date_box.TabIndex = 68
         '
-        'TextBox2
+        'File_count
         '
-        Me.TextBox2.Location = New System.Drawing.Point(358, 166)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox2.TabIndex = 69
+        Me.File_count.Location = New System.Drawing.Point(358, 160)
+        Me.File_count.Name = "File_count"
+        Me.File_count.Size = New System.Drawing.Size(100, 20)
+        Me.File_count.TabIndex = 69
         '
-        'TextBox3
+        'Inf_score
         '
-        Me.TextBox3.Location = New System.Drawing.Point(358, 207)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox3.TabIndex = 70
+        Me.Inf_score.Location = New System.Drawing.Point(358, 201)
+        Me.Inf_score.Name = "Inf_score"
+        Me.Inf_score.Size = New System.Drawing.Size(100, 20)
+        Me.Inf_score.TabIndex = 70
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(217, 125)
+        Me.Label3.Location = New System.Drawing.Point(217, 119)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(44, 20)
         Me.Label3.TabIndex = 71
@@ -217,7 +219,7 @@ Partial Class AdminPage
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(217, 166)
+        Me.Label4.Location = New System.Drawing.Point(217, 160)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(110, 20)
         Me.Label4.TabIndex = 72
@@ -227,39 +229,57 @@ Partial Class AdminPage
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(217, 207)
+        Me.Label5.Location = New System.Drawing.Point(217, 201)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(117, 20)
         Me.Label5.TabIndex = 73
         Me.Label5.Text = "Infection Score"
         '
-        'Label6
+        'Virus_title
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(216, 265)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(150, 25)
-        Me.Label6.TabIndex = 74
-        Me.Label6.Text = "User Statistics"
+        Me.Virus_title.AutoSize = True
+        Me.Virus_title.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Virus_title.Location = New System.Drawing.Point(216, 259)
+        Me.Virus_title.Name = "Virus_title"
+        Me.Virus_title.Size = New System.Drawing.Size(154, 25)
+        Me.Virus_title.TabIndex = 74
+        Me.Virus_title.Text = "Virus Statistics"
         '
-        'RichTextBox1
+        'Virus_found
         '
-        Me.RichTextBox1.Location = New System.Drawing.Point(221, 342)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(237, 96)
-        Me.RichTextBox1.TabIndex = 75
-        Me.RichTextBox1.Text = ""
+        Me.Virus_found.Location = New System.Drawing.Point(221, 336)
+        Me.Virus_found.Name = "Virus_found"
+        Me.Virus_found.Size = New System.Drawing.Size(279, 96)
+        Me.Virus_found.TabIndex = 75
+        Me.Virus_found.Text = ""
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(217, 319)
+        Me.Label7.Location = New System.Drawing.Point(217, 313)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(112, 20)
         Me.Label7.TabIndex = 76
         Me.Label7.Text = "Viruses Found"
+        '
+        'Action_taken
+        '
+        Me.Action_taken.Location = New System.Drawing.Point(506, 336)
+        Me.Action_taken.Name = "Action_taken"
+        Me.Action_taken.Size = New System.Drawing.Size(279, 96)
+        Me.Action_taken.TabIndex = 77
+        Me.Action_taken.Text = ""
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(502, 313)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(102, 20)
+        Me.Label2.TabIndex = 78
+        Me.Label2.Text = "Action Taken"
         '
         'AdminPage
         '
@@ -267,17 +287,19 @@ Partial Class AdminPage
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Action_taken)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.RichTextBox1)
-        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.Virus_found)
+        Me.Controls.Add(Me.Virus_title)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.Inf_score)
+        Me.Controls.Add(Me.File_count)
+        Me.Controls.Add(Me.Date_box)
         Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.User_title)
         Me.Controls.Add(Me.Window_Button)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)
@@ -302,15 +324,17 @@ Partial Class AdminPage
     Friend WithEvents Max_Button As Button
     Friend WithEvents Min_Button As Button
     Friend WithEvents Window_Button As Button
-    Friend WithEvents Label2 As Label
+    Friend WithEvents User_title As Label
     Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents Date_box As TextBox
+    Friend WithEvents File_count As TextBox
+    Friend WithEvents Inf_score As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents Label6 As Label
-    Friend WithEvents RichTextBox1 As RichTextBox
+    Friend WithEvents Virus_title As Label
+    Friend WithEvents Virus_found As RichTextBox
     Friend WithEvents Label7 As Label
+    Friend WithEvents Action_taken As RichTextBox
+    Friend WithEvents Label2 As Label
 End Class
