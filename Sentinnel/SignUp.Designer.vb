@@ -56,7 +56,7 @@ Partial Class SignUp
         Me.Admin_signup.Name = "Admin_signup"
         Me.Admin_signup.Size = New System.Drawing.Size(200, 50)
         Me.Admin_signup.TabIndex = 39
-        Me.Admin_signup.Text = "Admin login"
+        Me.Admin_signup.Text = "Admin Signup"
         Me.Admin_signup.UseVisualStyleBackColor = True
         '
         'User_signup
@@ -65,7 +65,7 @@ Partial Class SignUp
         Me.User_signup.Name = "User_signup"
         Me.User_signup.Size = New System.Drawing.Size(200, 50)
         Me.User_signup.TabIndex = 38
-        Me.User_signup.Text = "User Login"
+        Me.User_signup.Text = "User Signup"
         Me.User_signup.UseVisualStyleBackColor = True
         '
         'Panel2

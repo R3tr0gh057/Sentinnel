@@ -47,27 +47,27 @@ Partial Class AdminPage
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.User_db_edit = New System.Windows.Forms.Button()
+        Me.Virus_db_edit = New System.Windows.Forms.Button()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.VirusName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.VirusHash = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.VirusType = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Username = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Password = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.JoinDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FirstName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LastName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Virus_db_edit = New System.Windows.Forms.Button()
-        Me.User_db_edit = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.VirusName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VirusHash = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VirusType = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.Icon_picturebox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel2
@@ -337,34 +337,23 @@ Partial Class AdminPage
         Me.Panel4.Size = New System.Drawing.Size(601, 403)
         Me.Panel4.TabIndex = 80
         '
-        'Label8
+        'User_db_edit
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(16, 12)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(147, 25)
-        Me.Label8.TabIndex = 66
-        Me.Label8.Text = "Virus Databse"
+        Me.User_db_edit.Location = New System.Drawing.Point(464, 225)
+        Me.User_db_edit.Name = "User_db_edit"
+        Me.User_db_edit.Size = New System.Drawing.Size(114, 23)
+        Me.User_db_edit.TabIndex = 82
+        Me.User_db_edit.Text = "Edit Database"
+        Me.User_db_edit.UseVisualStyleBackColor = True
         '
-        'Label10
+        'Virus_db_edit
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(16, 211)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(155, 25)
-        Me.Label10.TabIndex = 74
-        Me.Label10.Text = "User Database"
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.VirusName, Me.VirusHash, Me.VirusType})
-        Me.DataGridView1.Location = New System.Drawing.Point(21, 53)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(557, 138)
-        Me.DataGridView1.TabIndex = 79
+        Me.Virus_db_edit.Location = New System.Drawing.Point(464, 24)
+        Me.Virus_db_edit.Name = "Virus_db_edit"
+        Me.Virus_db_edit.Size = New System.Drawing.Size(114, 23)
+        Me.Virus_db_edit.TabIndex = 81
+        Me.Virus_db_edit.Text = "Edit Database"
+        Me.Virus_db_edit.UseVisualStyleBackColor = True
         '
         'DataGridView2
         '
@@ -374,22 +363,6 @@ Partial Class AdminPage
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.Size = New System.Drawing.Size(557, 130)
         Me.DataGridView2.TabIndex = 80
-        '
-        'VirusName
-        '
-        Me.VirusName.HeaderText = "Virus Name"
-        Me.VirusName.MinimumWidth = 8
-        Me.VirusName.Name = "VirusName"
-        '
-        'VirusHash
-        '
-        Me.VirusHash.HeaderText = "Virus Hash"
-        Me.VirusHash.Name = "VirusHash"
-        '
-        'VirusType
-        '
-        Me.VirusType.HeaderText = "Virus Type"
-        Me.VirusType.Name = "VirusType"
         '
         'Username
         '
@@ -416,23 +389,50 @@ Partial Class AdminPage
         Me.LastName.HeaderText = "Last Name"
         Me.LastName.Name = "LastName"
         '
-        'Virus_db_edit
+        'DataGridView1
         '
-        Me.Virus_db_edit.Location = New System.Drawing.Point(464, 24)
-        Me.Virus_db_edit.Name = "Virus_db_edit"
-        Me.Virus_db_edit.Size = New System.Drawing.Size(114, 23)
-        Me.Virus_db_edit.TabIndex = 81
-        Me.Virus_db_edit.Text = "Edit Database"
-        Me.Virus_db_edit.UseVisualStyleBackColor = True
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.VirusName, Me.VirusHash, Me.VirusType})
+        Me.DataGridView1.Location = New System.Drawing.Point(21, 53)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(557, 138)
+        Me.DataGridView1.TabIndex = 79
         '
-        'User_db_edit
+        'VirusName
         '
-        Me.User_db_edit.Location = New System.Drawing.Point(464, 225)
-        Me.User_db_edit.Name = "User_db_edit"
-        Me.User_db_edit.Size = New System.Drawing.Size(114, 23)
-        Me.User_db_edit.TabIndex = 82
-        Me.User_db_edit.Text = "Edit Database"
-        Me.User_db_edit.UseVisualStyleBackColor = True
+        Me.VirusName.HeaderText = "Virus Name"
+        Me.VirusName.MinimumWidth = 8
+        Me.VirusName.Name = "VirusName"
+        '
+        'VirusHash
+        '
+        Me.VirusHash.HeaderText = "Virus Hash"
+        Me.VirusHash.Name = "VirusHash"
+        '
+        'VirusType
+        '
+        Me.VirusType.HeaderText = "Virus Type"
+        Me.VirusType.Name = "VirusType"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(16, 12)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(147, 25)
+        Me.Label8.TabIndex = 66
+        Me.Label8.Text = "Virus Databse"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(16, 211)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(155, 25)
+        Me.Label10.TabIndex = 74
+        Me.Label10.Text = "User Database"
         '
         'AdminPage
         '
@@ -455,8 +455,8 @@ Partial Class AdminPage
         Me.Panel3.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
