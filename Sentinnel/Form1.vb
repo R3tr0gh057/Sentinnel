@@ -184,4 +184,7 @@ Public Class Form1
         Homepage.Location = New Point(Me.Location)
     End Sub
 
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+
+    End Sub
 End Class

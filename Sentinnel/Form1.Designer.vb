@@ -39,12 +39,12 @@ Partial Class Form1
         Me.Scan_result = New System.Windows.Forms.ListBox()
         Me.Log_out = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Window_Button = New System.Windows.Forms.Button()
         Me.Icon_picturebox = New System.Windows.Forms.PictureBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Close_Button = New System.Windows.Forms.Button()
         Me.Max_Button = New System.Windows.Forms.Button()
         Me.Min_Button = New System.Windows.Forms.Button()
+        Me.Window_Button = New System.Windows.Forms.Button()
         Me.Scan_animation = New System.Windows.Forms.PictureBox()
         Me.Folder_Scan = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
@@ -218,6 +218,14 @@ Partial Class Form1
         Me.Panel1.Size = New System.Drawing.Size(801, 47)
         Me.Panel1.TabIndex = 41
         '
+        'Icon_picturebox
+        '
+        Me.Icon_picturebox.Location = New System.Drawing.Point(12, 12)
+        Me.Icon_picturebox.Name = "Icon_picturebox"
+        Me.Icon_picturebox.Size = New System.Drawing.Size(25, 25)
+        Me.Icon_picturebox.TabIndex = 46
+        Me.Icon_picturebox.TabStop = False
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -227,28 +235,6 @@ Partial Class Form1
         Me.Label1.Size = New System.Drawing.Size(140, 20)
         Me.Label1.TabIndex = 46
         Me.Label1.Text = "Sentinnel Antivirus"
-        '
-        'Window_Button
-        '
-        Me.Window_Button.BackColor = System.Drawing.Color.Transparent
-        Me.Window_Button.BackgroundImage = Global.Sentinnel.My.Resources.Resources.maximize__1_
-        Me.Window_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Window_Button.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Window_Button.FlatAppearance.BorderSize = 0
-        Me.Window_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Window_Button.Location = New System.Drawing.Point(733, 13)
-        Me.Window_Button.Name = "Window_Button"
-        Me.Window_Button.Size = New System.Drawing.Size(25, 25)
-        Me.Window_Button.TabIndex = 6
-        Me.Window_Button.UseVisualStyleBackColor = False
-        '
-        'Icon_picturebox
-        '
-        Me.Icon_picturebox.Location = New System.Drawing.Point(12, 12)
-        Me.Icon_picturebox.Name = "Icon_picturebox"
-        Me.Icon_picturebox.Size = New System.Drawing.Size(25, 25)
-        Me.Icon_picturebox.TabIndex = 46
-        Me.Icon_picturebox.TabStop = False
         '
         'Close_Button
         '
@@ -290,6 +276,20 @@ Partial Class Form1
         Me.Min_Button.Size = New System.Drawing.Size(25, 25)
         Me.Min_Button.TabIndex = 5
         Me.Min_Button.UseVisualStyleBackColor = False
+        '
+        'Window_Button
+        '
+        Me.Window_Button.BackColor = System.Drawing.Color.Transparent
+        Me.Window_Button.BackgroundImage = Global.Sentinnel.My.Resources.Resources.maximize__1_
+        Me.Window_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Window_Button.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Window_Button.FlatAppearance.BorderSize = 0
+        Me.Window_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Window_Button.Location = New System.Drawing.Point(733, 13)
+        Me.Window_Button.Name = "Window_Button"
+        Me.Window_Button.Size = New System.Drawing.Size(25, 25)
+        Me.Window_Button.TabIndex = 6
+        Me.Window_Button.UseVisualStyleBackColor = False
         '
         'Scan_animation
         '
