@@ -22,6 +22,7 @@ Partial Class AdminPage
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Database_Manage = New System.Windows.Forms.Button()
         Me.User_Stat = New System.Windows.Forms.Button()
@@ -47,27 +48,57 @@ Partial Class AdminPage
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
+        Me.AdminKeyDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UsernameDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PasswordDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AdminDBBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SentinnelDBDataSet = New Sentinnel.SentinnelDBDataSet()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.Md5DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VirusnameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TotalfrequencyDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VirusDBBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.UsernameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PasswordDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.JoindateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FirstnameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LastnameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FilesScannedDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VirusFrequencyDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UserDBBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.User_db_edit = New System.Windows.Forms.Button()
         Me.Virus_db_edit = New System.Windows.Forms.Button()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.Username = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Password = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.JoinDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FirstName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LastName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.VirusName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.VirusHash = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.VirusType = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.VirusHashBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.VirusListDataSet = New Sentinnel.VirusListDataSet()
+        Me.UserDataBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.UserDataTableAdapter = New Sentinnel.VirusListDataSetTableAdapters.UserDataTableAdapter()
+        Me.VirusHashBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.VirusHashTableAdapter = New Sentinnel.VirusListDataSetTableAdapters.VirusHashTableAdapter()
+        Me.UserDBTableAdapter = New Sentinnel.SentinnelDBDataSetTableAdapters.UserDBTableAdapter()
+        Me.VirusDBTableAdapter = New Sentinnel.SentinnelDBDataSetTableAdapters.VirusDBTableAdapter()
+        Me.AdminDBTableAdapter = New Sentinnel.SentinnelDBDataSetTableAdapters.AdminDBTableAdapter()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.Icon_picturebox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AdminDBBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SentinnelDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.VirusDBBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UserDBBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.VirusHashBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.VirusListDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UserDataBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.VirusHashBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel2
@@ -326,10 +357,13 @@ Partial Class AdminPage
         'Panel4
         '
         Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel4.Controls.Add(Me.User_db_edit)
-        Me.Panel4.Controls.Add(Me.Virus_db_edit)
+        Me.Panel4.Controls.Add(Me.DataGridView3)
+        Me.Panel4.Controls.Add(Me.Button1)
+        Me.Panel4.Controls.Add(Me.Label6)
         Me.Panel4.Controls.Add(Me.DataGridView2)
         Me.Panel4.Controls.Add(Me.DataGridView1)
+        Me.Panel4.Controls.Add(Me.User_db_edit)
+        Me.Panel4.Controls.Add(Me.Virus_db_edit)
         Me.Panel4.Controls.Add(Me.Label8)
         Me.Panel4.Controls.Add(Me.Label10)
         Me.Panel4.Location = New System.Drawing.Point(-1, -1)
@@ -337,82 +371,173 @@ Partial Class AdminPage
         Me.Panel4.Size = New System.Drawing.Size(601, 403)
         Me.Panel4.TabIndex = 80
         '
+        'DataGridView3
+        '
+        Me.DataGridView3.AutoGenerateColumns = False
+        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView3.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.AdminKeyDataGridViewTextBoxColumn, Me.UsernameDataGridViewTextBoxColumn1, Me.PasswordDataGridViewTextBoxColumn1})
+        Me.DataGridView3.DataSource = Me.AdminDBBindingSource
+        Me.DataGridView3.Location = New System.Drawing.Point(306, 47)
+        Me.DataGridView3.Name = "DataGridView3"
+        Me.DataGridView3.Size = New System.Drawing.Size(279, 150)
+        Me.DataGridView3.TabIndex = 87
+        '
+        'AdminKeyDataGridViewTextBoxColumn
+        '
+        Me.AdminKeyDataGridViewTextBoxColumn.DataPropertyName = "adminKey"
+        Me.AdminKeyDataGridViewTextBoxColumn.HeaderText = "adminKey"
+        Me.AdminKeyDataGridViewTextBoxColumn.Name = "AdminKeyDataGridViewTextBoxColumn"
+        '
+        'UsernameDataGridViewTextBoxColumn1
+        '
+        Me.UsernameDataGridViewTextBoxColumn1.DataPropertyName = "username"
+        Me.UsernameDataGridViewTextBoxColumn1.HeaderText = "username"
+        Me.UsernameDataGridViewTextBoxColumn1.Name = "UsernameDataGridViewTextBoxColumn1"
+        '
+        'PasswordDataGridViewTextBoxColumn1
+        '
+        Me.PasswordDataGridViewTextBoxColumn1.DataPropertyName = "password"
+        Me.PasswordDataGridViewTextBoxColumn1.HeaderText = "password"
+        Me.PasswordDataGridViewTextBoxColumn1.Name = "PasswordDataGridViewTextBoxColumn1"
+        '
+        'AdminDBBindingSource
+        '
+        Me.AdminDBBindingSource.DataMember = "AdminDB"
+        Me.AdminDBBindingSource.DataSource = Me.SentinnelDBDataSet
+        '
+        'SentinnelDBDataSet
+        '
+        Me.SentinnelDBDataSet.DataSetName = "SentinnelDBDataSet"
+        Me.SentinnelDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(477, 14)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 86
+        Me.Button1.Text = "Edit"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(301, 12)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(170, 25)
+        Me.Label6.TabIndex = 85
+        Me.Label6.Text = "Admin Database"
+        '
+        'DataGridView2
+        '
+        Me.DataGridView2.AutoGenerateColumns = False
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Md5DataGridViewTextBoxColumn, Me.VirusnameDataGridViewTextBoxColumn, Me.TotalfrequencyDataGridViewTextBoxColumn})
+        Me.DataGridView2.DataSource = Me.VirusDBBindingSource
+        Me.DataGridView2.Location = New System.Drawing.Point(21, 47)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.Size = New System.Drawing.Size(279, 150)
+        Me.DataGridView2.TabIndex = 84
+        '
+        'Md5DataGridViewTextBoxColumn
+        '
+        Me.Md5DataGridViewTextBoxColumn.DataPropertyName = "md5"
+        Me.Md5DataGridViewTextBoxColumn.HeaderText = "md5"
+        Me.Md5DataGridViewTextBoxColumn.Name = "Md5DataGridViewTextBoxColumn"
+        '
+        'VirusnameDataGridViewTextBoxColumn
+        '
+        Me.VirusnameDataGridViewTextBoxColumn.DataPropertyName = "virusname"
+        Me.VirusnameDataGridViewTextBoxColumn.HeaderText = "virusname"
+        Me.VirusnameDataGridViewTextBoxColumn.Name = "VirusnameDataGridViewTextBoxColumn"
+        '
+        'TotalfrequencyDataGridViewTextBoxColumn
+        '
+        Me.TotalfrequencyDataGridViewTextBoxColumn.DataPropertyName = "totalfrequency"
+        Me.TotalfrequencyDataGridViewTextBoxColumn.HeaderText = "totalfrequency"
+        Me.TotalfrequencyDataGridViewTextBoxColumn.Name = "TotalfrequencyDataGridViewTextBoxColumn"
+        '
+        'VirusDBBindingSource
+        '
+        Me.VirusDBBindingSource.DataMember = "VirusDB"
+        Me.VirusDBBindingSource.DataSource = Me.SentinnelDBDataSet
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AutoGenerateColumns = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.UsernameDataGridViewTextBoxColumn, Me.PasswordDataGridViewTextBoxColumn, Me.JoindateDataGridViewTextBoxColumn, Me.FirstnameDataGridViewTextBoxColumn, Me.LastnameDataGridViewTextBoxColumn, Me.FilesScannedDataGridViewTextBoxColumn, Me.VirusFrequencyDataGridViewTextBoxColumn})
+        Me.DataGridView1.DataSource = Me.UserDBBindingSource
+        Me.DataGridView1.Location = New System.Drawing.Point(21, 242)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(564, 150)
+        Me.DataGridView1.TabIndex = 83
+        '
+        'UsernameDataGridViewTextBoxColumn
+        '
+        Me.UsernameDataGridViewTextBoxColumn.DataPropertyName = "username"
+        Me.UsernameDataGridViewTextBoxColumn.HeaderText = "username"
+        Me.UsernameDataGridViewTextBoxColumn.Name = "UsernameDataGridViewTextBoxColumn"
+        '
+        'PasswordDataGridViewTextBoxColumn
+        '
+        Me.PasswordDataGridViewTextBoxColumn.DataPropertyName = "password"
+        Me.PasswordDataGridViewTextBoxColumn.HeaderText = "password"
+        Me.PasswordDataGridViewTextBoxColumn.Name = "PasswordDataGridViewTextBoxColumn"
+        '
+        'JoindateDataGridViewTextBoxColumn
+        '
+        Me.JoindateDataGridViewTextBoxColumn.DataPropertyName = "joindate"
+        Me.JoindateDataGridViewTextBoxColumn.HeaderText = "joindate"
+        Me.JoindateDataGridViewTextBoxColumn.Name = "JoindateDataGridViewTextBoxColumn"
+        '
+        'FirstnameDataGridViewTextBoxColumn
+        '
+        Me.FirstnameDataGridViewTextBoxColumn.DataPropertyName = "firstname"
+        Me.FirstnameDataGridViewTextBoxColumn.HeaderText = "firstname"
+        Me.FirstnameDataGridViewTextBoxColumn.Name = "FirstnameDataGridViewTextBoxColumn"
+        '
+        'LastnameDataGridViewTextBoxColumn
+        '
+        Me.LastnameDataGridViewTextBoxColumn.DataPropertyName = "lastname"
+        Me.LastnameDataGridViewTextBoxColumn.HeaderText = "lastname"
+        Me.LastnameDataGridViewTextBoxColumn.Name = "LastnameDataGridViewTextBoxColumn"
+        '
+        'FilesScannedDataGridViewTextBoxColumn
+        '
+        Me.FilesScannedDataGridViewTextBoxColumn.DataPropertyName = "filesScanned"
+        Me.FilesScannedDataGridViewTextBoxColumn.HeaderText = "filesScanned"
+        Me.FilesScannedDataGridViewTextBoxColumn.Name = "FilesScannedDataGridViewTextBoxColumn"
+        '
+        'VirusFrequencyDataGridViewTextBoxColumn
+        '
+        Me.VirusFrequencyDataGridViewTextBoxColumn.DataPropertyName = "virusFrequency"
+        Me.VirusFrequencyDataGridViewTextBoxColumn.HeaderText = "virusFrequency"
+        Me.VirusFrequencyDataGridViewTextBoxColumn.Name = "VirusFrequencyDataGridViewTextBoxColumn"
+        '
+        'UserDBBindingSource
+        '
+        Me.UserDBBindingSource.DataMember = "UserDB"
+        Me.UserDBBindingSource.DataSource = Me.SentinnelDBDataSet
+        '
         'User_db_edit
         '
-        Me.User_db_edit.Location = New System.Drawing.Point(464, 225)
+        Me.User_db_edit.Location = New System.Drawing.Point(176, 213)
         Me.User_db_edit.Name = "User_db_edit"
-        Me.User_db_edit.Size = New System.Drawing.Size(114, 23)
+        Me.User_db_edit.Size = New System.Drawing.Size(75, 23)
         Me.User_db_edit.TabIndex = 82
-        Me.User_db_edit.Text = "Edit Database"
+        Me.User_db_edit.Text = "Edit"
         Me.User_db_edit.UseVisualStyleBackColor = True
         '
         'Virus_db_edit
         '
-        Me.Virus_db_edit.Location = New System.Drawing.Point(464, 24)
+        Me.Virus_db_edit.Location = New System.Drawing.Point(169, 14)
         Me.Virus_db_edit.Name = "Virus_db_edit"
-        Me.Virus_db_edit.Size = New System.Drawing.Size(114, 23)
+        Me.Virus_db_edit.Size = New System.Drawing.Size(89, 23)
         Me.Virus_db_edit.TabIndex = 81
-        Me.Virus_db_edit.Text = "Edit Database"
+        Me.Virus_db_edit.Text = "Edit"
         Me.Virus_db_edit.UseVisualStyleBackColor = True
-        '
-        'DataGridView2
-        '
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Username, Me.Password, Me.JoinDate, Me.FirstName, Me.LastName})
-        Me.DataGridView2.Location = New System.Drawing.Point(21, 254)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(557, 130)
-        Me.DataGridView2.TabIndex = 80
-        '
-        'Username
-        '
-        Me.Username.HeaderText = "Username"
-        Me.Username.Name = "Username"
-        '
-        'Password
-        '
-        Me.Password.HeaderText = "Password"
-        Me.Password.Name = "Password"
-        '
-        'JoinDate
-        '
-        Me.JoinDate.HeaderText = "Join Date"
-        Me.JoinDate.Name = "JoinDate"
-        '
-        'FirstName
-        '
-        Me.FirstName.HeaderText = "First Name"
-        Me.FirstName.Name = "FirstName"
-        '
-        'LastName
-        '
-        Me.LastName.HeaderText = "Last Name"
-        Me.LastName.Name = "LastName"
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.VirusName, Me.VirusHash, Me.VirusType})
-        Me.DataGridView1.Location = New System.Drawing.Point(21, 53)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(557, 138)
-        Me.DataGridView1.TabIndex = 79
-        '
-        'VirusName
-        '
-        Me.VirusName.HeaderText = "Virus Name"
-        Me.VirusName.MinimumWidth = 8
-        Me.VirusName.Name = "VirusName"
-        '
-        'VirusHash
-        '
-        Me.VirusHash.HeaderText = "Virus Hash"
-        Me.VirusHash.Name = "VirusHash"
-        '
-        'VirusType
-        '
-        Me.VirusType.HeaderText = "Virus Type"
-        Me.VirusType.Name = "VirusType"
         '
         'Label8
         '
@@ -433,6 +558,46 @@ Partial Class AdminPage
         Me.Label10.Size = New System.Drawing.Size(155, 25)
         Me.Label10.TabIndex = 74
         Me.Label10.Text = "User Database"
+        '
+        'VirusHashBindingSource1
+        '
+        Me.VirusHashBindingSource1.DataMember = "VirusHash"
+        Me.VirusHashBindingSource1.DataSource = Me.VirusListDataSet
+        '
+        'VirusListDataSet
+        '
+        Me.VirusListDataSet.DataSetName = "VirusListDataSet"
+        Me.VirusListDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'UserDataBindingSource
+        '
+        Me.UserDataBindingSource.DataMember = "UserData"
+        Me.UserDataBindingSource.DataSource = Me.VirusListDataSet
+        '
+        'UserDataTableAdapter
+        '
+        Me.UserDataTableAdapter.ClearBeforeFill = True
+        '
+        'VirusHashBindingSource
+        '
+        Me.VirusHashBindingSource.DataMember = "VirusHash"
+        Me.VirusHashBindingSource.DataSource = Me.VirusListDataSet
+        '
+        'VirusHashTableAdapter
+        '
+        Me.VirusHashTableAdapter.ClearBeforeFill = True
+        '
+        'UserDBTableAdapter
+        '
+        Me.UserDBTableAdapter.ClearBeforeFill = True
+        '
+        'VirusDBTableAdapter
+        '
+        Me.VirusDBTableAdapter.ClearBeforeFill = True
+        '
+        'AdminDBTableAdapter
+        '
+        Me.AdminDBTableAdapter.ClearBeforeFill = True
         '
         'AdminPage
         '
@@ -455,8 +620,17 @@ Partial Class AdminPage
         Me.Panel3.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AdminDBBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SentinnelDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VirusDBBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UserDBBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VirusHashBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VirusListDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UserDataBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VirusHashBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -485,18 +659,39 @@ Partial Class AdminPage
     Friend WithEvents Label2 As Label
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel4 As Panel
-    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Label8 As Label
     Friend WithEvents Label10 As Label
-    Friend WithEvents DataGridView2 As DataGridView
-    Friend WithEvents Username As DataGridViewTextBoxColumn
-    Friend WithEvents Password As DataGridViewTextBoxColumn
-    Friend WithEvents JoinDate As DataGridViewTextBoxColumn
-    Friend WithEvents FirstName As DataGridViewTextBoxColumn
-    Friend WithEvents LastName As DataGridViewTextBoxColumn
-    Friend WithEvents VirusName As DataGridViewTextBoxColumn
-    Friend WithEvents VirusHash As DataGridViewTextBoxColumn
-    Friend WithEvents VirusType As DataGridViewTextBoxColumn
     Friend WithEvents User_db_edit As Button
     Friend WithEvents Virus_db_edit As Button
+    Friend WithEvents VirusListDataSet As VirusListDataSet
+    Friend WithEvents UserDataBindingSource As BindingSource
+    Friend WithEvents UserDataTableAdapter As VirusListDataSetTableAdapters.UserDataTableAdapter
+    Friend WithEvents VirusHashBindingSource As BindingSource
+    Friend WithEvents VirusHashTableAdapter As VirusListDataSetTableAdapters.VirusHashTableAdapter
+    Friend WithEvents VirusHashBindingSource1 As BindingSource
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents SentinnelDBDataSet As SentinnelDBDataSet
+    Friend WithEvents UserDBBindingSource As BindingSource
+    Friend WithEvents UserDBTableAdapter As SentinnelDBDataSetTableAdapters.UserDBTableAdapter
+    Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents UsernameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents PasswordDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents JoindateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents FirstnameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents LastnameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents FilesScannedDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents VirusFrequencyDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents VirusDBBindingSource As BindingSource
+    Friend WithEvents VirusDBTableAdapter As SentinnelDBDataSetTableAdapters.VirusDBTableAdapter
+    Friend WithEvents Md5DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents VirusnameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TotalfrequencyDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridView3 As DataGridView
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Label6 As Label
+    Friend WithEvents AdminDBBindingSource As BindingSource
+    Friend WithEvents AdminDBTableAdapter As SentinnelDBDataSetTableAdapters.AdminDBTableAdapter
+    Friend WithEvents AdminKeyDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents UsernameDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents PasswordDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
 End Class

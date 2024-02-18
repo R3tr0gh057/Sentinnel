@@ -1,6 +1,9 @@
 ﻿Imports System.Runtime.InteropServices
+Imports System.Data.SqlClient
 
 Public Class AdminPage
+
+    Dim connectionString As String = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\--PROJECTS2024--\Sentinnel\Sentinnel\SentinnelDB.mdf;Integrated Security=True;Connect Timeout=30"
 
     'code to move the form
     Public Const WM_NCLBUTTONDOWN As Integer = &HA1
@@ -37,6 +40,16 @@ Public Class AdminPage
         Max_Button.Show()
     End Sub
     Private Sub AdminPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'SentinnelDBDataSet.AdminDB' table. You can move, or remove it, as needed.
+        Me.AdminDBTableAdapter.Fill(Me.SentinnelDBDataSet.AdminDB)
+        'TODO: This line of code loads data into the 'SentinnelDBDataSet.VirusDB' table. You can move, or remove it, as needed.
+        Me.VirusDBTableAdapter.Fill(Me.SentinnelDBDataSet.VirusDB)
+        'TODO: This line of code loads data into the 'SentinnelDBDataSet.UserDB' table. You can move, or remove it, as needed.
+        Me.UserDBTableAdapter.Fill(Me.SentinnelDBDataSet.UserDB)
+        'TODO: This line of code loads data into the 'VirusListDataSet.VirusHash' table. You can move, or remove it, as needed.
+        Me.VirusHashTableAdapter.Fill(Me.VirusListDataSet.VirusHash)
+        'TODO: This line of code loads data into the 'VirusListDataSet.UserData' table. You can move, or remove it, as needed.
+        Me.UserDataTableAdapter.Fill(Me.VirusListDataSet.UserData)
         Panel4.Hide()
     End Sub
 

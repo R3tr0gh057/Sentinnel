@@ -14,6 +14,7 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,7 +27,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -123,11 +123,24 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="SentinnelDBDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SentinnelDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SignUp.Designer.vb">
       <DependentUpon>SignUp.vb</DependentUpon>
     </Compile>
     <Compile Include="SignUp.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VirusListDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VirusListDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="VirusListDataSet.vb">
+      <DependentUpon>VirusListDataSet.xsd</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +174,28 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="SentinnelDBDataSet.xsc">
+      <DependentUpon>SentinnelDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SentinnelDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SentinnelDBDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SentinnelDBDataSet.xss">
+      <DependentUpon>SentinnelDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="VirusListDataSet.xsc">
+      <DependentUpon>VirusListDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="VirusListDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VirusListDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="VirusListDataSet.xss">
+      <DependentUpon>VirusListDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\giphy %286%29.gif" />
@@ -206,6 +241,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\giphy6-ezgif.com-effects.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SentinnelDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SentinnelDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>SentinnelDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="VirusList.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="VirusList_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>VirusList.mdf</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
