@@ -7,7 +7,7 @@ Public Class Homepage
     Public Const WM_NCLBUTTONDOWN As Integer = &HA1
     Public Const HT_CAPTION As Integer = &H2
     Public lastFormLocation As Point
-    Dim connectionString As String = "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=D:\--PROJECTS2024--\SENTINNEL\SENTINNEL\BIN\DEBUG\SENTINNELDB.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False"
+    Dim connectionString As String = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\--PROJECTS2024--\Sentinnel\Sentinnel\SentinnelDB.mdf;Integrated Security=True;Connect Timeout=30"
 
     <DllImportAttribute("user32.dll")>
     Public Shared Function SendMessage(ByVal hWnd As IntPtr, ByVal Msg As Integer, ByVal wParam As Integer, ByVal lParam As Integer) As Integer
@@ -59,32 +59,57 @@ Public Class Homepage
 
     Private Sub Login_button_Click(sender As Object, e As EventArgs) Handles Login_button.Click
 
-
-        'idk man login shit
+        ' Login logic using database
         Dim username As String = Login_username.Text
         Dim password As String = Login_password.Text
+        Dim adminkey As String = Admin_key.Text
 
         Using connection As New SqlConnection(connectionString)
             Try
                 connection.Open()
 
-                Dim query As String = "SELECT COUNT(*) FROM UserDB WHERE Username = @Username AND Password = @Password"
-                Using command As New SqlCommand(query, connection)
-                    command.Parameters.AddWithValue("@Username", username)
-                    command.Parameters.AddWithValue("@Password", password)
+                If (Admin_key.Text.Length > 0) Then
+                    ' Checking if the admin is authenticated
+                    Dim query As String = "SELECT COUNT(*) FROM AdminDB WHERE adminKey = @Adminkey AND username = @Username AND password = @Password;"
+                    Using command As New SqlCommand(query, connection)
+                        command.Parameters.AddWithValue("@Adminkey", adminkey)
+                        command.Parameters.AddWithValue("@Username", username)
+                        command.Parameters.AddWithValue("@Password", password)
 
-                    Dim count As Integer = Convert.ToInt32(command.ExecuteScalar())
+                        Dim count As Integer = Convert.ToInt32(command.ExecuteScalar())
 
-                    If count > 0 Then
-                        ' User exists with the provided username and password
-                        ' Proceed with login
-                        Me.Hide()
-                        Form1.Show()
-                        Form1.Location = New Point(Me.Location)
-                    Else
-                        MsgBox("Incorrect Credentials" + vbCrLf + username + vbCrLf + password)
-                    End If
-                End Using
+                        If count > 0 Then
+                            ' User exists with the provided username and password
+                            ' Proceed with login
+                            Me.Hide()
+                            AdminPage.Show()
+                            Form1.Location = New Point(Me.Location)
+                        Else
+                            MsgBox("Incorrect Credentials" + vbCrLf + username + vbCrLf + password)
+                        End If
+                    End Using
+
+                Else
+                    ' Checking if the end user is authenticated
+                    Dim query As String = "SELECT COUNT(*) FROM UserDB WHERE Username = @Username AND Password = @Password"
+                    Using command As New SqlCommand(query, connection)
+                        command.Parameters.AddWithValue("@Username", username)
+                        command.Parameters.AddWithValue("@Password", password)
+
+                        Dim count As Integer = Convert.ToInt32(command.ExecuteScalar())
+
+                        If count > 0 Then
+                            ' User exists with the provided username and password
+                            ' Proceed with login
+                            Me.Hide()
+                            Form1.Show()
+                            Form1.Location = New Point(Me.Location)
+                        Else
+                            MsgBox("Incorrect Credentials" + vbCrLf + username + vbCrLf + password)
+                        End If
+                    End Using
+                End If
+
             Catch ex As Exception
                 MessageBox.Show("Error: " & ex.Message)
             End Try

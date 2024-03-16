@@ -51,6 +51,39 @@ Public Class AdminPage
         'TODO: This line of code loads data into the 'VirusListDataSet.UserData' table. You can move, or remove it, as needed.
         Me.UserDataTableAdapter.Fill(Me.VirusListDataSet.UserData)
         Panel4.Hide()
+
+        ComboBox1.Items.Clear()
+
+        ' Storing attributes in an array
+        Dim userCounts As New List(Of String)()
+
+        Using connection As New SqlConnection(connectionString)
+            Try
+                connection.Open()
+                Dim query As String = "SELECT username FROM UserDB"
+                Using command As New SqlCommand(query, connection)
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+
+                    While reader.Read()
+                        Dim userCount As String = Convert.ToString(reader("username"))
+                        userCounts.Add(userCount)
+                    End While
+                End Using
+
+            Catch ex As Exception
+                MsgBox(ex.ToString)
+            End Try
+        End Using
+
+        ' Convert List(Of Integer) to array if needed
+        Dim userCountsArray As String() = userCounts.ToArray()
+        Dim counter As Integer = userCountsArray.Length - 1
+
+        While (counter > -1)
+            ComboBox1.Items.Add(userCountsArray(counter))
+            counter -= 1
+        End While
+
     End Sub
 
     Private Sub Panel1_MouseDown(sender As Object, e As MouseEventArgs) Handles Panel1.MouseDown
@@ -68,4 +101,36 @@ Public Class AdminPage
     Private Sub Database_Manage_Click(sender As Object, e As EventArgs) Handles Database_Manage.Click
         Panel4.Show()
     End Sub
+
+    Private Sub ComboBox1_TextChanged(sender As Object, e As EventArgs) Handles ComboBox1.TextChanged
+
+        Dim query As String = "SELECT joindate FROM UserDB WHERE username = " & ComboBox1.SelectedItem
+        Try
+            Date_box.Text = sendQuery(query, "joindate").ToString
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+
+    End Sub
+
+    ' Function to send queries and get required values for user details
+    Public Function sendQuery(query As String, attrib As String) As String
+        Dim value As String = ""
+        Using connection As New SqlConnection(connectionString)
+            Try
+                connection.Open()
+                Using command As New SqlCommand(query, connection)
+                    Dim reader As SqlDataReader = command.ExecuteReader()
+
+                    While reader.Read()
+                        value = Convert.ToString(reader(attrib))
+                        Return value
+                    End While
+                End Using
+            Catch ex As Exception
+                MsgBox(ex.ToString)
+            End Try
+        End Using
+        Return value
+    End Function
 End Class
