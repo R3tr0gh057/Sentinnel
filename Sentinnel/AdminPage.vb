@@ -106,7 +106,7 @@ Public Class AdminPage
 
         Dim query As String = "SELECT joindate FROM UserDB WHERE username = " & ComboBox1.SelectedItem
         Try
-            Date_box.Text = sendQuery(query, "joindate").ToString
+            Date_box.Text = sendQuery(query, "joindate")
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
