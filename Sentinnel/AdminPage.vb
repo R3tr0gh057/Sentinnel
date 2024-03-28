@@ -103,23 +103,31 @@ Public Class AdminPage
     End Sub
 
     Private Sub ComboBox1_TextChanged(sender As Object, e As EventArgs) Handles ComboBox1.TextChanged
-
-        Dim query As String = "SELECT joindate FROM UserDB WHERE username = " & ComboBox1.SelectedItem
-        Try
-            Date_box.Text = sendQuery(query, "joindate")
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-        End Try
-
+        If Not String.IsNullOrEmpty(ComboBox1.Text) Then
+            Dim datequery As String = "SELECT joindate FROM UserDB WHERE username = @username"
+            Dim filequery As String = "SELECT filesScanned FROM UserDB WHERE username = @username"
+            Dim infquery As String = "SELECT virusFrequency FROM UserDB WHERE username = @username"
+            Try
+                Dim joindate As String = sendQuery(datequery, "joindate", ComboBox1.Text)
+                Dim filescanned As String = sendQuery(filequery, "filesScanned", ComboBox1.Text)
+                Dim infection As String = sendQuery(infquery, "virusFrequency", ComboBox1.Text)
+                Date_box.Text = joindate
+                File_count.Text = filescanned
+                Inf_score.Text = infection
+            Catch ex As Exception
+                MessageBox.Show("Error retrieving joindate: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End If
     End Sub
 
     ' Function to send queries and get required values for user details
-    Public Function sendQuery(query As String, attrib As String) As String
+    Public Function sendQuery(query As String, attrib As String, username As String) As String
         Dim value As String = ""
         Using connection As New SqlConnection(connectionString)
             Try
                 connection.Open()
                 Using command As New SqlCommand(query, connection)
+                    command.Parameters.AddWithValue("@username", username)
                     Dim reader As SqlDataReader = command.ExecuteReader()
 
                     While reader.Read()
@@ -128,9 +136,10 @@ Public Class AdminPage
                     End While
                 End Using
             Catch ex As Exception
-                MsgBox(ex.ToString)
+                MessageBox.Show("Error executing query: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
         End Using
         Return value
     End Function
+
 End Class

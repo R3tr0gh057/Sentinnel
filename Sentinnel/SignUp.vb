@@ -46,42 +46,37 @@ Public Class SignUp
     End Sub
 
     Private Sub Signup_Confirm_Click(sender As Object, e As EventArgs) Handles Signup_Confirm.Click
-        'Database code to add user to the database
         Try
             Using connection As New SqlConnection(connectionString)
-                Try
-                    connection.Open()
-                    ' Checking if the end user is authenticated
-                    Dim query As String = "INSERT INTO [dbo].[UserDB] ([username], [password], [joindate], [firstname], [lastname], [filesScanned], [virusFrequency]) VALUES (N'@username      ', N'@password      ', N'@joindate', N'@firstname      ', N'@lastname      ', 0, 0)"
-                    Using command As New SqlCommand(query, connection)
-                        command.Parameters.AddWithValue("@Username", Signup_username.Text)
-                        command.Parameters.AddWithValue("@Password", Signup_password.Text)
-                        command.Parameters.AddWithValue("@joindate", TimeOfDay.ToString)
-                        command.Parameters.AddWithValue("@firstname", First_name.Text)
-                        command.Parameters.AddWithValue("@lastname", Last_name.Text)
+                connection.Open()
 
-                        Me.Hide()
-                        Form1.Show()
-                        Form1.Location = New Point(Me.Location)
+                Dim query As String = "INSERT INTO [dbo].[UserDB] ([username], [password], [joindate], [firstname], [lastname], [filesScanned], [virusFrequency]) VALUES (@username, @password, @joindate, @firstname, @lastname, 0, 0)"
 
-                    End Using
+                Using command As New SqlCommand(query, connection)
+                    command.Parameters.AddWithValue("@username", Signup_username.Text)
+                    command.Parameters.AddWithValue("@password", Signup_password.Text)
+                    command.Parameters.AddWithValue("@joindate", Date.Now)
+                    command.Parameters.AddWithValue("@firstname", First_name.Text)
+                    command.Parameters.AddWithValue("@lastname", Last_name.Text)
 
-                Catch ex As Exception
-                    MessageBox.Show("Error: " & ex.Message)
-                    Me.Hide()
-                    Form1.Show()
-                    Form1.Location = New Point(Me.Location)
-                End Try
+                    Dim rowsAffected As Integer = command.ExecuteNonQuery()
+                    If rowsAffected > 0 Then
+                        MessageBox.Show("User successfully added to the database.")
+                    Else
+                        MessageBox.Show("Failed to add user to the database.")
+                    End If
+                End Using
             End Using
 
         Catch ex As Exception
-
+            MessageBox.Show("Error: " & ex.Message)
         End Try
 
         Me.Close()
         Homepage.Show()
-        Location = New Point(Me.Location)
+        Homepage.Location = New Point(Me.Location)
     End Sub
+
 
     Private Sub Panel1_MouseDown(sender As Object, e As MouseEventArgs) Handles Panel1.MouseDown
         If e.Button = Windows.Forms.MouseButtons.Left Then
