@@ -104,7 +104,6 @@ Partial Class AdminPage
         'Panel2
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel2.Controls.Add(Me.Panel4)
         Me.Panel2.Controls.Add(Me.Database_Manage)
         Me.Panel2.Controls.Add(Me.User_Stat)
         Me.Panel2.Location = New System.Drawing.Point(0, 47)
@@ -336,6 +335,7 @@ Partial Class AdminPage
         'Panel3
         '
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel3.Controls.Add(Me.Panel4)
         Me.Panel3.Controls.Add(Me.Label2)
         Me.Panel3.Controls.Add(Me.User_title)
         Me.Panel3.Controls.Add(Me.Action_taken)
@@ -366,7 +366,7 @@ Partial Class AdminPage
         Me.Panel4.Controls.Add(Me.Virus_db_edit)
         Me.Panel4.Controls.Add(Me.Label8)
         Me.Panel4.Controls.Add(Me.Label10)
-        Me.Panel4.Location = New System.Drawing.Point(47, 350)
+        Me.Panel4.Location = New System.Drawing.Point(0, -1)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(601, 403)
         Me.Panel4.TabIndex = 80

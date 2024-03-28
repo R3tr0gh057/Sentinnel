@@ -40,9 +40,14 @@ Partial Class Homepage
         Me.Min_Button = New System.Windows.Forms.Button()
         Me.Max_Button = New System.Windows.Forms.Button()
         Me.Window_Button = New System.Windows.Forms.Button()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.AdminCheck = New System.Windows.Forms.RadioButton()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.Icon_picturebox, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel3.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'User_button
@@ -56,6 +61,7 @@ Partial Class Homepage
         '
         'Panel2
         '
+        Me.Panel2.BackColor = System.Drawing.Color.DarkSlateGray
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel2.Controls.Add(Me.Admin_button)
         Me.Panel2.Controls.Add(Me.User_button)
@@ -75,21 +81,21 @@ Partial Class Homepage
         '
         'Login_username
         '
-        Me.Login_username.Location = New System.Drawing.Point(391, 191)
+        Me.Login_username.Location = New System.Drawing.Point(119, 109)
         Me.Login_username.Name = "Login_username"
         Me.Login_username.Size = New System.Drawing.Size(185, 20)
         Me.Login_username.TabIndex = 42
         '
         'Login_password
         '
-        Me.Login_password.Location = New System.Drawing.Point(391, 217)
+        Me.Login_password.Location = New System.Drawing.Point(119, 135)
         Me.Login_password.Name = "Login_password"
         Me.Login_password.Size = New System.Drawing.Size(185, 20)
         Me.Login_password.TabIndex = 43
         '
         'Login_button
         '
-        Me.Login_button.Location = New System.Drawing.Point(444, 243)
+        Me.Login_button.Location = New System.Drawing.Point(159, 161)
         Me.Login_button.Name = "Login_button"
         Me.Login_button.Size = New System.Drawing.Size(75, 23)
         Me.Login_button.TabIndex = 44
@@ -98,7 +104,7 @@ Partial Class Homepage
         '
         'Admin_key
         '
-        Me.Admin_key.Location = New System.Drawing.Point(657, 191)
+        Me.Admin_key.Location = New System.Drawing.Point(688, 418)
         Me.Admin_key.Name = "Admin_key"
         Me.Admin_key.Size = New System.Drawing.Size(100, 20)
         Me.Admin_key.TabIndex = 46
@@ -106,7 +112,7 @@ Partial Class Homepage
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(319, 191)
+        Me.Label2.Location = New System.Drawing.Point(47, 109)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(55, 13)
         Me.Label2.TabIndex = 47
@@ -115,7 +121,7 @@ Partial Class Homepage
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(319, 217)
+        Me.Label3.Location = New System.Drawing.Point(47, 135)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(53, 13)
         Me.Label3.TabIndex = 48
@@ -124,7 +130,7 @@ Partial Class Homepage
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(588, 191)
+        Me.Label4.Location = New System.Drawing.Point(619, 418)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(59, 13)
         Me.Label4.TabIndex = 49
@@ -132,7 +138,7 @@ Partial Class Homepage
         '
         'Signup_button
         '
-        Me.Signup_button.Location = New System.Drawing.Point(444, 272)
+        Me.Signup_button.Location = New System.Drawing.Point(159, 190)
         Me.Signup_button.Name = "Signup_button"
         Me.Signup_button.Size = New System.Drawing.Size(75, 23)
         Me.Signup_button.TabIndex = 50
@@ -141,7 +147,7 @@ Partial Class Homepage
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.BackColor = System.Drawing.Color.DarkKhaki
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.Icon_picturebox)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -214,7 +220,7 @@ Partial Class Homepage
         '
         'Window_Button
         '
-        Me.Window_Button.BackColor = System.Drawing.Color.Transparent
+        Me.Window_Button.BackColor = System.Drawing.Color.DarkKhaki
         Me.Window_Button.BackgroundImage = Global.Sentinnel.My.Resources.Resources.maximize__1_
         Me.Window_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Window_Button.Cursor = System.Windows.Forms.Cursors.Hand
@@ -226,23 +232,54 @@ Partial Class Homepage
         Me.Window_Button.TabIndex = 52
         Me.Window_Button.UseVisualStyleBackColor = False
         '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.White
+        Me.Panel3.Controls.Add(Me.PictureBox1)
+        Me.Panel3.Controls.Add(Me.AdminCheck)
+        Me.Panel3.Controls.Add(Me.Login_username)
+        Me.Panel3.Controls.Add(Me.Login_password)
+        Me.Panel3.Controls.Add(Me.Label2)
+        Me.Panel3.Controls.Add(Me.Signup_button)
+        Me.Panel3.Controls.Add(Me.Label3)
+        Me.Panel3.Controls.Add(Me.Login_button)
+        Me.Panel3.Location = New System.Drawing.Point(307, 123)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(356, 236)
+        Me.Panel3.TabIndex = 53
+        '
+        'AdminCheck
+        '
+        Me.AdminCheck.AutoSize = True
+        Me.AdminCheck.Location = New System.Drawing.Point(50, 177)
+        Me.AdminCheck.Name = "AdminCheck"
+        Me.AdminCheck.Size = New System.Drawing.Size(54, 17)
+        Me.AdminCheck.TabIndex = 51
+        Me.AdminCheck.TabStop = True
+        Me.AdminCheck.Text = "Admin"
+        Me.AdminCheck.UseVisualStyleBackColor = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Location = New System.Drawing.Point(149, 18)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(70, 70)
+        Me.PictureBox1.TabIndex = 52
+        Me.PictureBox1.TabStop = False
+        '
         'Homepage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.White
+        Me.BackColor = System.Drawing.Color.DarkOliveGreen
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Window_Button)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.Signup_button)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Admin_key)
-        Me.Controls.Add(Me.Login_button)
-        Me.Controls.Add(Me.Login_password)
-        Me.Controls.Add(Me.Login_username)
         Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Admin_key)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Homepage"
         Me.Text = "Homepage"
@@ -250,6 +287,9 @@ Partial Class Homepage
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.Icon_picturebox, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -272,4 +312,7 @@ Partial Class Homepage
     Friend WithEvents Min_Button As Button
     Friend WithEvents Max_Button As Button
     Friend WithEvents Window_Button As Button
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents AdminCheck As RadioButton
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

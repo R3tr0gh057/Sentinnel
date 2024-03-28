@@ -32,8 +32,6 @@ Partial Class SignUp
         Me.Last_name = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.retype = New System.Windows.Forms.TextBox()
         Me.Signup_Confirm = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Icon_picturebox = New System.Windows.Forms.PictureBox()
@@ -129,25 +127,9 @@ Partial Class SignUp
         Me.Label6.TabIndex = 57
         Me.Label6.Text = "FirstName"
         '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(319, 246)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(69, 13)
-        Me.Label7.TabIndex = 60
-        Me.Label7.Text = "Retype_pass"
-        '
-        'retype
-        '
-        Me.retype.Location = New System.Drawing.Point(391, 243)
-        Me.retype.Name = "retype"
-        Me.retype.Size = New System.Drawing.Size(185, 20)
-        Me.retype.TabIndex = 59
-        '
         'Signup_Confirm
         '
-        Me.Signup_Confirm.Location = New System.Drawing.Point(444, 272)
+        Me.Signup_Confirm.Location = New System.Drawing.Point(424, 259)
         Me.Signup_Confirm.Name = "Signup_Confirm"
         Me.Signup_Confirm.Size = New System.Drawing.Size(75, 23)
         Me.Signup_Confirm.TabIndex = 61
@@ -250,8 +232,6 @@ Partial Class SignUp
         Me.Controls.Add(Me.Window_Button)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Signup_Confirm)
-        Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.retype)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Last_name)
@@ -282,8 +262,6 @@ Partial Class SignUp
     Friend WithEvents Last_name As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents retype As TextBox
     Friend WithEvents Signup_Confirm As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Icon_picturebox As PictureBox
