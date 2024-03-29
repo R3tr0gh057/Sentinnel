@@ -243,6 +243,7 @@
     <None Include="Resources\giphy6-ezgif.com-effects.gif" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\urjja.png" />
     <Content Include="SentinnelDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

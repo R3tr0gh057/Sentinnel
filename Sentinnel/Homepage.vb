@@ -42,37 +42,20 @@ Public Class Homepage
         Max_Button.Show()
     End Sub
 
-    Private Sub Homepage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Label4.Hide()
-        Admin_key.Hide()
-    End Sub
-
-    Private Sub Admin_button_Click(sender As Object, e As EventArgs) Handles Admin_button.Click
-        Label4.Show()
-        Admin_key.Show()
-    End Sub
-
-    Private Sub User_button_Click(sender As Object, e As EventArgs) Handles User_button.Click
-        Label4.Hide()
-        Admin_key.Hide()
-    End Sub
-
     Private Sub Login_button_Click(sender As Object, e As EventArgs) Handles Login_button.Click
 
         ' Login logic using database
         Dim username As String = Login_username.Text
         Dim password As String = Login_password.Text
-        Dim adminkey As String = Admin_key.Text
 
         Using connection As New SqlConnection(connectionString)
             Try
                 connection.Open()
 
-                If (Admin_key.Text.Length > 0) Then
+                If (AdminCheck.Checked) Then
                     ' Checking if the admin is authenticated
-                    Dim query As String = "SELECT COUNT(*) FROM AdminDB WHERE adminKey = @Adminkey AND username = @Username AND password = @Password;"
+                    Dim query As String = "SELECT COUNT(*) FROM AdminDB WHERE username = @Username AND password = @Password;"
                     Using command As New SqlCommand(query, connection)
-                        command.Parameters.AddWithValue("@Adminkey", adminkey)
                         command.Parameters.AddWithValue("@Username", username)
                         command.Parameters.AddWithValue("@Password", password)
 
@@ -128,4 +111,25 @@ Public Class Homepage
         SignUp.Show()
         SignUp.Location = New Point(Me.Location)
     End Sub
+
+    Private Sub Login_username_GotFocus(sender As Object, e As EventArgs) Handles Login_username.GotFocus
+        Login_username.Clear()
+    End Sub
+
+    Private Sub Login_username_LostFocus(sender As Object, e As EventArgs) Handles Login_username.LostFocus
+        If (Login_username.Text = "") Then
+            Login_username.Text = "Username"
+        End If
+    End Sub
+
+    Private Sub Login_password_GotFocus(sender As Object, e As EventArgs) Handles Login_password.GotFocus
+        Login_password.Clear()
+    End Sub
+
+    Private Sub Login_password_LostFocus(sender As Object, e As EventArgs) Handles Login_password.LostFocus
+        If (Login_password.Text = "") Then
+            Login_password.Text = "Password"
+        End If
+    End Sub
+
 End Class

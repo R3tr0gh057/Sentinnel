@@ -84,4 +84,9 @@ Public Class SignUp
             SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0)
         End If
     End Sub
+
+    Private Sub Signup_button_Click(sender As Object, e As EventArgs) Handles Signup_button.Click
+        Me.Hide()
+        Homepage.Show()
+    End Sub
 End Class
