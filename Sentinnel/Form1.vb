@@ -51,31 +51,47 @@ Public Class Form1
         Max_Button.Show()
     End Sub
 
-    'Scanner Code
-    'Quick Scan Function call
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Quick_Scan.Click
+    ' Scanner Code
+    ' Folder Scan Function call
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles File_Scan.Click
 
-        Scan_animation.Show()
-        FolderBrowserDialog1.SelectedPath = "D:\"
-        Try
-            For Each strDir As String In System.IO.Directory.GetDirectories(FolderBrowserDialog1.SelectedPath, "*.*", IO.SearchOption.TopDirectoryOnly)
-                For Each strFile As String In System.IO.Directory.GetFiles(strDir, "*.*", SearchOption.AllDirectories)
-                    Scan_log.Items.Add(strFile)
-                Next strFile
-            Next strDir
-            Timer1.Start()
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+        Dim md5val As String = ""
 
-        Try
-            For Each strFile As String In System.IO.Directory.GetFiles(FolderBrowserDialog1.SelectedPath, "*.*", IO.SearchOption.AllDirectories)
-                Scan_log.Items.Add(strFile)
-            Next strFile
-            Timer1.Start()
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+        Dim openFileDialog As New OpenFileDialog()
+
+        ' Set properties for the OpenFileDialog
+        openFileDialog.Title = "Select a file"
+        openFileDialog.Filter = "All Files|*.*"
+
+        ' Show the OpenFileDialog and check if the user selected a file
+        If openFileDialog.ShowDialog() = DialogResult.OK Then
+            ' Get the selected file path
+            Dim selectedFilePath As String = openFileDialog.FileName
+
+            ' Calculate the MD5 hash of the selected file
+            Using md5 As New MD5CryptoServiceProvider()
+                Using stream As New FileStream(selectedFilePath, FileMode.Open, FileAccess.Read)
+                    Dim hashBytes() As Byte = md5.ComputeHash(stream)
+                    Dim stringBuilder As New StringBuilder()
+                    For Each hashByte As Byte In hashBytes
+                        stringBuilder.Append(hashByte.ToString("x2"))
+                    Next
+                    Dim md5Hash As String = stringBuilder.ToString()
+                    md5val = md5Hash
+
+                    ' Load the MD5 list
+                    Dim md5ListFilePath As String = "D:\list.txt" ' Path to your MD5 list file
+                    Dim md5List As String = File.ReadAllText(md5ListFilePath)
+
+                    ' Check if the calculated MD5 hash exists in the MD5 list
+                    If md5List.Contains(md5Hash) Then
+                        MessageBox.Show("File is in the MD5 list. It may be malicious." + vbCrLf + "MD5 : " + md5val)
+                    Else
+                        MessageBox.Show("File is not in the MD5 list. It seems safe." + vbCrLf + "MD5 : " + md5val)
+                    End If
+                End Using
+            End Using
+        End If
 
     End Sub
 
@@ -144,12 +160,12 @@ Public Class Form1
             If Scan_result.Items.Count > 0 Then
                 MessageBox.Show("Scan Completed. There are " + vbCrLf + Scan_result.Items.Count + " possible malicious files.", CStr(MessageBoxButtons.OK))
                 Scan_animation.Hide()
-                Quick_Scan.Text = "Scan"
+                File_Scan.Text = "Scan"
                 Exit Sub
             End If
             MessageBox.Show("Scan Complete." + vbCrLf + "No threats were found.", CStr(MessageBoxButtons.OK))
             Scan_animation.Hide()
-            Quick_Scan.Text = "Scan"
+            File_Scan.Text = "Scan"
             ProgressBar1.Value = 0
         End If
     End Sub
@@ -159,13 +175,13 @@ Public Class Form1
         If Scan_result.Items.Count > 0 Then
             MessageBox.Show("Scan Completed. There are " + vbCrLf + Scan_result.Items.Count + " possible malicious files.", CStr(MessageBoxButtons.OK))
             Scan_animation.Hide()
-            Quick_Scan.Text = "Scan"
+            File_Scan.Text = "Scan"
             ProgressBar1.Value = 0
             Scan_log.Items.Clear()
         Else
             MessageBox.Show("Scan Complete." + vbCrLf + "No threats were found.", CStr(MessageBoxButtons.OK))
             Scan_animation.Hide()
-            Quick_Scan.Text = "Scan"
+            File_Scan.Text = "Scan"
             ProgressBar1.Value = 0
             Scan_log.Items.Clear()
         End If

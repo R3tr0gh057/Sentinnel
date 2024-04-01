@@ -83,6 +83,7 @@ Partial Class AdminPage
         Me.UserDBTableAdapter = New Sentinnel.SentinnelDBDataSetTableAdapters.UserDBTableAdapter()
         Me.VirusDBTableAdapter = New Sentinnel.SentinnelDBDataSetTableAdapters.VirusDBTableAdapter()
         Me.AdminDBTableAdapter = New Sentinnel.SentinnelDBDataSetTableAdapters.AdminDBTableAdapter()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.Icon_picturebox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -103,9 +104,12 @@ Partial Class AdminPage
         '
         'Panel2
         '
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(26, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel2.Controls.Add(Me.Database_Manage)
+        Me.Panel2.Controls.Add(Me.Panel4)
         Me.Panel2.Controls.Add(Me.User_Stat)
+        Me.Panel2.ForeColor = System.Drawing.Color.White
         Me.Panel2.Location = New System.Drawing.Point(0, 47)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(200, 403)
@@ -113,31 +117,40 @@ Partial Class AdminPage
         '
         'Database_Manage
         '
+        Me.Database_Manage.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(44, Byte), Integer))
+        Me.Database_Manage.FlatAppearance.BorderSize = 0
+        Me.Database_Manage.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Database_Manage.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Database_Manage.Location = New System.Drawing.Point(0, 47)
         Me.Database_Manage.Name = "Database_Manage"
         Me.Database_Manage.Size = New System.Drawing.Size(200, 50)
         Me.Database_Manage.TabIndex = 39
         Me.Database_Manage.Text = "Database Manager"
-        Me.Database_Manage.UseVisualStyleBackColor = True
+        Me.Database_Manage.UseVisualStyleBackColor = False
         '
         'User_Stat
         '
+        Me.User_Stat.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(44, Byte), Integer))
+        Me.User_Stat.FlatAppearance.BorderSize = 0
+        Me.User_Stat.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.User_Stat.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.User_Stat.Location = New System.Drawing.Point(0, -1)
         Me.User_Stat.Name = "User_Stat"
         Me.User_Stat.Size = New System.Drawing.Size(200, 50)
         Me.User_Stat.TabIndex = 38
         Me.User_Stat.Text = "User Statistics"
-        Me.User_Stat.UseVisualStyleBackColor = True
+        Me.User_Stat.UseVisualStyleBackColor = False
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(26, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.Icon_picturebox)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.Close_Button)
         Me.Panel1.Controls.Add(Me.Max_Button)
         Me.Panel1.Controls.Add(Me.Min_Button)
+        Me.Panel1.ForeColor = System.Drawing.Color.White
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(801, 47)
@@ -204,7 +217,7 @@ Partial Class AdminPage
         '
         'Window_Button
         '
-        Me.Window_Button.BackColor = System.Drawing.Color.Transparent
+        Me.Window_Button.BackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(26, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.Window_Button.BackgroundImage = Global.Sentinnel.My.Resources.Resources.maximize__1_
         Me.Window_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Window_Button.Cursor = System.Windows.Forms.Cursors.Hand
@@ -220,6 +233,7 @@ Partial Class AdminPage
         '
         Me.User_title.AutoSize = True
         Me.User_title.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.User_title.ForeColor = System.Drawing.Color.White
         Me.User_title.Location = New System.Drawing.Point(16, 12)
         Me.User_title.Name = "User_title"
         Me.User_title.Size = New System.Drawing.Size(150, 25)
@@ -260,6 +274,7 @@ Partial Class AdminPage
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.White
         Me.Label3.Location = New System.Drawing.Point(17, 71)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(44, 20)
@@ -270,6 +285,7 @@ Partial Class AdminPage
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.White
         Me.Label4.Location = New System.Drawing.Point(17, 112)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(110, 20)
@@ -280,6 +296,7 @@ Partial Class AdminPage
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.White
         Me.Label5.Location = New System.Drawing.Point(17, 153)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(117, 20)
@@ -290,6 +307,7 @@ Partial Class AdminPage
         '
         Me.Virus_title.AutoSize = True
         Me.Virus_title.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Virus_title.ForeColor = System.Drawing.Color.White
         Me.Virus_title.Location = New System.Drawing.Point(16, 211)
         Me.Virus_title.Name = "Virus_title"
         Me.Virus_title.Size = New System.Drawing.Size(154, 25)
@@ -308,6 +326,7 @@ Partial Class AdminPage
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.White
         Me.Label7.Location = New System.Drawing.Point(17, 265)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(112, 20)
@@ -326,6 +345,7 @@ Partial Class AdminPage
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.White
         Me.Label2.Location = New System.Drawing.Point(302, 265)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(102, 20)
@@ -334,8 +354,9 @@ Partial Class AdminPage
         '
         'Panel3
         '
+        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(26, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel3.Controls.Add(Me.Panel4)
+        Me.Panel3.Controls.Add(Me.Label9)
         Me.Panel3.Controls.Add(Me.Label2)
         Me.Panel3.Controls.Add(Me.User_title)
         Me.Panel3.Controls.Add(Me.Action_taken)
@@ -356,6 +377,7 @@ Partial Class AdminPage
         '
         'Panel4
         '
+        Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(26, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel4.Controls.Add(Me.DataGridView3)
         Me.Panel4.Controls.Add(Me.Button1)
@@ -366,7 +388,8 @@ Partial Class AdminPage
         Me.Panel4.Controls.Add(Me.Virus_db_edit)
         Me.Panel4.Controls.Add(Me.Label8)
         Me.Panel4.Controls.Add(Me.Label10)
-        Me.Panel4.Location = New System.Drawing.Point(0, -1)
+        Me.Panel4.ForeColor = System.Drawing.Color.White
+        Me.Panel4.Location = New System.Drawing.Point(201, 0)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(601, 403)
         Me.Panel4.TabIndex = 80
@@ -374,6 +397,7 @@ Partial Class AdminPage
         'DataGridView3
         '
         Me.DataGridView3.AutoGenerateColumns = False
+        Me.DataGridView3.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(44, Byte), Integer))
         Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView3.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.AdminKeyDataGridViewTextBoxColumn, Me.UsernameDataGridViewTextBoxColumn1, Me.PasswordDataGridViewTextBoxColumn1})
         Me.DataGridView3.DataSource = Me.AdminDBBindingSource
@@ -412,12 +436,14 @@ Partial Class AdminPage
         '
         'Button1
         '
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(44, Byte), Integer))
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Location = New System.Drawing.Point(477, 14)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 86
         Me.Button1.Text = "Edit"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'Label6
         '
@@ -432,6 +458,7 @@ Partial Class AdminPage
         'DataGridView2
         '
         Me.DataGridView2.AutoGenerateColumns = False
+        Me.DataGridView2.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(44, Byte), Integer))
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Md5DataGridViewTextBoxColumn, Me.VirusnameDataGridViewTextBoxColumn, Me.TotalfrequencyDataGridViewTextBoxColumn})
         Me.DataGridView2.DataSource = Me.VirusDBBindingSource
@@ -466,6 +493,7 @@ Partial Class AdminPage
         'DataGridView1
         '
         Me.DataGridView1.AutoGenerateColumns = False
+        Me.DataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(44, Byte), Integer))
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.UsernameDataGridViewTextBoxColumn, Me.PasswordDataGridViewTextBoxColumn, Me.JoindateDataGridViewTextBoxColumn, Me.FirstnameDataGridViewTextBoxColumn, Me.LastnameDataGridViewTextBoxColumn, Me.FilesScannedDataGridViewTextBoxColumn, Me.VirusFrequencyDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.UserDBBindingSource
@@ -523,21 +551,26 @@ Partial Class AdminPage
         '
         'User_db_edit
         '
+        Me.User_db_edit.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(44, Byte), Integer))
+        Me.User_db_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.User_db_edit.Location = New System.Drawing.Point(176, 213)
         Me.User_db_edit.Name = "User_db_edit"
         Me.User_db_edit.Size = New System.Drawing.Size(75, 23)
         Me.User_db_edit.TabIndex = 82
         Me.User_db_edit.Text = "Edit"
-        Me.User_db_edit.UseVisualStyleBackColor = True
+        Me.User_db_edit.UseVisualStyleBackColor = False
         '
         'Virus_db_edit
         '
+        Me.Virus_db_edit.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(44, Byte), Integer))
+        Me.Virus_db_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Virus_db_edit.ForeColor = System.Drawing.Color.White
         Me.Virus_db_edit.Location = New System.Drawing.Point(169, 14)
         Me.Virus_db_edit.Name = "Virus_db_edit"
         Me.Virus_db_edit.Size = New System.Drawing.Size(89, 23)
         Me.Virus_db_edit.TabIndex = 81
         Me.Virus_db_edit.Text = "Edit"
-        Me.Virus_db_edit.UseVisualStyleBackColor = True
+        Me.Virus_db_edit.UseVisualStyleBackColor = False
         '
         'Label8
         '
@@ -598,6 +631,17 @@ Partial Class AdminPage
         'AdminDBTableAdapter
         '
         Me.AdminDBTableAdapter.ClearBeforeFill = True
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.Color.White
+        Me.Label9.Location = New System.Drawing.Point(413, 15)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(43, 20)
+        Me.Label9.TabIndex = 81
+        Me.Label9.Text = "User"
         '
         'AdminPage
         '
@@ -694,4 +738,5 @@ Partial Class AdminPage
     Friend WithEvents AdminKeyDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents UsernameDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents PasswordDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents Label9 As Label
 End Class
