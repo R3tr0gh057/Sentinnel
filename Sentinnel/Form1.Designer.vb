@@ -39,15 +39,20 @@ Partial Class Form1
         Me.Scan_result = New System.Windows.Forms.ListBox()
         Me.Log_out = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Icon_picturebox = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Folder_Scan = New System.Windows.Forms.Button()
+        Me.ActiveUser = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Window_Button = New System.Windows.Forms.Button()
+        Me.Icon_picturebox = New System.Windows.Forms.PictureBox()
         Me.Close_Button = New System.Windows.Forms.Button()
         Me.Max_Button = New System.Windows.Forms.Button()
         Me.Min_Button = New System.Windows.Forms.Button()
-        Me.Window_Button = New System.Windows.Forms.Button()
         Me.Scan_animation = New System.Windows.Forms.PictureBox()
-        Me.Folder_Scan = New System.Windows.Forms.Button()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Icon_picturebox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Scan_animation, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -57,7 +62,7 @@ Partial Class Form1
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(313, 290)
+        Me.Label6.Location = New System.Drawing.Point(325, 338)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(107, 15)
         Me.Label6.TabIndex = 39
@@ -69,7 +74,7 @@ Partial Class Form1
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(313, 314)
+        Me.Label4.Location = New System.Drawing.Point(325, 362)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(88, 15)
         Me.Label4.TabIndex = 37
@@ -83,7 +88,7 @@ Partial Class Form1
         Me.Cancel_Button.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Cancel_Button.ForeColor = System.Drawing.Color.White
         Me.Cancel_Button.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Cancel_Button.Location = New System.Drawing.Point(225, 290)
+        Me.Cancel_Button.Location = New System.Drawing.Point(225, 337)
         Me.Cancel_Button.Name = "Cancel_Button"
         Me.Cancel_Button.Size = New System.Drawing.Size(86, 46)
         Me.Cancel_Button.TabIndex = 35
@@ -95,7 +100,7 @@ Partial Class Form1
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Transparent
-        Me.Label3.Location = New System.Drawing.Point(426, 338)
+        Me.Label3.Location = New System.Drawing.Point(439, 387)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(0, 15)
         Me.Label3.TabIndex = 34
@@ -106,7 +111,7 @@ Partial Class Form1
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Transparent
-        Me.Label2.Location = New System.Drawing.Point(426, 290)
+        Me.Label2.Location = New System.Drawing.Point(439, 339)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(0, 15)
         Me.Label2.TabIndex = 33
@@ -117,7 +122,7 @@ Partial Class Form1
         Me.Timer.AutoSize = True
         Me.Timer.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Timer.ForeColor = System.Drawing.Color.Transparent
-        Me.Timer.Location = New System.Drawing.Point(426, 314)
+        Me.Timer.Location = New System.Drawing.Point(439, 363)
         Me.Timer.Name = "Timer"
         Me.Timer.Size = New System.Drawing.Size(0, 15)
         Me.Timer.TabIndex = 32
@@ -128,7 +133,7 @@ Partial Class Form1
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(313, 338)
+        Me.Label5.Location = New System.Drawing.Point(325, 386)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(54, 15)
         Me.Label5.TabIndex = 38
@@ -146,7 +151,7 @@ Partial Class Form1
         '
         Me.ProgressBar1.BackColor = System.Drawing.Color.Red
         Me.ProgressBar1.ForeColor = System.Drawing.Color.Black
-        Me.ProgressBar1.Location = New System.Drawing.Point(13, 248)
+        Me.ProgressBar1.Location = New System.Drawing.Point(13, 295)
         Me.ProgressBar1.Name = "ProgressBar1"
         Me.ProgressBar1.Size = New System.Drawing.Size(192, 23)
         Me.ProgressBar1.TabIndex = 27
@@ -160,9 +165,9 @@ Partial Class Form1
         Me.Scan_log.ForeColor = System.Drawing.Color.White
         Me.Scan_log.FormattingEnabled = True
         Me.Scan_log.ItemHeight = 19
-        Me.Scan_log.Location = New System.Drawing.Point(210, 55)
+        Me.Scan_log.Location = New System.Drawing.Point(211, 126)
         Me.Scan_log.Name = "Scan_log"
-        Me.Scan_log.Size = New System.Drawing.Size(578, 116)
+        Me.Scan_log.Size = New System.Drawing.Size(282, 192)
         Me.Scan_log.TabIndex = 26
         '
         'File_Scan
@@ -171,7 +176,7 @@ Partial Class Form1
         Me.File_Scan.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.File_Scan.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.File_Scan.ForeColor = System.Drawing.Color.White
-        Me.File_Scan.Location = New System.Drawing.Point(13, 290)
+        Me.File_Scan.Location = New System.Drawing.Point(13, 337)
         Me.File_Scan.Name = "File_Scan"
         Me.File_Scan.Size = New System.Drawing.Size(100, 100)
         Me.File_Scan.TabIndex = 29
@@ -187,9 +192,9 @@ Partial Class Form1
         Me.Scan_result.ForeColor = System.Drawing.Color.White
         Me.Scan_result.FormattingEnabled = True
         Me.Scan_result.ItemHeight = 19
-        Me.Scan_result.Location = New System.Drawing.Point(210, 175)
+        Me.Scan_result.Location = New System.Drawing.Point(499, 126)
         Me.Scan_result.Name = "Scan_result"
-        Me.Scan_result.Size = New System.Drawing.Size(579, 97)
+        Me.Scan_result.Size = New System.Drawing.Size(289, 192)
         Me.Scan_result.TabIndex = 28
         '
         'Log_out
@@ -199,7 +204,7 @@ Partial Class Form1
         Me.Log_out.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Log_out.ForeColor = System.Drawing.Color.White
         Me.Log_out.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Log_out.Location = New System.Drawing.Point(225, 343)
+        Me.Log_out.Location = New System.Drawing.Point(225, 390)
         Me.Log_out.Name = "Log_out"
         Me.Log_out.Size = New System.Drawing.Size(87, 47)
         Me.Log_out.TabIndex = 40
@@ -220,14 +225,6 @@ Partial Class Form1
         Me.Panel1.Size = New System.Drawing.Size(803, 47)
         Me.Panel1.TabIndex = 41
         '
-        'Icon_picturebox
-        '
-        Me.Icon_picturebox.Location = New System.Drawing.Point(12, 12)
-        Me.Icon_picturebox.Name = "Icon_picturebox"
-        Me.Icon_picturebox.Size = New System.Drawing.Size(25, 25)
-        Me.Icon_picturebox.TabIndex = 46
-        Me.Icon_picturebox.TabStop = False
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -237,6 +234,63 @@ Partial Class Form1
         Me.Label1.Size = New System.Drawing.Size(140, 20)
         Me.Label1.TabIndex = 46
         Me.Label1.Text = "Sentinnel Antivirus"
+        '
+        'Folder_Scan
+        '
+        Me.Folder_Scan.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(44, Byte), Integer))
+        Me.Folder_Scan.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Folder_Scan.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Folder_Scan.ForeColor = System.Drawing.Color.White
+        Me.Folder_Scan.Location = New System.Drawing.Point(119, 337)
+        Me.Folder_Scan.Name = "Folder_Scan"
+        Me.Folder_Scan.Size = New System.Drawing.Size(100, 100)
+        Me.Folder_Scan.TabIndex = 42
+        Me.Folder_Scan.Text = "Folder Scan"
+        Me.Folder_Scan.UseVisualStyleBackColor = False
+        '
+        'ActiveUser
+        '
+        Me.ActiveUser.AutoSize = True
+        Me.ActiveUser.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ActiveUser.Location = New System.Drawing.Point(51, 63)
+        Me.ActiveUser.Name = "ActiveUser"
+        Me.ActiveUser.Size = New System.Drawing.Size(37, 19)
+        Me.ActiveUser.TabIndex = 43
+        Me.ActiveUser.Text = "User"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Sentinnel.My.Resources.Resources.giphy__6_
+        Me.PictureBox1.Location = New System.Drawing.Point(13, 58)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(30, 30)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 44
+        Me.PictureBox1.TabStop = False
+        '
+        'Window_Button
+        '
+        Me.Window_Button.BackColor = System.Drawing.Color.Transparent
+        Me.Window_Button.BackgroundImage = Global.Sentinnel.My.Resources.Resources.maximize__1_
+        Me.Window_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Window_Button.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Window_Button.FlatAppearance.BorderSize = 0
+        Me.Window_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Window_Button.Location = New System.Drawing.Point(733, 13)
+        Me.Window_Button.Name = "Window_Button"
+        Me.Window_Button.Size = New System.Drawing.Size(25, 25)
+        Me.Window_Button.TabIndex = 6
+        Me.Window_Button.UseVisualStyleBackColor = False
+        '
+        'Icon_picturebox
+        '
+        Me.Icon_picturebox.Image = Global.Sentinnel.My.Resources.Resources.urjja
+        Me.Icon_picturebox.Location = New System.Drawing.Point(12, 12)
+        Me.Icon_picturebox.Name = "Icon_picturebox"
+        Me.Icon_picturebox.Size = New System.Drawing.Size(25, 25)
+        Me.Icon_picturebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Icon_picturebox.TabIndex = 46
+        Me.Icon_picturebox.TabStop = False
         '
         'Close_Button
         '
@@ -279,43 +333,37 @@ Partial Class Form1
         Me.Min_Button.TabIndex = 5
         Me.Min_Button.UseVisualStyleBackColor = False
         '
-        'Window_Button
-        '
-        Me.Window_Button.BackColor = System.Drawing.Color.Transparent
-        Me.Window_Button.BackgroundImage = Global.Sentinnel.My.Resources.Resources.maximize__1_
-        Me.Window_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Window_Button.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Window_Button.FlatAppearance.BorderSize = 0
-        Me.Window_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Window_Button.Location = New System.Drawing.Point(733, 13)
-        Me.Window_Button.Name = "Window_Button"
-        Me.Window_Button.Size = New System.Drawing.Size(25, 25)
-        Me.Window_Button.TabIndex = 6
-        Me.Window_Button.UseVisualStyleBackColor = False
-        '
         'Scan_animation
         '
+        Me.Scan_animation.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(44, Byte), Integer))
         Me.Scan_animation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Scan_animation.Image = Global.Sentinnel.My.Resources.Resources.giphy6_ezgif_com_effects
-        Me.Scan_animation.Location = New System.Drawing.Point(12, 53)
+        Me.Scan_animation.Image = Global.Sentinnel.My.Resources.Resources.start
+        Me.Scan_animation.Location = New System.Drawing.Point(12, 100)
         Me.Scan_animation.Name = "Scan_animation"
         Me.Scan_animation.Size = New System.Drawing.Size(193, 189)
         Me.Scan_animation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.Scan_animation.TabIndex = 25
         Me.Scan_animation.TabStop = False
         '
-        'Folder_Scan
+        'Label7
         '
-        Me.Folder_Scan.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(44, Byte), Integer))
-        Me.Folder_Scan.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Folder_Scan.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Folder_Scan.ForeColor = System.Drawing.Color.White
-        Me.Folder_Scan.Location = New System.Drawing.Point(119, 290)
-        Me.Folder_Scan.Name = "Folder_Scan"
-        Me.Folder_Scan.Size = New System.Drawing.Size(100, 100)
-        Me.Folder_Scan.TabIndex = 42
-        Me.Folder_Scan.Text = "Folder Scan"
-        Me.Folder_Scan.UseVisualStyleBackColor = False
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(207, 104)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(54, 19)
+        Me.Label7.TabIndex = 45
+        Me.Label7.Text = "File List"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(495, 104)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(96, 19)
+        Me.Label8.TabIndex = 46
+        Me.Label8.Text = "Viruses Found"
         '
         'Form1
         '
@@ -323,6 +371,10 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(26, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.ActiveUser)
         Me.Controls.Add(Me.Folder_Scan)
         Me.Controls.Add(Me.Window_Button)
         Me.Controls.Add(Me.Panel1)
@@ -346,6 +398,7 @@ Partial Class Form1
         Me.Text = "Form1"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Icon_picturebox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Scan_animation, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -377,4 +430,8 @@ Partial Class Form1
     Friend WithEvents Max_Button As Button
     Friend WithEvents Min_Button As Button
     Friend WithEvents Folder_Scan As Button
+    Friend WithEvents ActiveUser As Label
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label8 As Label
 End Class

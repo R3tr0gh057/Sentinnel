@@ -7,6 +7,8 @@ Public Class Homepage
     Public Const WM_NCLBUTTONDOWN As Integer = &HA1
     Public Const HT_CAPTION As Integer = &H2
     Public lastFormLocation As Point
+
+    Public user As String = ""
     Dim connectionString As String = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\--PROJECTS2024--\Sentinnel\Sentinnel\SentinnelDB.mdf;Integrated Security=True;Connect Timeout=30"
 
     <DllImportAttribute("user32.dll")>
@@ -84,6 +86,7 @@ Public Class Homepage
                         If count > 0 Then
                             ' User exists with the provided username and password
                             ' Proceed with login
+                            user = username
                             Me.Hide()
                             Form1.Show()
                             Form1.Location = New Point(Me.Location)

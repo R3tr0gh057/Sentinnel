@@ -244,6 +244,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\urjja.png" />
+    <None Include="Resources\start.gif" />
+    <None Include="Resources\UpdatedGIF.gif" />
     <Content Include="SentinnelDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -50,7 +50,6 @@ Public Class AdminPage
         Me.VirusHashTableAdapter.Fill(Me.VirusListDataSet.VirusHash)
         'TODO: This line of code loads data into the 'VirusListDataSet.UserData' table. You can move, or remove it, as needed.
         Me.UserDataTableAdapter.Fill(Me.VirusListDataSet.UserData)
-        Panel4.Hide()
 
         ComboBox1.Items.Clear()
 
@@ -93,15 +92,6 @@ Public Class AdminPage
         End If
     End Sub
 
-    Private Sub User_Stat_Click(sender As Object, e As EventArgs) Handles User_Stat.Click
-        Panel3.Show()
-        Panel4.Hide()
-    End Sub
-
-    Private Sub Database_Manage_Click(sender As Object, e As EventArgs) Handles Database_Manage.Click
-        Panel4.Show()
-    End Sub
-
     Private Sub ComboBox1_TextChanged(sender As Object, e As EventArgs) Handles ComboBox1.TextChanged
         If Not String.IsNullOrEmpty(ComboBox1.Text) Then
             Dim datequery As String = "SELECT joindate FROM UserDB WHERE username = @username"
@@ -141,5 +131,4 @@ Public Class AdminPage
         End Using
         Return value
     End Function
-
 End Class

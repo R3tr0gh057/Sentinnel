@@ -20,8 +20,8 @@ Public Class Form1
     End Function
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Scan_animation.Hide()
-
+        Scan_animation.ImageLocation = "C:\Users\USER\Downloads\start.gif"
+        ActiveUser.Text = Homepage.user
     End Sub
 
     Private Sub Form1_LocationChanged(sender As Object, e As EventArgs) Handles Me.LocationChanged
@@ -98,7 +98,7 @@ Public Class Form1
     'Folder Scan Function call
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Folder_Scan.Click
         If FolderBrowserDialog1.ShowDialog = Windows.Forms.DialogResult.OK Then
-            Scan_animation.Show()
+            Scan_animation.ImageLocation = "C:\Users\USER\Downloads\UpdatedGIF.gif"
             Scan_log.Items.Clear()
         Else
             Exit Sub
@@ -114,73 +114,89 @@ Public Class Form1
         End Try
     End Sub
 
+
     'Scan Logic
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        ProgressBar1.Maximum = CInt(Conversions.ToString(Scan_log.Items.Count))
-        Timer.Text = Conversions.ToString(Scan_log.Items.Count)
+        ProgressBar1.Maximum = Scan_log.Items.Count
+        Timer.Text = Scan_log.Items.Count
         Scan_log.Enabled = False
-        If Not ProgressBar1.Value = ProgressBar1.Maximum Then
+
+        If ProgressBar1.Value < ProgressBar1.Maximum Then
             Try
-                Scan_log.SelectedIndex = Scan_log.SelectedIndex + 1
+                Scan_log.SelectedIndex += 1
                 Label2.Text = Scan_log.SelectedItem.ToString
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
 
             Try
-                Dim scanbox As New TextBox
-                Dim read As String = My.Computer.FileSystem.ReadAllText("D:\list.txt").ToString 'path to virus md5 list
+                Dim md5 As New MD5CryptoServiceProvider()
+                Dim scanbox As String = File.ReadAllText("D:\list.txt").ToUpper ' Path to virus MD5 list
+
+                Dim selectedFilePath As String = Scan_log.SelectedItem.ToString()
+
+                ' Debugging message
+                Debug.WriteLine("Scanning file: " & selectedFilePath)
+
+                Using fs As New FileStream(selectedFilePath, FileMode.Open, FileAccess.Read, FileShare.Read, 8192)
+                    Dim hash As Byte() = md5.ComputeHash(fs)
+                    Dim stringBuilder As New StringBuilder()
+
+                    For Each hashByte As Byte In hash
+                        stringBuilder.Append(hashByte.ToString("X2"))
+                    Next
+
+                    Dim fileMD5 As String = stringBuilder.ToString()
+
+                    ' Debugging message
+                    Debug.WriteLine("File MD5: " & fileMD5)
+
+                    If scanbox.Contains(fileMD5) Then
+                        ' Debugging message
+                        Debug.WriteLine("Malicious file detected: " & selectedFilePath)
+
+                        Scan_result.Items.Add(selectedFilePath)
+                    End If
+                End Using
+
                 ProgressBar1.Increment(1)
-                Label3.Text = Conversions.ToString(Scan_result.Items.Count)
-                Timer.Text = Conversions.ToString(ProgressBar1.Value)
-                scanbox.Text = read.ToString
-                Dim md5 As MD5CryptoServiceProvider = New MD5CryptoServiceProvider
-                Dim fs As FileStream = New FileStream(CStr(Scan_log.SelectedItem), FileMode.Open, FileAccess.Read, FileShare.Read, 8192)
-                md5.ComputeHash(fs)
-                fs.Close()
-                Dim hash As Byte() = md5.Hash
-                Dim buff As StringBuilder = New StringBuilder
-                Dim hashbyte As Byte
-
-                For Each hashbyte In hash
-                    buff.Append(String.Format("{0:X2}", hashbyte))
-                Next
-
-                If scanbox.Text.Contains(buff.ToString) Then
-                    Scan_result.Items.Add(Scan_log.SelectedItem)
-                End If
-
+                Label3.Text = Scan_result.Items.Count
+                Timer.Text = ProgressBar1.Value.ToString()
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
-
         Else
             Scan_log.Enabled = True
             Timer1.Stop()
+
             If Scan_result.Items.Count > 0 Then
-                MessageBox.Show("Scan Completed. There are " + vbCrLf + Scan_result.Items.Count + " possible malicious files.", CStr(MessageBoxButtons.OK))
-                Scan_animation.Hide()
-                File_Scan.Text = "Scan"
-                Exit Sub
+                MessageBox.Show("Scan Completed. There are " & vbCrLf & Scan_result.Items.Count & " possible malicious files.", MessageBoxButtons.OK.ToString())
+            Else
+                MessageBox.Show("Scan Complete." & vbCrLf & "No threats were found.", MessageBoxButtons.OK.ToString())
             End If
-            MessageBox.Show("Scan Complete." + vbCrLf + "No threats were found.", CStr(MessageBoxButtons.OK))
-            Scan_animation.Hide()
+
+            Scan_animation.ImageLocation = "C:\Users\USER\Downloads\start.gif"
             File_Scan.Text = "Scan"
             ProgressBar1.Value = 0
+            Scan_result.Items.Clear()
+            Scan_log.Items.Clear()
+
         End If
     End Sub
+
+
 
     Private Sub Cancel_Button_Click(sender As Object, e As EventArgs) Handles Cancel_Button.Click
         Timer1.Stop()
         If Scan_result.Items.Count > 0 Then
-            MessageBox.Show("Scan Completed. There are " + vbCrLf + Scan_result.Items.Count + " possible malicious files.", CStr(MessageBoxButtons.OK))
-            Scan_animation.Hide()
+            MsgBox("Scan Cancelled, Viruses found : " + Scan_result.Items.Count.ToString())
+            Scan_animation.ImageLocation = "C:\Users\USER\Downloads\start.gif"
             File_Scan.Text = "Scan"
             ProgressBar1.Value = 0
             Scan_log.Items.Clear()
         Else
-            MessageBox.Show("Scan Complete." + vbCrLf + "No threats were found.", CStr(MessageBoxButtons.OK))
-            Scan_animation.Hide()
+            MsgBox("Scan Cancelled")
+            Scan_animation.ImageLocation = "C:\Users\USER\Downloads\start.gif"
             File_Scan.Text = "Scan"
             ProgressBar1.Value = 0
             Scan_log.Items.Clear()
