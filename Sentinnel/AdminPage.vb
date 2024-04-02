@@ -131,4 +131,56 @@ Public Class AdminPage
         End Using
         Return value
     End Function
+
+    ' function to return integer values
+    Public Function getScalar(query As String, user As String) As Decimal
+        Dim count As Decimal = 0.00
+        'connection logic
+        'direct communication without function
+        Try
+            Using connection As New SqlConnection(connectionString)
+                Try
+                    connection.Open()
+                    Using command As New SqlCommand(query, connection)
+                        command.Parameters.AddWithValue("@Username", user)
+                        If IsDBNull(command.ExecuteScalar()) Then
+                            count = 0.00
+                        Else
+                            count = Convert.ToDecimal(command.ExecuteScalar())
+                        End If
+                    End Using
+
+                Catch ex As Exception
+                    MessageBox.Show("Error: " & ex.Message)
+                End Try
+            End Using
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+        Return count
+
+    End Function
+
+    'to return tabel data
+    Private Function getDataTable(query As String, username As String) As DataTable
+        Dim dataTable As New DataTable()
+
+        Try
+            Using connection As New SqlConnection(connectionString)
+                connection.Open()
+                Using command As New SqlCommand(query, connection)
+                    command.Parameters.AddWithValue("@username", username)
+                    Using adapter As New SqlDataAdapter(command)
+                        adapter.Fill(dataTable)
+                    End Using
+                End Using
+            End Using
+        Catch ex As Exception
+            MsgBox("Error retrieving data: " & ex.Message)
+        End Try
+
+        Return dataTable
+    End Function
+
 End Class

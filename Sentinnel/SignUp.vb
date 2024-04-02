@@ -77,6 +77,31 @@ Public Class SignUp
         Homepage.Location = New Point(Me.Location)
     End Sub
 
+    Public Function pushData(query As String, username As String, name As String, seat As String, mobile As String, view As String)
+        Try
+            Using connection As New SqlConnection(connectionString)
+                connection.Open()
+
+                Using command As New SqlCommand(query, connection)
+                    command.Parameters.AddWithValue("@name", name)
+                    command.Parameters.AddWithValue("@seat", seat)
+                    command.Parameters.AddWithValue("@mobile", mobile)
+                    command.Parameters.AddWithValue("@view", view)
+
+                    Dim rowsAffected As Integer = command.ExecuteNonQuery()
+                    If rowsAffected > 0 Then
+                        MessageBox.Show("User successfully added to the database.")
+                    Else
+                        MessageBox.Show("Failed to add user to the database.")
+                    End If
+                End Using
+            End Using
+
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
+        End Try
+    End Function
+
 
     Private Sub Panel1_MouseDown(sender As Object, e As MouseEventArgs) Handles Panel1.MouseDown
         If e.Button = Windows.Forms.MouseButtons.Left Then

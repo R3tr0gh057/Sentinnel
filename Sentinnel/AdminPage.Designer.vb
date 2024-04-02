@@ -28,7 +28,11 @@ Partial Class AdminPage
         Me.VirusDBBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.UserDBBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Icon_picturebox = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Close_Button = New System.Windows.Forms.Button()
+        Me.Max_Button = New System.Windows.Forms.Button()
+        Me.Min_Button = New System.Windows.Forms.Button()
         Me.VirusHashBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.VirusListDataSet = New Sentinnel.VirusListDataSet()
         Me.UserDataBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -52,7 +56,11 @@ Partial Class AdminPage
         Me.Label9 = New System.Windows.Forms.Label()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TextBox12 = New System.Windows.Forms.TextBox()
+        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.adminUpdate = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -65,6 +73,7 @@ Partial Class AdminPage
         Me.PasswordDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.userUpdate = New System.Windows.Forms.Button()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.TextBox8 = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -83,10 +92,7 @@ Partial Class AdminPage
         Me.FirstnameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LastnameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.VirusDGV = New System.Windows.Forms.TabPage()
-        Me.TotalfrequencyDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.VirusnameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Md5DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
@@ -94,37 +100,31 @@ Partial Class AdminPage
         Me.TextBox10 = New System.Windows.Forms.TextBox()
         Me.TextBox11 = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
-        Me.TextBox12 = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Md5DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VirusnameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TotalfrequencyDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Window_Button = New System.Windows.Forms.Button()
-        Me.Icon_picturebox = New System.Windows.Forms.PictureBox()
-        Me.Close_Button = New System.Windows.Forms.Button()
-        Me.Max_Button = New System.Windows.Forms.Button()
-        Me.Min_Button = New System.Windows.Forms.Button()
         CType(Me.AdminDBBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SentinnelDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VirusDBBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UserDBBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        CType(Me.Icon_picturebox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VirusHashBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VirusListDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UserDataBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VirusHashBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         CType(Me.adminDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
         CType(Me.UserDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.VirusDGV.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Icon_picturebox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'AdminDBBindingSource
@@ -162,6 +162,16 @@ Partial Class AdminPage
         Me.Panel1.Size = New System.Drawing.Size(801, 47)
         Me.Panel1.TabIndex = 42
         '
+        'Icon_picturebox
+        '
+        Me.Icon_picturebox.Image = Global.Sentinnel.My.Resources.Resources.urjja
+        Me.Icon_picturebox.Location = New System.Drawing.Point(12, 12)
+        Me.Icon_picturebox.Name = "Icon_picturebox"
+        Me.Icon_picturebox.Size = New System.Drawing.Size(25, 25)
+        Me.Icon_picturebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Icon_picturebox.TabIndex = 46
+        Me.Icon_picturebox.TabStop = False
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -171,6 +181,47 @@ Partial Class AdminPage
         Me.Label1.Size = New System.Drawing.Size(140, 20)
         Me.Label1.TabIndex = 46
         Me.Label1.Text = "Sentinnel Antivirus"
+        '
+        'Close_Button
+        '
+        Me.Close_Button.BackColor = System.Drawing.Color.Transparent
+        Me.Close_Button.BackgroundImage = Global.Sentinnel.My.Resources.Resources.close
+        Me.Close_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Close_Button.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Close_Button.FlatAppearance.BorderSize = 0
+        Me.Close_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Close_Button.Location = New System.Drawing.Point(763, 12)
+        Me.Close_Button.Name = "Close_Button"
+        Me.Close_Button.Size = New System.Drawing.Size(25, 25)
+        Me.Close_Button.TabIndex = 3
+        Me.Close_Button.UseVisualStyleBackColor = False
+        '
+        'Max_Button
+        '
+        Me.Max_Button.BackgroundImage = Global.Sentinnel.My.Resources.Resources.fullscreen_exit
+        Me.Max_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Max_Button.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Max_Button.FlatAppearance.BorderSize = 0
+        Me.Max_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Max_Button.Location = New System.Drawing.Point(732, 12)
+        Me.Max_Button.Name = "Max_Button"
+        Me.Max_Button.Size = New System.Drawing.Size(25, 25)
+        Me.Max_Button.TabIndex = 4
+        Me.Max_Button.UseVisualStyleBackColor = True
+        '
+        'Min_Button
+        '
+        Me.Min_Button.BackColor = System.Drawing.Color.Transparent
+        Me.Min_Button.BackgroundImage = Global.Sentinnel.My.Resources.Resources.minus
+        Me.Min_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Min_Button.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Min_Button.FlatAppearance.BorderSize = 0
+        Me.Min_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Min_Button.Location = New System.Drawing.Point(701, 12)
+        Me.Min_Button.Name = "Min_Button"
+        Me.Min_Button.Size = New System.Drawing.Size(25, 25)
+        Me.Min_Button.TabIndex = 5
+        Me.Min_Button.UseVisualStyleBackColor = False
         '
         'VirusHashBindingSource1
         '
@@ -368,10 +419,34 @@ Partial Class AdminPage
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "User Statistics"
         '
+        'TextBox12
+        '
+        Me.TextBox12.Location = New System.Drawing.Point(350, 0)
+        Me.TextBox12.Multiline = True
+        Me.TextBox12.Name = "TextBox12"
+        Me.TextBox12.Size = New System.Drawing.Size(10, 376)
+        Me.TextBox12.TabIndex = 84
+        '
+        'DataGridView3
+        '
+        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView3.Location = New System.Drawing.Point(374, 243)
+        Me.DataGridView3.Name = "DataGridView3"
+        Me.DataGridView3.Size = New System.Drawing.Size(402, 123)
+        Me.DataGridView3.TabIndex = 83
+        '
+        'DataGridView2
+        '
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Location = New System.Drawing.Point(374, 79)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.Size = New System.Drawing.Size(402, 123)
+        Me.DataGridView2.TabIndex = 82
+        '
         'TabPage2
         '
         Me.TabPage2.BackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(26, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.TabPage2.Controls.Add(Me.Button3)
+        Me.TabPage2.Controls.Add(Me.adminUpdate)
         Me.TabPage2.Controls.Add(Me.Label8)
         Me.TabPage2.Controls.Add(Me.Label10)
         Me.TabPage2.Controls.Add(Me.Label11)
@@ -387,6 +462,15 @@ Partial Class AdminPage
         Me.TabPage2.Size = New System.Drawing.Size(793, 376)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Admin DB"
+        '
+        'adminUpdate
+        '
+        Me.adminUpdate.Location = New System.Drawing.Point(698, 183)
+        Me.adminUpdate.Name = "adminUpdate"
+        Me.adminUpdate.Size = New System.Drawing.Size(86, 31)
+        Me.adminUpdate.TabIndex = 92
+        Me.adminUpdate.Text = "Update"
+        Me.adminUpdate.UseVisualStyleBackColor = True
         '
         'Label8
         '
@@ -485,7 +569,7 @@ Partial Class AdminPage
         'TabPage3
         '
         Me.TabPage3.BackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(26, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.TabPage3.Controls.Add(Me.Button1)
+        Me.TabPage3.Controls.Add(Me.userUpdate)
         Me.TabPage3.Controls.Add(Me.Label17)
         Me.TabPage3.Controls.Add(Me.TextBox8)
         Me.TabPage3.Controls.Add(Me.Label16)
@@ -505,6 +589,15 @@ Partial Class AdminPage
         Me.TabPage3.Size = New System.Drawing.Size(793, 376)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "User DB"
+        '
+        'userUpdate
+        '
+        Me.userUpdate.Location = New System.Drawing.Point(698, 183)
+        Me.userUpdate.Name = "userUpdate"
+        Me.userUpdate.Size = New System.Drawing.Size(86, 31)
+        Me.userUpdate.TabIndex = 91
+        Me.userUpdate.Text = "Update"
+        Me.userUpdate.UseVisualStyleBackColor = True
         '
         'Label17
         '
@@ -668,34 +761,14 @@ Partial Class AdminPage
         Me.VirusDGV.TabIndex = 3
         Me.VirusDGV.Text = "Virus DB"
         '
-        'TotalfrequencyDataGridViewTextBoxColumn
+        'Button2
         '
-        Me.TotalfrequencyDataGridViewTextBoxColumn.DataPropertyName = "totalfrequency"
-        Me.TotalfrequencyDataGridViewTextBoxColumn.HeaderText = "totalfrequency"
-        Me.TotalfrequencyDataGridViewTextBoxColumn.Name = "TotalfrequencyDataGridViewTextBoxColumn"
-        '
-        'VirusnameDataGridViewTextBoxColumn
-        '
-        Me.VirusnameDataGridViewTextBoxColumn.DataPropertyName = "virusname"
-        Me.VirusnameDataGridViewTextBoxColumn.HeaderText = "virusname"
-        Me.VirusnameDataGridViewTextBoxColumn.Name = "VirusnameDataGridViewTextBoxColumn"
-        '
-        'Md5DataGridViewTextBoxColumn
-        '
-        Me.Md5DataGridViewTextBoxColumn.DataPropertyName = "md5"
-        Me.Md5DataGridViewTextBoxColumn.HeaderText = "md5"
-        Me.Md5DataGridViewTextBoxColumn.Name = "Md5DataGridViewTextBoxColumn"
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Md5DataGridViewTextBoxColumn, Me.VirusnameDataGridViewTextBoxColumn, Me.TotalfrequencyDataGridViewTextBoxColumn})
-        Me.DataGridView1.DataSource = Me.VirusDBBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(6, 220)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(781, 150)
-        Me.DataGridView1.TabIndex = 0
+        Me.Button2.Location = New System.Drawing.Point(698, 183)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(86, 31)
+        Me.Button2.TabIndex = 92
+        Me.Button2.Text = "Update"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'Label18
         '
@@ -762,56 +835,34 @@ Partial Class AdminPage
         Me.Label21.TabIndex = 80
         Me.Label21.Text = "Edit VirusDB"
         '
-        'DataGridView2
+        'DataGridView1
         '
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(374, 79)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(402, 123)
-        Me.DataGridView2.TabIndex = 82
+        Me.DataGridView1.AutoGenerateColumns = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Md5DataGridViewTextBoxColumn, Me.VirusnameDataGridViewTextBoxColumn, Me.TotalfrequencyDataGridViewTextBoxColumn})
+        Me.DataGridView1.DataSource = Me.VirusDBBindingSource
+        Me.DataGridView1.Location = New System.Drawing.Point(6, 220)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(781, 150)
+        Me.DataGridView1.TabIndex = 0
         '
-        'DataGridView3
+        'Md5DataGridViewTextBoxColumn
         '
-        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView3.Location = New System.Drawing.Point(374, 243)
-        Me.DataGridView3.Name = "DataGridView3"
-        Me.DataGridView3.Size = New System.Drawing.Size(402, 123)
-        Me.DataGridView3.TabIndex = 83
+        Me.Md5DataGridViewTextBoxColumn.DataPropertyName = "md5"
+        Me.Md5DataGridViewTextBoxColumn.HeaderText = "md5"
+        Me.Md5DataGridViewTextBoxColumn.Name = "Md5DataGridViewTextBoxColumn"
         '
-        'TextBox12
+        'VirusnameDataGridViewTextBoxColumn
         '
-        Me.TextBox12.Location = New System.Drawing.Point(350, 0)
-        Me.TextBox12.Multiline = True
-        Me.TextBox12.Name = "TextBox12"
-        Me.TextBox12.Size = New System.Drawing.Size(10, 376)
-        Me.TextBox12.TabIndex = 84
+        Me.VirusnameDataGridViewTextBoxColumn.DataPropertyName = "virusname"
+        Me.VirusnameDataGridViewTextBoxColumn.HeaderText = "virusname"
+        Me.VirusnameDataGridViewTextBoxColumn.Name = "VirusnameDataGridViewTextBoxColumn"
         '
-        'Button1
+        'TotalfrequencyDataGridViewTextBoxColumn
         '
-        Me.Button1.Location = New System.Drawing.Point(698, 183)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(86, 31)
-        Me.Button1.TabIndex = 91
-        Me.Button1.Text = "Update"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(698, 183)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(86, 31)
-        Me.Button2.TabIndex = 92
-        Me.Button2.Text = "Update"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(698, 183)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(86, 31)
-        Me.Button3.TabIndex = 92
-        Me.Button3.Text = "Update"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.TotalfrequencyDataGridViewTextBoxColumn.DataPropertyName = "totalfrequency"
+        Me.TotalfrequencyDataGridViewTextBoxColumn.HeaderText = "totalfrequency"
+        Me.TotalfrequencyDataGridViewTextBoxColumn.Name = "TotalfrequencyDataGridViewTextBoxColumn"
         '
         'Window_Button
         '
@@ -826,57 +877,6 @@ Partial Class AdminPage
         Me.Window_Button.Size = New System.Drawing.Size(25, 25)
         Me.Window_Button.TabIndex = 53
         Me.Window_Button.UseVisualStyleBackColor = False
-        '
-        'Icon_picturebox
-        '
-        Me.Icon_picturebox.Image = Global.Sentinnel.My.Resources.Resources.urjja
-        Me.Icon_picturebox.Location = New System.Drawing.Point(12, 12)
-        Me.Icon_picturebox.Name = "Icon_picturebox"
-        Me.Icon_picturebox.Size = New System.Drawing.Size(25, 25)
-        Me.Icon_picturebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.Icon_picturebox.TabIndex = 46
-        Me.Icon_picturebox.TabStop = False
-        '
-        'Close_Button
-        '
-        Me.Close_Button.BackColor = System.Drawing.Color.Transparent
-        Me.Close_Button.BackgroundImage = Global.Sentinnel.My.Resources.Resources.close
-        Me.Close_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Close_Button.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Close_Button.FlatAppearance.BorderSize = 0
-        Me.Close_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Close_Button.Location = New System.Drawing.Point(763, 12)
-        Me.Close_Button.Name = "Close_Button"
-        Me.Close_Button.Size = New System.Drawing.Size(25, 25)
-        Me.Close_Button.TabIndex = 3
-        Me.Close_Button.UseVisualStyleBackColor = False
-        '
-        'Max_Button
-        '
-        Me.Max_Button.BackgroundImage = Global.Sentinnel.My.Resources.Resources.fullscreen_exit
-        Me.Max_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Max_Button.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Max_Button.FlatAppearance.BorderSize = 0
-        Me.Max_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Max_Button.Location = New System.Drawing.Point(732, 12)
-        Me.Max_Button.Name = "Max_Button"
-        Me.Max_Button.Size = New System.Drawing.Size(25, 25)
-        Me.Max_Button.TabIndex = 4
-        Me.Max_Button.UseVisualStyleBackColor = True
-        '
-        'Min_Button
-        '
-        Me.Min_Button.BackColor = System.Drawing.Color.Transparent
-        Me.Min_Button.BackgroundImage = Global.Sentinnel.My.Resources.Resources.minus
-        Me.Min_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Min_Button.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Min_Button.FlatAppearance.BorderSize = 0
-        Me.Min_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Min_Button.Location = New System.Drawing.Point(701, 12)
-        Me.Min_Button.Name = "Min_Button"
-        Me.Min_Button.Size = New System.Drawing.Size(25, 25)
-        Me.Min_Button.TabIndex = 5
-        Me.Min_Button.UseVisualStyleBackColor = False
         '
         'AdminPage
         '
@@ -896,6 +896,7 @@ Partial Class AdminPage
         CType(Me.UserDBBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.Icon_picturebox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VirusHashBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VirusListDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UserDataBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -903,6 +904,8 @@ Partial Class AdminPage
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         CType(Me.adminDGV, System.ComponentModel.ISupportInitialize).EndInit()
@@ -912,9 +915,6 @@ Partial Class AdminPage
         Me.VirusDGV.ResumeLayout(False)
         Me.VirusDGV.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Icon_picturebox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -997,7 +997,7 @@ Partial Class AdminPage
     Friend WithEvents DataGridView2 As DataGridView
     Friend WithEvents TextBox12 As TextBox
     Friend WithEvents DataGridView3 As DataGridView
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents adminUpdate As Button
+    Friend WithEvents userUpdate As Button
     Friend WithEvents Button2 As Button
 End Class
