@@ -134,14 +134,6 @@
     <Compile Include="SignUp.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VirusListDataSet.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VirusListDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="VirusListDataSet.vb">
-      <DependentUpon>VirusListDataSet.xsd</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AdminPage.resx">
@@ -184,17 +176,6 @@
     </None>
     <None Include="SentinnelDBDataSet.xss">
       <DependentUpon>SentinnelDBDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="VirusListDataSet.xsc">
-      <DependentUpon>VirusListDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="VirusListDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>VirusListDataSet.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="VirusListDataSet.xss">
-      <DependentUpon>VirusListDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -246,20 +227,6 @@
     <None Include="Resources\urjja.png" />
     <None Include="Resources\start.gif" />
     <None Include="Resources\UpdatedGIF.gif" />
-    <Content Include="SentinnelDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SentinnelDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>SentinnelDB.mdf</DependentUpon>
-    </Content>
-    <Content Include="VirusList.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="VirusList_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>VirusList.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

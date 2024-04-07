@@ -4,6 +4,7 @@ Imports System.Data.SqlClient
 Public Class AdminPage
 
     Dim connectionString As String = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\--PROJECTS2024--\Sentinnel\Sentinnel\SentinnelDB.mdf;Integrated Security=True;Connect Timeout=30"
+    Dim username As String = Homepage.user
 
     'code to move the form
     Public Const WM_NCLBUTTONDOWN As Integer = &HA1
@@ -40,16 +41,29 @@ Public Class AdminPage
         Max_Button.Show()
     End Sub
     Private Sub AdminPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'SentinnelDBDataSet.AdminDB' table. You can move, or remove it, as needed.
-        Me.AdminDBTableAdapter.Fill(Me.SentinnelDBDataSet.AdminDB)
-        'TODO: This line of code loads data into the 'SentinnelDBDataSet.VirusDB' table. You can move, or remove it, as needed.
-        Me.VirusDBTableAdapter.Fill(Me.SentinnelDBDataSet.VirusDB)
-        'TODO: This line of code loads data into the 'SentinnelDBDataSet.UserDB' table. You can move, or remove it, as needed.
-        Me.UserDBTableAdapter.Fill(Me.SentinnelDBDataSet.UserDB)
-        'TODO: This line of code loads data into the 'VirusListDataSet.VirusHash' table. You can move, or remove it, as needed.
-        Me.VirusHashTableAdapter.Fill(Me.VirusListDataSet.VirusHash)
-        'TODO: This line of code loads data into the 'VirusListDataSet.UserData' table. You can move, or remove it, as needed.
-        Me.UserDataTableAdapter.Fill(Me.VirusListDataSet.UserData)
+        DataGridView3.DataSource = getDataTable("SELECT virus_md5 AS VirusMD5, COUNT(*) AS VirusCount FROM VirusFinding GROUP BY virus_md5 ORDER BY VirusCount ASC", Homepage.user)
+        ' Adjust the width of columns to fit their content
+        For Each column As DataGridViewColumn In DataGridView3.Columns
+            column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Next
+
+        AdminGV.DataSource = getDataTable("SELECT * FROM AdminDB", Homepage.user)
+        ' Adjust the width of columns to fit their content
+        For Each column As DataGridViewColumn In AdminGV.Columns
+            column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Next
+
+        userGV.DataSource = getDataTable("SELECT * FROM UserDB", Homepage.user)
+        ' Adjust the width of columns to fit their content
+        For Each column As DataGridViewColumn In userGV.Columns
+            column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Next
+
+        VirusGV.DataSource = getDataTable("SELECT * FROM VirusFinding", Homepage.user)
+        ' Adjust the width of columns to fit their content
+        For Each column As DataGridViewColumn In VirusGV.Columns
+            column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Next
 
         ComboBox1.Items.Clear()
 
@@ -93,17 +107,22 @@ Public Class AdminPage
     End Sub
 
     Private Sub ComboBox1_TextChanged(sender As Object, e As EventArgs) Handles ComboBox1.TextChanged
+        DataGridView2.ClearSelection()
+        DataGridView3.ClearSelection()
         If Not String.IsNullOrEmpty(ComboBox1.Text) Then
             Dim datequery As String = "SELECT joindate FROM UserDB WHERE username = @username"
-            Dim filequery As String = "SELECT filesScanned FROM UserDB WHERE username = @username"
-            Dim infquery As String = "SELECT virusFrequency FROM UserDB WHERE username = @username"
+            Dim filequery As String = "SELECT SUM(files_scanned) FROM ScanData WHERE username = @username"
+            Dim infquery As String = "SELECT COUNT(virus_md5) FROM VirusFinding WHERE username = @username"
             Try
                 Dim joindate As String = sendQuery(datequery, "joindate", ComboBox1.Text)
-                Dim filescanned As String = sendQuery(filequery, "filesScanned", ComboBox1.Text)
-                Dim infection As String = sendQuery(infquery, "virusFrequency", ComboBox1.Text)
+                Dim filescanned As String = getScalar(filequery, ComboBox1.Text)
+                Dim infection As String = getScalar(infquery, ComboBox1.Text)
                 Date_box.Text = joindate
                 File_count.Text = filescanned
                 Inf_score.Text = infection
+
+                DataGridView2.DataSource = getDataTable("SELECT id, virus_md5, file_path, finding_date FROM VirusFinding WHERE username = @Username", ComboBox1.Text)
+
             Catch ex As Exception
                 MessageBox.Show("Error retrieving joindate: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
@@ -170,7 +189,7 @@ Public Class AdminPage
             Using connection As New SqlConnection(connectionString)
                 connection.Open()
                 Using command As New SqlCommand(query, connection)
-                    command.Parameters.AddWithValue("@username", username)
+                    command.Parameters.AddWithValue("@Username", username)
                     Using adapter As New SqlDataAdapter(command)
                         adapter.Fill(dataTable)
                     End Using
@@ -183,4 +202,192 @@ Public Class AdminPage
         Return dataTable
     End Function
 
+    Private Sub adminUpdate_Click(sender As Object, e As EventArgs) Handles adminUpdate.Click
+        Dim adminKey As String = TextBox1.Text
+        Dim username As String = TextBox3.Text
+        Dim password As String = TextBox2.Text
+
+        If Not String.IsNullOrEmpty(adminKey) AndAlso Not String.IsNullOrEmpty(username) AndAlso Not String.IsNullOrEmpty(password) Then
+            Using connection As New SqlConnection(connectionString)
+                Dim query As String = "INSERT INTO AdminDB (adminKey, username, password) VALUES (@AdminKey, @Username, @Password)"
+                Dim command As New SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@AdminKey", adminKey)
+                command.Parameters.AddWithValue("@Username", username)
+                command.Parameters.AddWithValue("@Password", password)
+
+                Try
+                    connection.Open()
+                    command.ExecuteNonQuery()
+                    MessageBox.Show("Admin added successfully.")
+
+                    ' Refresh tables
+                    AdminGV.DataSource = getDataTable("SELECT * FROM AdminDB", Homepage.user)
+                    ' Adjust the width of columns to fit their content
+                    For Each column As DataGridViewColumn In AdminGV.Columns
+                        column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                    Next
+                    ' Clear textboxes after successful insertion
+                    TextBox1.Text = ""
+                    TextBox3.Text = ""
+                    TextBox2.Text = ""
+                Catch ex As Exception
+                    MessageBox.Show("Error: " & ex.Message)
+                End Try
+            End Using
+        Else
+            MessageBox.Show("Please fill in all fields.")
+        End If
+    End Sub
+
+    Private Sub userUpdate_Click(sender As Object, e As EventArgs) Handles userUpdate.Click
+        Dim username As String = TextBox5.Text
+        Dim password As String = TextBox6.Text
+        Dim joinDate As Date = DateTime.Parse(DateTimePicker1.Text)
+        Dim firstName As String = TextBox7.Text
+        Dim lastName As String = TextBox8.Text
+
+        If Not String.IsNullOrEmpty(username) AndAlso Not String.IsNullOrEmpty(password) AndAlso Not String.IsNullOrEmpty(DateTimePicker1.Text) AndAlso Not String.IsNullOrEmpty(firstName) AndAlso Not String.IsNullOrEmpty(lastName) Then
+            Using connection As New SqlConnection(connectionString)
+                Dim query As String = "INSERT INTO UserDB (username, password, joindate, firstname, lastname) VALUES (@Username, @Password, @JoinDate, @FirstName, @LastName)"
+                Dim command As New SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@Username", username)
+                command.Parameters.AddWithValue("@Password", password)
+                command.Parameters.AddWithValue("@JoinDate", joinDate)
+                command.Parameters.AddWithValue("@FirstName", firstName)
+                command.Parameters.AddWithValue("@LastName", lastName)
+
+                Try
+                    connection.Open()
+                    command.ExecuteNonQuery()
+                    MessageBox.Show("User data inserted successfully.")
+
+                    ' Refresh tables
+                    userGV.DataSource = getDataTable("SELECT * FROM UserDB", Homepage.user)
+                    ' Adjust the width of columns to fit their content
+                    For Each column As DataGridViewColumn In userGV.Columns
+                        column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                    Next
+
+                    ' Clear textboxes after successful insertion
+                    TextBox5.Text = ""
+                    TextBox6.Text = ""
+                    TextBox7.Text = ""
+                    TextBox8.Text = ""
+                Catch ex As Exception
+                    MessageBox.Show("Error: " & ex.Message)
+                End Try
+            End Using
+        Else
+            MessageBox.Show("Please fill in all fields.")
+        End If
+    End Sub
+
+    Private Sub virusUpdate_Click(sender As Object, e As EventArgs) Handles virusUpdate.Click
+        Dim username As String = TextBox11.Text
+        Dim virus_md5 As String = TextBox15.Text
+        Dim file_path As String = TextBox16.Text
+        Dim finding_date As DateTime
+
+        If DateTime.TryParse(DateTimePicker2.Text, finding_date) Then
+            Using connection As New SqlConnection(connectionString)
+                Dim query As String = "INSERT INTO VirusFinding (username, virus_md5, file_path, finding_date) VALUES (@Username, @VirusMD5, @FilePath, @FindingDate)"
+                Dim command As New SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@Username", username)
+                command.Parameters.AddWithValue("@VirusMD5", virus_md5)
+                command.Parameters.AddWithValue("@FilePath", file_path)
+                command.Parameters.AddWithValue("@FindingDate", finding_date)
+
+                Try
+                    connection.Open()
+                    command.ExecuteNonQuery()
+                    MessageBox.Show("Data inserted successfully.")
+
+                    ' Refresh tables
+                    VirusGV.DataSource = getDataTable("SELECT * FROM VirusFinding", Homepage.user)
+                    ' Adjust the width of columns to fit their content
+                    For Each column As DataGridViewColumn In VirusGV.Columns
+                        column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                    Next
+
+                    ' Clear textboxes after successful insertion
+                    TextBox11.Text = ""
+                    TextBox15.Text = ""
+                    TextBox16.Text = ""
+                Catch ex As Exception
+                    MessageBox.Show("Error: " & ex.Message)
+                End Try
+            End Using
+        Else
+            MessageBox.Show("Invalid date format. Please enter the date in correct format (e.g., YYYY-MM-DD HH:MM:SS).")
+        End If
+    End Sub
+
+    Private Sub InsertData(values() As String)
+        ' Establish connection
+        Using connection As New SqlConnection(connectionString)
+            connection.Open()
+
+            ' Create SQL command to insert data into Applications table
+            Dim sql As String = "INSERT INTO Applications ([Full_Name], [Date_of_Birth], [Email], [Phone], [Address], [Course_Stream], [Course_Name], [Amount], [Payment_Method]) " &
+                                "VALUES (@FullName, @DateOfBirth, @Email, @Phone, @Address, @CourseStream, @CourseName, @Amount, @PaymentMethod)"
+            Using cmd As New SqlCommand(sql, connection)
+                ' Add parameters
+                cmd.Parameters.AddWithValue("@FullName", values(0))
+                cmd.Parameters.AddWithValue("@DateOfBirth", Convert.ToDateTime(values(1)))
+                cmd.Parameters.AddWithValue("@Email", values(2))
+                cmd.Parameters.AddWithValue("@Phone", values(3))
+                cmd.Parameters.AddWithValue("@Address", values(4))
+                cmd.Parameters.AddWithValue("@CourseStream", values(5))
+                cmd.Parameters.AddWithValue("@CourseName", values(6))
+                cmd.Parameters.AddWithValue("@Amount", Convert.ToDecimal(values(7)))
+                cmd.Parameters.AddWithValue("@PaymentMethod", values(8))
+
+                ' Execute the command
+                cmd.ExecuteNonQuery()
+
+                ' Refresh DataGridView
+                'LoadDataIntoDataGridView()
+
+                ' Clear textboxes
+                For Each textbox As TextBox In Me.Controls.OfType(Of TextBox)()
+                    textbox.Clear()
+                Next
+            End Using
+        End Using
+    End Sub
+
+    Private Sub UpdateData(id As Integer, values() As String)
+        ' Establish connection
+        Using connection As New SqlConnection(connectionString)
+            connection.Open()
+
+            ' Create SQL command to update data in Applications table
+            Dim sql As String = "UPDATE Applications SET [Full_Name] = @FullName, [Date_of_Birth] = @DateOfBirth, [Email] = @Email, [Phone] = @Phone, [Address] = @Address, " &
+                                "[Course_Stream] = @CourseStream, [Course_Name] = @CourseName, [Amount] = @Amount, [Payment_Method] = @PaymentMethod WHERE [id] = @id"
+            Using cmd As New SqlCommand(sql, connection)
+                ' Add parameters
+                cmd.Parameters.AddWithValue("@FullName", values(0))
+                cmd.Parameters.AddWithValue("@DateOfBirth", Convert.ToDateTime(values(1)))
+                cmd.Parameters.AddWithValue("@Email", values(2))
+                cmd.Parameters.AddWithValue("@Phone", values(3))
+                cmd.Parameters.AddWithValue("@Address", values(4))
+                cmd.Parameters.AddWithValue("@CourseStream", values(5))
+                cmd.Parameters.AddWithValue("@CourseName", values(6))
+                cmd.Parameters.AddWithValue("@Amount", Convert.ToDecimal(values(7)))
+                cmd.Parameters.AddWithValue("@PaymentMethod", values(8))
+                cmd.Parameters.AddWithValue("@id", id)
+
+                ' Execute the command
+                cmd.ExecuteNonQuery()
+
+                ' Refresh DataGridView
+                'LoadDataIntoDataGridView()
+
+                ' Clear textboxes
+                For Each textbox As TextBox In Me.Controls.OfType(Of TextBox)()
+                    textbox.Clear()
+                Next
+            End Using
+        End Using
+    End Sub
 End Class

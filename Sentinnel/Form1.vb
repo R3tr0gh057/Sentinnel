@@ -1,10 +1,16 @@
-﻿Imports System.IO
-Imports System.Security.Cryptography 'md5 converter
+﻿Imports System.Data.SqlClient
+Imports System.IO
+Imports System.Security.Cryptography
 Imports System.Text
 Imports Microsoft.VisualBasic.CompilerServices
 Imports System.Runtime.InteropServices
+Imports System.Runtime.Remoting.Metadata.W3cXsd2001
 
 Public Class Form1
+
+    ' Define your connection string
+    Dim connectionString As String = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\--PROJECTS2024--\Sentinnel\Sentinnel\SentinnelDB.mdf;Integrated Security=True;Connect Timeout=30"
+    Dim username As String = Homepage.user
 
     'code to move the form
     Public Const WM_NCLBUTTONDOWN As Integer = &HA1
@@ -91,6 +97,13 @@ Public Class Form1
                     End If
                 End Using
             End Using
+
+            ' Insert scan data into ScanData table
+            Dim scanDate As DateTime = DateTime.Now
+            InsertScanData(ActiveUser.Text, scanDate, 1)
+
+            ' Insert virus finding into VirusFinding table
+            InsertVirusFinding(selectedFilePath, md5val, scanDate)
         End If
 
     End Sub
@@ -111,6 +124,67 @@ Public Class Form1
             Timer1.Start()
         Catch ex As Exception
             MsgBox(ex.Message)
+        End Try
+
+        ' Insert scan data into ScanData table
+        Dim scanDate As DateTime = DateTime.Now
+        InsertScanData(ActiveUser.Text, scanDate, Scan_log.Items.Count)
+
+        ' Insert virus finding into VirusFinding table for each file
+        For Each filePath As String In Scan_log.Items
+            Dim md5 As String = CalculateMD5(filePath)
+        Next
+
+    End Sub
+
+    ' Function to calculate MD5 hash of a file
+    Private Function CalculateMD5(filePath As String) As String
+        Using md5 As New MD5CryptoServiceProvider()
+            Using stream As New FileStream(filePath, FileMode.Open, FileAccess.Read)
+                Dim hashBytes() As Byte = md5.ComputeHash(stream)
+                Dim stringBuilder As New StringBuilder()
+                For Each hashByte As Byte In hashBytes
+                    stringBuilder.Append(hashByte.ToString("x2"))
+                Next
+                Return stringBuilder.ToString()
+            End Using
+        End Using
+    End Function
+
+    ' Function to insert data into ScanData table
+    Private Sub InsertScanData(username As String, scanDate As DateTime, filesScanned As Integer)
+        Try
+            Using connection As New SqlConnection(connectionString)
+                connection.Open()
+                Dim query As String = "INSERT INTO ScanData (username, scan_date, files_scanned) VALUES (@Username, @ScanDate, @FilesScanned)"
+                Using command As New SqlCommand(query, connection)
+                    command.Parameters.AddWithValue("@Username", username)
+                    command.Parameters.AddWithValue("@ScanDate", scanDate)
+                    command.Parameters.AddWithValue("@FilesScanned", filesScanned)
+                    command.ExecuteNonQuery()
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error inserting data into ScanData table: " & ex.Message)
+        End Try
+    End Sub
+
+    ' Function to insert data into VirusFinding table
+    Private Sub InsertVirusFinding(filePath As String, virusMd5 As String, scanDate As DateTime)
+        Try
+            Using connection As New SqlConnection(connectionString)
+                connection.Open()
+                Dim query As String = "INSERT INTO VirusFinding (username, virus_md5, file_path, finding_date) VALUES (@Username, @VirusMd5, @FilePath, @ScanDate)"
+                Using command As New SqlCommand(query, connection)
+                    command.Parameters.AddWithValue("@Username", username)
+                    command.Parameters.AddWithValue("@FilePath", filePath)
+                    command.Parameters.AddWithValue("@VirusMd5", virusMd5)
+                    command.Parameters.AddWithValue("@ScanDate", scanDate)
+                    command.ExecuteNonQuery()
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error inserting data into VirusFinding table: " & ex.Message)
         End Try
     End Sub
 
@@ -154,6 +228,8 @@ Public Class Form1
                     If scanbox.Contains(fileMD5) Then
                         ' Debugging message
                         Debug.WriteLine("Malicious file detected: " & selectedFilePath)
+                        Dim scanDate As DateTime = DateTime.Now
+                        InsertVirusFinding(selectedFilePath, fileMD5, scanDate)
 
                         Scan_result.Items.Add(selectedFilePath)
                     End If

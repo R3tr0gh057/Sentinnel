@@ -53,28 +53,6 @@ Namespace My
                 Return defaultInstance
             End Get
         End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\VirusList.mdf"& _ 
-            ";Integrated Security=True;Connect Timeout=30")>  _
-        Public ReadOnly Property VirusListConnectionString() As String
-            Get
-                Return CType(Me("VirusListConnectionString"),String)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\SentinnelDB.m"& _ 
-            "df;Integrated Security=True;Connect Timeout=30")>  _
-        Public ReadOnly Property SentinnelDBConnectionString() As String
-            Get
-                Return CType(Me("SentinnelDBConnectionString"),String)
-            End Get
-        End Property
     End Class
 End Namespace
 
