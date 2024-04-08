@@ -46,6 +46,7 @@ Partial Class AdminPage
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.TextBox13 = New System.Windows.Forms.TextBox()
@@ -60,6 +61,7 @@ Partial Class AdminPage
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label23 = New System.Windows.Forms.Label()
@@ -78,6 +80,7 @@ Partial Class AdminPage
         Me.TextBox6 = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.VirusDGV = New System.Windows.Forms.TabPage()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.TextBox16 = New System.Windows.Forms.TextBox()
@@ -94,9 +97,6 @@ Partial Class AdminPage
         Me.VirusGV = New System.Windows.Forms.DataGridView()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Window_Button = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.Icon_picturebox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -392,6 +392,15 @@ Partial Class AdminPage
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Admin DB"
         '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(258, 85)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(86, 31)
+        Me.Button4.TabIndex = 118
+        Me.Button4.Text = "Update"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
         'Label29
         '
         Me.Label29.AutoSize = True
@@ -444,7 +453,7 @@ Partial Class AdminPage
         Me.adminUpdate.Name = "adminUpdate"
         Me.adminUpdate.Size = New System.Drawing.Size(86, 31)
         Me.adminUpdate.TabIndex = 92
-        Me.adminUpdate.Text = "Update"
+        Me.adminUpdate.Text = "Add"
         Me.adminUpdate.UseVisualStyleBackColor = True
         '
         'Label8
@@ -541,6 +550,15 @@ Partial Class AdminPage
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "User DB"
         '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(599, 116)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(86, 31)
+        Me.Button5.TabIndex = 119
+        Me.Button5.Text = "Update"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
         'Label28
         '
         Me.Label28.AutoSize = True
@@ -600,7 +618,7 @@ Partial Class AdminPage
         Me.userUpdate.Name = "userUpdate"
         Me.userUpdate.Size = New System.Drawing.Size(86, 31)
         Me.userUpdate.TabIndex = 91
-        Me.userUpdate.Text = "Update"
+        Me.userUpdate.Text = "Add"
         Me.userUpdate.UseVisualStyleBackColor = True
         '
         'Label17
@@ -724,6 +742,15 @@ Partial Class AdminPage
         Me.VirusDGV.TabIndex = 3
         Me.VirusDGV.Text = "Virus DB"
         '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(350, 119)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(86, 31)
+        Me.Button6.TabIndex = 119
+        Me.Button6.Text = "Update"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
         'Label27
         '
         Me.Label27.AutoSize = True
@@ -756,20 +783,20 @@ Partial Class AdminPage
         Me.Label18.ForeColor = System.Drawing.Color.White
         Me.Label18.Location = New System.Drawing.Point(503, 61)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(83, 20)
+        Me.Label18.Size = New System.Drawing.Size(26, 20)
         Me.Label18.TabIndex = 113
-        Me.Label18.Text = "Username"
+        Me.Label18.Text = "ID"
         '
         'TextBox4
         '
-        Me.TextBox4.Location = New System.Drawing.Point(592, 60)
+        Me.TextBox4.Location = New System.Drawing.Point(543, 60)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(100, 25)
         Me.TextBox4.TabIndex = 112
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(698, 57)
+        Me.Button2.Location = New System.Drawing.Point(649, 57)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(86, 31)
         Me.Button2.TabIndex = 111
@@ -782,7 +809,7 @@ Partial Class AdminPage
         Me.virusUpdate.Name = "virusUpdate"
         Me.virusUpdate.Size = New System.Drawing.Size(86, 31)
         Me.virusUpdate.TabIndex = 110
-        Me.virusUpdate.Text = "Update"
+        Me.virusUpdate.Text = "Add"
         Me.virusUpdate.UseVisualStyleBackColor = True
         '
         'Label19
@@ -875,33 +902,6 @@ Partial Class AdminPage
         Me.Window_Button.Size = New System.Drawing.Size(25, 25)
         Me.Window_Button.TabIndex = 53
         Me.Window_Button.UseVisualStyleBackColor = False
-        '
-        'Button4
-        '
-        Me.Button4.Location = New System.Drawing.Point(258, 85)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(86, 31)
-        Me.Button4.TabIndex = 118
-        Me.Button4.Text = "Add"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'Button5
-        '
-        Me.Button5.Location = New System.Drawing.Point(599, 116)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(86, 31)
-        Me.Button5.TabIndex = 119
-        Me.Button5.Text = "Add"
-        Me.Button5.UseVisualStyleBackColor = True
-        '
-        'Button6
-        '
-        Me.Button6.Location = New System.Drawing.Point(350, 119)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(86, 31)
-        Me.Button6.TabIndex = 119
-        Me.Button6.Text = "Add"
-        Me.Button6.UseVisualStyleBackColor = True
         '
         'AdminPage
         '

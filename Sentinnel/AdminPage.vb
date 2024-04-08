@@ -1,7 +1,14 @@
 ﻿Imports System.Runtime.InteropServices
 Imports System.Data.SqlClient
+Imports System.Text.RegularExpressions
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar
 
 Public Class AdminPage
+
+    ' Regular expressions for validation
+    Dim alphabetsRegex As New Regex("^[a-zA-Z\s]+$")
+    Dim numbersRegex As New Regex("^[0-9]+$")
+
 
     Dim connectionString As String = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\--PROJECTS2024--\Sentinnel\Sentinnel\SentinnelDB.mdf;Integrated Security=True;Connect Timeout=30"
     Dim username As String = Homepage.user
@@ -181,7 +188,7 @@ Public Class AdminPage
 
     End Function
 
-    'to return tabel data
+    ' to return table data
     Private Function getDataTable(query As String, username As String) As DataTable
         Dim dataTable As New DataTable()
 
@@ -202,11 +209,52 @@ Public Class AdminPage
         Return dataTable
     End Function
 
+    ' Function to refresh table
+    Private Function refreshTable(table As String) As DataTable
+        Dim dataTable As New DataTable()
+        Dim query As String = "SELECT * FROM " & table
+        Try
+            Using connection As New SqlConnection(connectionString)
+                connection.Open()
+                Using command As New SqlCommand(query, connection)
+                    Using adapter As New SqlDataAdapter(command)
+                        adapter.Fill(dataTable)
+                    End Using
+                End Using
+            End Using
+        Catch ex As Exception
+            MsgBox("Error retrieving data: " & ex.Message)
+        End Try
+
+        Return dataTable
+    End Function
+
+    ' TO DELETE A ROW
+    Private Sub DeleteData(id As Integer, query As String)
+        ' Establish connection
+        Using connection As New SqlConnection(connectionString)
+            connection.Open()
+
+            Using cmd As New SqlCommand(query, connection)
+                ' Add parameter
+                cmd.Parameters.AddWithValue("@id", id)
+
+                ' Execute the command
+                cmd.ExecuteNonQuery()
+            End Using
+        End Using
+    End Sub
+
+    '''''''''
+    ' ADMIN '
+    '''''''''
+
+    ' ADD NEW ADMIN USERS
     Private Sub adminUpdate_Click(sender As Object, e As EventArgs) Handles adminUpdate.Click
+
         Dim adminKey As String = TextBox1.Text
         Dim username As String = TextBox3.Text
         Dim password As String = TextBox2.Text
-
         If Not String.IsNullOrEmpty(adminKey) AndAlso Not String.IsNullOrEmpty(username) AndAlso Not String.IsNullOrEmpty(password) Then
             Using connection As New SqlConnection(connectionString)
                 Dim query As String = "INSERT INTO AdminDB (adminKey, username, password) VALUES (@AdminKey, @Username, @Password)"
@@ -221,7 +269,7 @@ Public Class AdminPage
                     MessageBox.Show("Admin added successfully.")
 
                     ' Refresh tables
-                    AdminGV.DataSource = getDataTable("SELECT * FROM AdminDB", Homepage.user)
+                    AdminGV.DataSource = refreshTable("AdminDB")
                     ' Adjust the width of columns to fit their content
                     For Each column As DataGridViewColumn In AdminGV.Columns
                         column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
@@ -239,6 +287,67 @@ Public Class AdminPage
         End If
     End Sub
 
+    ' UPDATE ADMIN TABLE
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Dim adminKey As String = TextBox1.Text
+        Dim username As String = TextBox3.Text
+        Dim password As String = TextBox2.Text
+        Dim change As String = TextBox13.Text
+        If Not String.IsNullOrEmpty(adminKey) AndAlso Not String.IsNullOrEmpty(username) AndAlso Not String.IsNullOrEmpty(password) Then
+            Try
+                Using connection As New SqlConnection(connectionString)
+                    Dim query As String = "UPDATE AdminDB SET adminKey = @AdminKey, username = @Username, password = @Password WHERE adminKey = @AdminKeyChange"
+                    Using command As New SqlCommand(query, connection)
+                        command.Parameters.AddWithValue("@AdminKey", adminKey)
+                        command.Parameters.AddWithValue("@Username", username)
+                        command.Parameters.AddWithValue("@Password", password)
+                        command.Parameters.AddWithValue("@AdminKeyChange", change)
+                        connection.Open()
+                        command.ExecuteNonQuery()
+                    End Using
+                End Using
+
+                MessageBox.Show("Admin updated successfully.")
+
+                ' Refresh tables
+                AdminGV.DataSource = refreshTable("AdminDB")
+                ' Adjust the width of columns to fit their content
+                For Each column As DataGridViewColumn In AdminGV.Columns
+                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                Next
+                ' Clear textboxes after successful update
+                TextBox1.Text = ""
+                TextBox3.Text = ""
+                TextBox2.Text = ""
+            Catch ex As Exception
+                MessageBox.Show("Error: " & ex.Message)
+            End Try
+        Else
+            MessageBox.Show("Please fill in all fields.")
+        End If
+    End Sub
+
+    ' DELETE ADMIN USERS
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim id As Integer = Convert.ToInt32(TextBox13.Text)
+        Try
+            DeleteData(id, "DELETE FROM AdminDB WHERE adminKey = @id")
+            AdminGV.DataSource = refreshTable("AdminDB")
+            ' Adjust the width of columns to fit their content
+            For Each column As DataGridViewColumn In AdminGV.Columns
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            Next
+        Catch ex As Exception
+            MsgBox("Unable to delete the user" & vbCrLf & ex.Message)
+        End Try
+    End Sub
+
+
+    '''''''''
+    ' USER  '
+    '''''''''
+
+    ' ADD NEW USERS
     Private Sub userUpdate_Click(sender As Object, e As EventArgs) Handles userUpdate.Click
         Dim username As String = TextBox5.Text
         Dim password As String = TextBox6.Text
@@ -259,10 +368,10 @@ Public Class AdminPage
                 Try
                     connection.Open()
                     command.ExecuteNonQuery()
-                    MessageBox.Show("User data inserted successfully.")
+                    MsgBox("User data inserted successfully.")
 
                     ' Refresh tables
-                    userGV.DataSource = getDataTable("SELECT * FROM UserDB", Homepage.user)
+                    userGV.DataSource = refreshTable("UserDB")
                     ' Adjust the width of columns to fit their content
                     For Each column As DataGridViewColumn In userGV.Columns
                         column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
@@ -274,19 +383,99 @@ Public Class AdminPage
                     TextBox7.Text = ""
                     TextBox8.Text = ""
                 Catch ex As Exception
-                    MessageBox.Show("Error: " & ex.Message)
+                    MsgBox("Error: " & ex.Message)
                 End Try
             End Using
         Else
-            MessageBox.Show("Please fill in all fields.")
+            MsgBox("Please fill in all fields.")
         End If
     End Sub
 
+    ' UPDATE AN EXISTING USER
+    Private Sub UpdateUser(sender As Object, e As EventArgs) Handles Button5.Click
+        Dim username As String = TextBox5.Text
+        Dim password As String = TextBox6.Text
+        Dim joinDate As Date = DateTime.Parse(DateTimePicker1.Text)
+        Dim firstName As String = TextBox7.Text
+        Dim lastName As String = TextBox8.Text
+
+        Dim change As String = TextBox14.Text
+
+        If Not String.IsNullOrEmpty(username) AndAlso Not String.IsNullOrEmpty(password) AndAlso Not String.IsNullOrEmpty(DateTimePicker1.Text) AndAlso Not String.IsNullOrEmpty(firstName) AndAlso Not String.IsNullOrEmpty(lastName) Then
+            Try
+                Using connection As New SqlConnection(connectionString)
+                    Dim query As String = "UPDATE UserDB SET username = @Username, password = @Password, joindate = @JoinDate, firstname = @FirstName, lastname = @LastName WHERE username = @change"
+                    Using command As New SqlCommand(query, connection)
+                        command.Parameters.AddWithValue("@Username", username)
+                        command.Parameters.AddWithValue("@Password", password)
+                        command.Parameters.AddWithValue("@JoinDate", joinDate)
+                        command.Parameters.AddWithValue("@FirstName", firstName)
+                        command.Parameters.AddWithValue("@LastName", lastName)
+                        command.Parameters.AddWithValue("@change", change)
+                        connection.Open()
+                        command.ExecuteNonQuery()
+                    End Using
+                End Using
+
+                MsgBox("User data updated successfully.")
+
+                ' Refresh tables
+                userGV.DataSource = refreshTable("UserDB")
+                ' Adjust the width of columns to fit their content
+                For Each column As DataGridViewColumn In userGV.Columns
+                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                Next
+
+                ' Clear textboxes after successful update
+                TextBox5.Text = ""
+                TextBox6.Text = ""
+                TextBox7.Text = ""
+                TextBox8.Text = ""
+            Catch ex As Exception
+                MsgBox("Error: " & ex.Message)
+            End Try
+        Else
+            MsgBox("Please fill in all fields.")
+        End If
+    End Sub
+
+    ' DELETE A USER
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim username As String = TextBox14.Text
+        Try
+            ' Establish connection
+            Using connection As New SqlConnection(connectionString)
+                connection.Open()
+
+                Using cmd As New SqlCommand("DELETE FROM UserDB WHERE username = @username", connection)
+                    ' Add parameter
+                    cmd.Parameters.AddWithValue("@username", username)
+
+                    ' Execute the command
+                    cmd.ExecuteNonQuery()
+                End Using
+            End Using
+            ' Refresh tables
+            userGV.DataSource = refreshTable("UserDB")
+            ' Adjust the width of columns to fit their content
+            For Each column As DataGridViewColumn In userGV.Columns
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            Next
+        Catch ex As Exception
+            MsgBox("Unable to delete the user" & vbCrLf & ex.Message)
+        End Try
+    End Sub
+
+    '''''''''
+    ' VIRUS '
+    '''''''''
+
+    ' ADD A NEW VIRUS ENTRY
     Private Sub virusUpdate_Click(sender As Object, e As EventArgs) Handles virusUpdate.Click
         Dim username As String = TextBox11.Text
         Dim virus_md5 As String = TextBox15.Text
         Dim file_path As String = TextBox16.Text
-        Dim finding_date As DateTime
+        Dim finding_date As DateTime = DateTime.Parse(DateTimePicker2.Text)
 
         If DateTime.TryParse(DateTimePicker2.Text, finding_date) Then
             Using connection As New SqlConnection(connectionString)
@@ -303,7 +492,7 @@ Public Class AdminPage
                     MessageBox.Show("Data inserted successfully.")
 
                     ' Refresh tables
-                    VirusGV.DataSource = getDataTable("SELECT * FROM VirusFinding", Homepage.user)
+                    VirusGV.DataSource = refreshTable("VirusFinding")
                     ' Adjust the width of columns to fit their content
                     For Each column As DataGridViewColumn In VirusGV.Columns
                         column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
@@ -322,72 +511,71 @@ Public Class AdminPage
         End If
     End Sub
 
-    Private Sub InsertData(values() As String)
-        ' Establish connection
-        Using connection As New SqlConnection(connectionString)
-            connection.Open()
+    ' UPDATE EXISTING VIRUSES
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Dim username As String = TextBox11.Text
+        Dim virus_md5 As String = TextBox15.Text
+        Dim file_path As String = TextBox16.Text
+        Dim finding_date As DateTime = DateTime.Parse(DateTimePicker2.Text)
 
-            ' Create SQL command to insert data into Applications table
-            Dim sql As String = "INSERT INTO Applications ([Full_Name], [Date_of_Birth], [Email], [Phone], [Address], [Course_Stream], [Course_Name], [Amount], [Payment_Method]) " &
-                                "VALUES (@FullName, @DateOfBirth, @Email, @Phone, @Address, @CourseStream, @CourseName, @Amount, @PaymentMethod)"
-            Using cmd As New SqlCommand(sql, connection)
-                ' Add parameters
-                cmd.Parameters.AddWithValue("@FullName", values(0))
-                cmd.Parameters.AddWithValue("@DateOfBirth", Convert.ToDateTime(values(1)))
-                cmd.Parameters.AddWithValue("@Email", values(2))
-                cmd.Parameters.AddWithValue("@Phone", values(3))
-                cmd.Parameters.AddWithValue("@Address", values(4))
-                cmd.Parameters.AddWithValue("@CourseStream", values(5))
-                cmd.Parameters.AddWithValue("@CourseName", values(6))
-                cmd.Parameters.AddWithValue("@Amount", Convert.ToDecimal(values(7)))
-                cmd.Parameters.AddWithValue("@PaymentMethod", values(8))
+        Dim change As String = TextBox4.Text
 
-                ' Execute the command
-                cmd.ExecuteNonQuery()
+        If Not String.IsNullOrEmpty(username) AndAlso Not String.IsNullOrEmpty(virus_md5) AndAlso Not String.IsNullOrEmpty(DateTimePicker2.Text) AndAlso Not String.IsNullOrEmpty(file_path) Then
+            Try
+                Using connection As New SqlConnection(connectionString)
+                    Dim query As String = "UPDATE VirusFinding SET username = @username, virus_md5 = @virus, file_path = @path, finding_date = @date where id = @change"
+                    Using command As New SqlCommand(query, connection)
+                        command.Parameters.AddWithValue("@Username", username)
+                        command.Parameters.AddWithValue("@virus", virus_md5)
+                        command.Parameters.AddWithValue("@path", file_path)
+                        command.Parameters.AddWithValue("@date", finding_date)
 
-                ' Refresh DataGridView
-                'LoadDataIntoDataGridView()
+                        command.Parameters.AddWithValue("@change", change)
 
-                ' Clear textboxes
-                For Each textbox As TextBox In Me.Controls.OfType(Of TextBox)()
-                    textbox.Clear()
+                        connection.Open()
+                        command.ExecuteNonQuery()
+                    End Using
+                End Using
+
+                MsgBox("User data updated successfully.")
+
+                ' Refresh tables
+                VirusGV.DataSource = refreshTable("VirusFinding")
+                ' Adjust the width of columns to fit their content
+                For Each column As DataGridViewColumn In VirusGV.Columns
+                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
                 Next
-            End Using
-        End Using
+
+                ' Clear textboxes after successful update
+                TextBox11.Text = ""
+                TextBox15.Text = ""
+                TextBox16.Text = ""
+            Catch ex As Exception
+                MsgBox("Error: " & ex.Message)
+            End Try
+        Else
+            MsgBox("Please fill in all fields.")
+        End If
     End Sub
 
-    Private Sub UpdateData(id As Integer, values() As String)
-        ' Establish connection
-        Using connection As New SqlConnection(connectionString)
-            connection.Open()
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
 
-            ' Create SQL command to update data in Applications table
-            Dim sql As String = "UPDATE Applications SET [Full_Name] = @FullName, [Date_of_Birth] = @DateOfBirth, [Email] = @Email, [Phone] = @Phone, [Address] = @Address, " &
-                                "[Course_Stream] = @CourseStream, [Course_Name] = @CourseName, [Amount] = @Amount, [Payment_Method] = @PaymentMethod WHERE [id] = @id"
-            Using cmd As New SqlCommand(sql, connection)
-                ' Add parameters
-                cmd.Parameters.AddWithValue("@FullName", values(0))
-                cmd.Parameters.AddWithValue("@DateOfBirth", Convert.ToDateTime(values(1)))
-                cmd.Parameters.AddWithValue("@Email", values(2))
-                cmd.Parameters.AddWithValue("@Phone", values(3))
-                cmd.Parameters.AddWithValue("@Address", values(4))
-                cmd.Parameters.AddWithValue("@CourseStream", values(5))
-                cmd.Parameters.AddWithValue("@CourseName", values(6))
-                cmd.Parameters.AddWithValue("@Amount", Convert.ToDecimal(values(7)))
-                cmd.Parameters.AddWithValue("@PaymentMethod", values(8))
-                cmd.Parameters.AddWithValue("@id", id)
+        Dim username = TextBox4.Text
+        If Not numbersRegex.IsMatch(username) Then
+            MessageBox.Show("Count should contain only numbers, cant you see? its ID for a reason")
+            Return
+        End If
 
-                ' Execute the command
-                cmd.ExecuteNonQuery()
-
-                ' Refresh DataGridView
-                'LoadDataIntoDataGridView()
-
-                ' Clear textboxes
-                For Each textbox As TextBox In Me.Controls.OfType(Of TextBox)()
-                    textbox.Clear()
-                Next
-            End Using
-        End Using
+        Try
+            DeleteData(username, "DELETE FROM VirusFinding WHERE id = @id")
+            ' Refresh tables
+            VirusGV.DataSource = refreshTable("VirusFinding")
+            ' Adjust the width of columns to fit their content
+            For Each column As DataGridViewColumn In VirusGV.Columns
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            Next
+        Catch ex As Exception
+            MsgBox("Unable to delete the user" & vbCrLf & ex.Message)
+        End Try
     End Sub
 End Class
