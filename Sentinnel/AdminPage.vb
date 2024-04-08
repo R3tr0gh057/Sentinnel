@@ -293,6 +293,12 @@ Public Class AdminPage
         Dim username As String = TextBox3.Text
         Dim password As String = TextBox2.Text
         Dim change As String = TextBox13.Text
+
+        If Not numbersRegex.IsMatch(change) Then
+            MessageBox.Show("AdminKey should contain only numbers, cant you see? its AdminKey for a reason")
+            Return
+        End If
+
         If Not String.IsNullOrEmpty(adminKey) AndAlso Not String.IsNullOrEmpty(username) AndAlso Not String.IsNullOrEmpty(password) Then
             Try
                 Using connection As New SqlConnection(connectionString)
@@ -330,6 +336,12 @@ Public Class AdminPage
     ' DELETE ADMIN USERS
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim id As Integer = Convert.ToInt32(TextBox13.Text)
+
+        If Not numbersRegex.IsMatch(id) Then
+            MessageBox.Show("AdminKey should contain only numbers, cant you see? its AdminKey for a reason")
+            Return
+        End If
+
         Try
             DeleteData(id, "DELETE FROM AdminDB WHERE adminKey = @id")
             AdminGV.DataSource = refreshTable("AdminDB")
@@ -442,6 +454,7 @@ Public Class AdminPage
     ' DELETE A USER
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Dim username As String = TextBox14.Text
+
         Try
             ' Establish connection
             Using connection As New SqlConnection(connectionString)
@@ -520,6 +533,11 @@ Public Class AdminPage
 
         Dim change As String = TextBox4.Text
 
+        If Not alphabetsRegex.IsMatch(change) Then
+            MessageBox.Show("Count should contain only numbers, cant you see? its ID for a reason")
+            Return
+        End If
+
         If Not String.IsNullOrEmpty(username) AndAlso Not String.IsNullOrEmpty(virus_md5) AndAlso Not String.IsNullOrEmpty(DateTimePicker2.Text) AndAlso Not String.IsNullOrEmpty(file_path) Then
             Try
                 Using connection As New SqlConnection(connectionString)
@@ -562,7 +580,7 @@ Public Class AdminPage
 
         Dim username = TextBox4.Text
         If Not numbersRegex.IsMatch(username) Then
-            MessageBox.Show("Count should contain only numbers, cant you see? its ID for a reason")
+            MessageBox.Show("ID should contain only numbers, cant you see? its ID for a reason")
             Return
         End If
 
