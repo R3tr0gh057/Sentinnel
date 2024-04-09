@@ -127,15 +127,13 @@ Public Class Homepage
 
     Private Sub Login_password_GotFocus(sender As Object, e As EventArgs) Handles Login_password.GotFocus
         Login_password.Clear()
+        Login_password.PasswordChar = "*"
     End Sub
 
     Private Sub Login_password_LostFocus(sender As Object, e As EventArgs) Handles Login_password.LostFocus
         If (Login_password.Text = "") Then
+            Login_password.PasswordChar = ""
             Login_password.Text = "Password"
         End If
-    End Sub
-
-    Private Sub Homepage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
     End Sub
 End Class

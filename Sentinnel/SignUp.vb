@@ -45,40 +45,92 @@ Public Class SignUp
 
     End Sub
 
+    Private Sub First_name_GotFocus(sender As Object, e As EventArgs) Handles First_name.GotFocus
+        If First_name.Text = "First Name" Then
+            First_name.Text = ""
+        End If
+    End Sub
+
+    Private Sub First_name_LostFocus(sender As Object, e As EventArgs) Handles First_name.LostFocus
+        If String.IsNullOrEmpty(First_name.Text) Then
+            First_name.Text = "First Name"
+        End If
+    End Sub
+
+    Private Sub Last_name_GotFocus(sender As Object, e As EventArgs) Handles Last_name.GotFocus
+        If Last_name.Text = "Last Name" Then
+            Last_name.Text = ""
+        End If
+    End Sub
+
+    Private Sub Last_name_LostFocus(sender As Object, e As EventArgs) Handles Last_name.LostFocus
+        If String.IsNullOrEmpty(Last_name.Text) Then
+            Last_name.Text = "Last Name"
+        End If
+    End Sub
+
+    Private Sub Signup_username_GotFocus(sender As Object, e As EventArgs) Handles Signup_username.GotFocus
+        If Signup_username.Text = "Username" Then
+            Signup_username.Text = ""
+        End If
+    End Sub
+
+    Private Sub Signup_username_LostFocus(sender As Object, e As EventArgs) Handles Signup_username.LostFocus
+        If String.IsNullOrEmpty(Signup_username.Text) Then
+            Signup_username.Text = "Username"
+        End If
+    End Sub
+
+    Private Sub Signup_password_GotFocus(sender As Object, e As EventArgs) Handles Signup_password.GotFocus
+        If Signup_password.Text = "Password" Then
+            Signup_password.Text = ""
+            Signup_password.PasswordChar = "*"
+        End If
+    End Sub
+
+    Private Sub Signup_password_LostFocus(sender As Object, e As EventArgs) Handles Signup_password.LostFocus
+        If String.IsNullOrEmpty(Signup_password.Text) Then
+            Signup_password.Text = "Password"
+            Signup_password.PasswordChar = ""
+        End If
+    End Sub
+
     Private Sub Signup_Confirm_Click(sender As Object, e As EventArgs) Handles Signup_Confirm.Click
 
-        If (First_name.Text = "First Name" AndAlso Last_name.Text = "Last Name" AndAlso Signup_username.Text = "Username" AndAlso Signup_password.Text = "Password") Then
+        If First_name.Text = "First Name" OrElse Last_name.Text = "Last Name" OrElse Signup_username.Text = "Username" OrElse Signup_password.Text = "Password" Then
+            MessageBox.Show("Please fill in all fields.")
+        Else
+            Try
+                Using connection As New SqlConnection(connectionString)
+                    connection.Open()
 
-        End If
-        Try
-            Using connection As New SqlConnection(connectionString)
-                connection.Open()
+                    Dim query As String = "INSERT INTO [dbo].[UserDB] ([username], [password], [joindate], [firstname], [lastname]) VALUES (@username, @password, @joindate, @firstname, @lastname)"
 
-                Dim query As String = "INSERT INTO [dbo].[UserDB] ([username], [password], [joindate], [firstname], [lastname], [filesScanned], [virusFrequency]) VALUES (@username, @password, @joindate, @firstname, @lastname, 0, 0)"
+                    Using command As New SqlCommand(query, connection)
+                        command.Parameters.AddWithValue("@username", Signup_username.Text)
+                        command.Parameters.AddWithValue("@password", Signup_password.Text)
+                        command.Parameters.AddWithValue("@joindate", Date.Now)
+                        command.Parameters.AddWithValue("@firstname", First_name.Text)
+                        command.Parameters.AddWithValue("@lastname", Last_name.Text)
 
-                Using command As New SqlCommand(query, connection)
-                    command.Parameters.AddWithValue("@username", Signup_username.Text)
-                    command.Parameters.AddWithValue("@password", Signup_password.Text)
-                    command.Parameters.AddWithValue("@joindate", Date.Now)
-                    command.Parameters.AddWithValue("@firstname", First_name.Text)
-                    command.Parameters.AddWithValue("@lastname", Last_name.Text)
-
-                    Dim rowsAffected As Integer = command.ExecuteNonQuery()
-                    If rowsAffected > 0 Then
-                        MessageBox.Show("User successfully added to the database.")
-                    Else
-                        MessageBox.Show("Failed to add user to the database.")
-                    End If
+                        Dim rowsAffected As Integer = command.ExecuteNonQuery()
+                        If rowsAffected > 0 Then
+                            MessageBox.Show("User successfully added to the database.")
+                        Else
+                            MessageBox.Show("Failed to add user to the database.")
+                        End If
+                    End Using
                 End Using
-            End Using
 
-        Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message)
-        End Try
+            Catch ex As Exception
+                MessageBox.Show("Error: " & ex.Message)
+            End Try
 
-        Me.Close()
-        Homepage.Show()
-        Homepage.Location = New Point(Me.Location)
+            Me.Close()
+            Homepage.Show()
+            Homepage.Location = New Point(Me.Location)
+        End If
+
     End Sub
 
     Public Function pushData(query As String, username As String, name As String, seat As String, mobile As String, view As String)
