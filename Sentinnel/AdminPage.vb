@@ -48,6 +48,13 @@ Public Class AdminPage
         Max_Button.Show()
     End Sub
     Private Sub AdminPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        DataGridView2.DataSource = getDataTable("SELECT DISTINCT virus_md5 FROM VirusFinding", Homepage.user)
+        ' Adjust the width of columns to fit their content
+        For Each column As DataGridViewColumn In DataGridView2.Columns
+            column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Next
+
         DataGridView3.DataSource = getDataTable("SELECT virus_md5 AS VirusMD5, COUNT(*) AS VirusCount FROM VirusFinding GROUP BY virus_md5 ORDER BY VirusCount ASC", Homepage.user)
         ' Adjust the width of columns to fit their content
         For Each column As DataGridViewColumn In DataGridView3.Columns
@@ -373,7 +380,7 @@ Public Class AdminPage
                 Dim command As New SqlCommand(query, connection)
                 command.Parameters.AddWithValue("@Username", username)
                 command.Parameters.AddWithValue("@Password", password)
-                command.Parameters.AddWithValue("@JoinDate", joinDate)
+                command.Parameters.AddWithValue("@JoinDate", joinDate.ToString("dd-MM-yyyy"))
                 command.Parameters.AddWithValue("@FirstName", firstName)
                 command.Parameters.AddWithValue("@LastName", lastName)
 
@@ -420,7 +427,7 @@ Public Class AdminPage
                     Using command As New SqlCommand(query, connection)
                         command.Parameters.AddWithValue("@Username", username)
                         command.Parameters.AddWithValue("@Password", password)
-                        command.Parameters.AddWithValue("@JoinDate", joinDate)
+                        command.Parameters.AddWithValue("@JoinDate", joinDate.ToString("dd-MM-yyyy"))
                         command.Parameters.AddWithValue("@FirstName", firstName)
                         command.Parameters.AddWithValue("@LastName", lastName)
                         command.Parameters.AddWithValue("@change", change)

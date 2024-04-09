@@ -46,6 +46,10 @@ Public Class SignUp
     End Sub
 
     Private Sub Signup_Confirm_Click(sender As Object, e As EventArgs) Handles Signup_Confirm.Click
+
+        If (First_name.Text = "First Name" AndAlso Last_name.Text = "Last Name" AndAlso Signup_username.Text = "Username" AndAlso Signup_password.Text = "Password") Then
+
+        End If
         Try
             Using connection As New SqlConnection(connectionString)
                 connection.Open()
