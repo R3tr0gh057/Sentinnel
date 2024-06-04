@@ -42,6 +42,8 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Folder_Scan = New System.Windows.Forms.Button()
         Me.ActiveUser = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Window_Button = New System.Windows.Forms.Button()
         Me.Icon_picturebox = New System.Windows.Forms.PictureBox()
@@ -49,8 +51,6 @@ Partial Class Form1
         Me.Max_Button = New System.Windows.Forms.Button()
         Me.Min_Button = New System.Windows.Forms.Button()
         Me.Scan_animation = New System.Windows.Forms.PictureBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Icon_picturebox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -258,6 +258,26 @@ Partial Class Form1
         Me.ActiveUser.TabIndex = 43
         Me.ActiveUser.Text = "User"
         '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(207, 104)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(54, 19)
+        Me.Label7.TabIndex = 45
+        Me.Label7.Text = "File List"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(495, 104)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(96, 19)
+        Me.Label8.TabIndex = 46
+        Me.Label8.Text = "Viruses Found"
+        '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Sentinnel.My.Resources.Resources.giphy__6_
@@ -337,33 +357,13 @@ Partial Class Form1
         '
         Me.Scan_animation.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(44, Byte), Integer))
         Me.Scan_animation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Scan_animation.Image = Global.Sentinnel.My.Resources.Resources.start
+        Me.Scan_animation.Image = Global.Sentinnel.My.Resources.Resources.UpdatedGIF1
         Me.Scan_animation.Location = New System.Drawing.Point(12, 100)
         Me.Scan_animation.Name = "Scan_animation"
         Me.Scan_animation.Size = New System.Drawing.Size(193, 189)
         Me.Scan_animation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.Scan_animation.TabIndex = 25
         Me.Scan_animation.TabStop = False
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(207, 104)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(54, 19)
-        Me.Label7.TabIndex = 45
-        Me.Label7.Text = "File List"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(495, 104)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(96, 19)
-        Me.Label8.TabIndex = 46
-        Me.Label8.Text = "Viruses Found"
         '
         'Form1
         '

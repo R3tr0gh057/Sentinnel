@@ -128,6 +128,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SentinnelDBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SentinnelDBDataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SentinnelDBDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SignUp.Designer.vb">
       <DependentUpon>SignUp.vb</DependentUpon>
     </Compile>
@@ -176,6 +181,17 @@
     </None>
     <None Include="SentinnelDBDataSet.xss">
       <DependentUpon>SentinnelDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SentinnelDBDataSet1.xsc">
+      <DependentUpon>SentinnelDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SentinnelDBDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SentinnelDBDataSet1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SentinnelDBDataSet1.xss">
+      <DependentUpon>SentinnelDBDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -227,6 +243,9 @@
     <None Include="Resources\urjja.png" />
     <None Include="Resources\start.gif" />
     <None Include="Resources\UpdatedGIF.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpdatedGIF1.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

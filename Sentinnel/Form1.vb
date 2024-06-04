@@ -295,4 +295,8 @@ Public Class Form1
     Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
 
     End Sub
+
+    Private Sub Scan_animation_Click(sender As Object, e As EventArgs) Handles Scan_animation.Click
+
+    End Sub
 End Class

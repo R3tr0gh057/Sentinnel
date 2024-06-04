@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Runtime.InteropServices
+Imports System.Text.RegularExpressions
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
 
 Public Class SignUp
@@ -9,6 +10,8 @@ Public Class SignUp
     Public Const HT_CAPTION As Integer = &H2
     Public loc As Point = Homepage.lastFormLocation
     Dim connectionString As String = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\--PROJECTS2024--\Sentinnel\Sentinnel\SentinnelDB.mdf;Integrated Security=True;Connect Timeout=30"
+    Dim alphabetsRegex As New Regex("^[a-zA-Z\s]+$")
+    Dim numbersRegex As New Regex("^[0-9]+$")
 
     <DllImportAttribute("user32.dll")>
     Public Shared Function SendMessage(ByVal hWnd As IntPtr, ByVal Msg As Integer, ByVal wParam As Integer, ByVal lParam As Integer) As Integer
@@ -99,6 +102,12 @@ Public Class SignUp
 
         If First_name.Text = "First Name" OrElse Last_name.Text = "Last Name" OrElse Signup_username.Text = "Username" OrElse Signup_password.Text = "Password" Then
             MessageBox.Show("Please fill in all fields.")
+        ElseIf Not alphabetsRegex.IsMatch(First_name.Text) Then
+            MessageBox.Show("First Name should contain only alphabets, cant you see? its Name for a reason")
+            Return
+        ElseIf Not alphabetsRegex.IsMatch(Last_name.Text) Then
+            MessageBox.Show("Last Name should contain only alphabets, cant you see? its Name for a reason")
+            Return
         Else
             Try
                 Using connection As New SqlConnection(connectionString)
